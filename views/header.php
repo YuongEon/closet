@@ -39,7 +39,7 @@
           <nav class="header__nav">
             <ul class="header__nav__list">
               <li class="header__nav__item">
-                <a href="" class="header__nav__item--link">Trang chủ</a>
+                <a href="index.php?page=homepage" class="header__nav__item--link">Trang chủ</a>
               </li>
               <li class="header__nav__item">
                 <a href="index.php?page=product" class="header__nav__item--link">Sản phẩm</a>
