@@ -1,0 +1,33 @@
+:root {
+  --main-color: #8C6A54;
+  --main-color-lighter: #9c7962;
+  --main-color-lighter-v2: #e0ae8c;
+  --main-color-2: #738AFF;
+  --background-color: #FBF0E0;
+  --background-color-light: #fcf6ee;
+  --text-color: #333333;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --secondary-color: #909090;
+  --secondary-color-lighter: #BABABA;
+  --secondary-color-darker: #707070;
+  --price-color: #ff5656;
+}
+
+body{
+  font-family: 'Nunito' !important;
+  background-color: var(--background-color-light);
+}
+
+/* keyframes */
+@keyframes moveback{
+  0%{
+    right: 0;
+  }
+  50%{
+    right: 4px;
+  }
+  100%{
+    right: 0;
+  }
+}

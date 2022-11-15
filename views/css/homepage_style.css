@@ -1,0 +1,233 @@
+/* content */
+.content{ 
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-block: 40px;
+}
+
+.section{
+  width: 100%;
+}
+
+.section-1{
+  width: 100%;
+}
+
+.content__banner__box{
+  width: 100%;
+}
+
+.content__banner{
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.content__banner__img{ 
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.section-2{
+  width: 100%;
+  margin-top: 60px;
+}
+
+.section-3, .section-4{
+  margin-top: 80px;
+}
+
+.content__best__sale__product--section{
+  
+}
+
+.content__best_sale_product{ 
+  background-color: var(--main-color-lighter);
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.content__best_sale_product > .content__product__list__title{
+  color: var(--background-color-light);
+}
+
+.content__product__list__title,
+.content__product__category__title{ 
+  color: var(--main-color);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-block: 10px 24px;
+  text-align: center;
+}
+
+.content__product__list{ 
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+}
+
+.content__product__card{
+  width: calc((100% / 4) - 20px);
+  height: 380px;
+  margin-left: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--background-color-light);
+  margin-bottom: 14px;
+}
+
+.content__product__card--link{ 
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+.product__img--box{
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.product__img--img{ 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product__info--box{ 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+}
+
+.product__name--box{ 
+  flex: 1;
+}
+
+.product__name{ 
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.product__price--box{ 
+
+}
+
+.product__price{ 
+  text-align: center;
+  color: var(--price-color);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.content__product__category--section{
+
+}
+
+.content__product__category{ 
+
+}
+
+.content__product__category__title{ 
+
+}
+
+.content__product__category--box{ 
+  display: flex;
+  height: 300px;
+}
+
+.content__product__category__img--box{
+  height: 100%;
+  width: auto;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  overflow: hidden;
+}
+
+.product__category__img--img{ 
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.content__product__category__list--wrap{ 
+  flex: 1;
+  margin-left: 20px;
+}
+
+.content__category__list{ 
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+}
+
+.content__category__card{ 
+  width: calc((100% / 4) - 20px);
+  margin-left: 20px;
+  height: 36px;
+  margin-bottom: 14px;
+}
+
+.content__category__card--link{ 
+  display: block;
+  width: 100%;
+  height: inherit;
+  cursor: pointer;
+}
+
+.content__category__card--btn{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--background-color-light);
+  border: 2px solid var(--main-color);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Nunito' !important;
+  transition: all 0.16s ease-in-out;
+  -webkit-transition: all 0.16s ease-in-out;
+  -moz-transition: all 0.16s ease-in-out;
+  -ms-transition: all 0.16s ease-in-out;
+  -o-transition: all 0.16s ease-in-out;
+}
+.content__category__card--btn:hover{
+  color: var(--background-color-light);
+  background-color: var(--main-color);
+  border: 2px solid var(--main-color);
+}
+
