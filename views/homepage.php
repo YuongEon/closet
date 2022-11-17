@@ -9,68 +9,44 @@
       <div class="content__best_sale_product">
         <p class="content__product__list__title">Sản phẩm bán chạy</p>
         <div class="content__product__list">
-
-          <div class="content__product__card col-4 col-6">
+          <?php foreach($product as $product_item){
+            extract($product_item);
+            if(isset($anh_sp)){
+              echo "1";
+            }
+            echo'
+            <div class="content__product__card col-4 col-6">
             <a href="" class="content__product__card--link">
               <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
+                <img src='.$anh_sp.' alt='.$ten_sp.' class="product__img--img">
               </div>
               <div class="product__info--box">
                 <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
+                  <p class="product__name">'.$ten_sp.'</p>
                 </div>
                 <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
+                  <p class="product__price">'.$gia_sp.'</p>
+                </div>
+              </div>
+            </a>
+          </div>';
+          } ?>
+          <div class="content__product__card col-4 col-6">
+            <a href="" class="content__product__card--link">
+              <div class="product__img--box">
+                <img src="<?= $product_value['anh_sp'] ?>" alt=""<?= $product_value['ten_sp'] ?>" class="product__img--img">
+              </div>
+              <div class="product__info--box">
+                <div class="product__name--box">
+                  <p class="product__name"><?= $product_value['ten_sp'] ?></p>
+                </div>
+                <div class="product__price--box">
+                  <p class="product__price"><?= $product_value['gia_sp'] ?></p>
                 </div>
               </div>
             </a>
           </div>
-
-          <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
-              <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
-              </div>
-              <div class="product__info--box">
-                <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
-                </div>
-                <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
-              <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
-              </div>
-              <div class="product__info--box">
-                <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
-                </div>
-                <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
-              <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
-              </div>
-              <div class="product__info--box">
-                <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
-                </div>
-                <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
-                </div>
-              </div>
-            </a>
-          </div>
+          
         </div>
       </div>
     </section>
