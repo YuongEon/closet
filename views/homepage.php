@@ -1,3 +1,4 @@
+
 <div class="content">
     <section class="section section-1 content__banner__box">
       <div class="content__banner">
@@ -9,28 +10,8 @@
       <div class="content__best_sale_product">
         <p class="content__product__list__title">Sản phẩm bán chạy</p>
         <div class="content__product__list">
-          <?php foreach($product as $product_item){
-            extract($product_item);
-            if(isset($anh_sp)){
-              echo "1";
-            }
-            echo'
-            <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
-              <div class="product__img--box">
-                <img src='.$anh_sp.' alt='.$ten_sp.' class="product__img--img">
-              </div>
-              <div class="product__info--box">
-                <div class="product__name--box">
-                  <p class="product__name">'.$ten_sp.'</p>
-                </div>
-                <div class="product__price--box">
-                  <p class="product__price">'.$gia_sp.'</p>
-                </div>
-              </div>
-            </a>
-          </div>';
-          } ?>
+
+          <?php foreach($product as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
             <a href="" class="content__product__card--link">
               <div class="product__img--box">
@@ -46,7 +27,8 @@
               </div>
             </a>
           </div>
-          
+          <?php endforeach ?>
+      
         </div>
       </div>
     </section>
