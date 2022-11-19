@@ -3,13 +3,13 @@
       <!-- filter -->
       <section class="section section-1 content__aside__filter--section">
         <div class="content__aside__filter">
-          <label for="" class="aside__filter__label">Bộ lọc:</label>
+          <label for="" class="aside__filter__label">Bộ lọc :</label>
           <div class="aside__filter__table-type aside__filter__categories">
             <label for="" class="filter__table__label filter__categories__label">Danh mục</label>
             <ul class="filter__table-type__list filter__categories__list">
               <?php foreach($categories as $category_key => $category_value): ?>
               <li class="filter__table-type__item filter__categories__item">
-                <a href="" class="filter__table-type__link filter__categories__link"><?= $category_value['ten_loai_sp'] ?></a>
+                <a href="index.php?page=product&category_id=<?= $category_value['id_loai_sp'] ?>" class="filter__table-type__link filter__categories__link"><?= $category_value['ten_loai_sp'] ?></a>
               </li>
               <?php endforeach ?>
             </ul>
@@ -20,7 +20,7 @@
             <ul class="filter__table-type__list filter__brand__list">
               <?php foreach($brands as $brand_key => $brand_value): ?>
               <li class="filter__table-type__item filter__brand__item">
-                <a href="" class="filter__table-type__link filter__brand__link"><?= $brand_value['ten_brand'] ?></a>
+                <a href="index.php?page=product&brand_id=<?= $brand_value['id_brand'] ?>" class="filter__table-type__link filter__brand__link"><?= $brand_value['ten_brand'] ?></a>
               </li>
               <?php endforeach ?>
             </ul>
@@ -33,18 +33,21 @@
         <div class="content__product-inner">
           <div class="content__product-inner__filtered">
             <div class="content__product-inner__filtered__list">
+              <?php if(isset($filter_name)){ ?>
               <div class="content__product-inner_filtered__item">
-                <p class="product-inner__filtered__content">Danh mục 1</p>
-                <button class="product-inner__filtered__delete-content">x</button>
+                <p class="product-inner__filtered__content">
+                  <?php if($filter_name['ten_loai_sp'] != ""){
+                      echo "$filter_name[ten_loai_sp]";
+                    }else if($filter_name['ten_brand'] != ""){
+                      echo "$filter_name[ten_brand]";
+                    }  
+                  ?>
+                </p>
+                <a style="display:block; cursor: pointer;" href="index.php?page=product">
+                  <button class="product-inner__filtered__delete-content">x</button>
+                </a>
               </div>
-              <div class="content__product-inner_filtered__item">
-                <p class="product-inner__filtered__content">Danh mục 1</p>
-                <button class="product-inner__filtered__delete-content">x</button>
-              </div>
-              <div class="content__product-inner_filtered__item">
-                <p class="product-inner__filtered__content">Danh mục 1</p>
-                <button class="product-inner__filtered__delete-content">x</button>
-              </div>
+              <?php } ?>
             </div>
           </div>
 
