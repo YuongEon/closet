@@ -7,18 +7,22 @@
           <div class="aside__filter__table-type aside__filter__categories">
             <label for="" class="filter__table__label filter__categories__label">Danh mục</label>
             <ul class="filter__table-type__list filter__categories__list">
+              <?php foreach($categories as $category_key => $category_value): ?>
               <li class="filter__table-type__item filter__categories__item">
-                <a href="" class="filter__table-type__link filter__categories__link">Danh mục 1</a>
+                <a href="" class="filter__table-type__link filter__categories__link"><?= $category_value['ten_loai_sp'] ?></a>
               </li>
+              <?php endforeach ?>
             </ul>
           </div>
 
           <div class="aside__filter__table-type aside__filter__brand">
-            <label for="" class="filter__table__label filter__brand__label">Danh mục</label>
+            <label for="" class="filter__table__label filter__brand__label">Brand</label>
             <ul class="filter__table-type__list filter__brand__list">
+              <?php foreach($brands as $brand_key => $brand_value): ?>
               <li class="filter__table-type__item filter__brand__item">
-                <a href="" class="filter__table-type__link filter__brand__link">Danh mục 1</a>
+                <a href="" class="filter__table-type__link filter__brand__link"><?= $brand_value['ten_brand'] ?></a>
               </li>
+              <?php endforeach ?>
             </ul>
           </div>
         </div>
@@ -46,67 +50,23 @@
 
           <div class="content__product-inner__product">
             <div class="product-inner__product__list">
-
+              <?php foreach($products as $product_key => $product_value): ?>
               <div class="product-inner__product__card">
                 <a href="" class="product-inner__product--link">
                   <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
+                    <img class="product__inner__product__img--img" src="<?= $product_value['anh_sp'] ?>" alt="<?= $product_value['ten_sp'] ?>">
                   </div>
                   <div class="product-inner__product__info">
                     <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
+                      <p class="product-inner__product__name"><?= $product_value['ten_sp'] ?></p>
                     </div>
                     <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
+                      <p class="product-inner__product__price"><?= $product_value['gia_sp'] ?></p>
                     </div>
                   </div>
                 </a>
               </div>
-              <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
-                  <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
-                  </div>
-                  <div class="product-inner__product__info">
-                    <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
-                    </div>
-                    <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
-                  <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
-                  </div>
-                  <div class="product-inner__product__info">
-                    <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
-                    </div>
-                    <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
-                  <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
-                  </div>
-                  <div class="product-inner__product__info">
-                    <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
-                    </div>
-                    <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <?php endforeach ?>
             </div>
           </div>
         </div>

@@ -7,11 +7,24 @@
 
     switch($page){
       case "homepage":
-        $sql = "SELECT * FROM san_pham";
-        $product = pdo_query($sql); 
+        // get products
+        $sql_get_product = "SELECT * FROM san_pham";
+        $product = pdo_query($sql_get_product); 
+        // get categories product
+        $sql_get_categories = "SELECT * FROM loai_sp";
+        $categories = pdo_query($sql_get_categories);
         include "views/homepage.php";
         break;
       case "product":
+        // get categories 
+        $get_categories = "SELECT * FROM loai_sp";
+        $categories = pdo_query($get_categories);
+        // get brands
+        $get_brands = "SELECT * FROM brand";
+        $brands = pdo_query($get_brands);
+        // get products
+        $get_products = "SELECT * FROM san_pham";
+        $products = pdo_query($get_products);
         include "views/product_page.php";
         break;
       case "contact":
@@ -21,14 +34,20 @@
 
         break;
       default:
-      $sql = "SELECT * FROM san_pham";
-      $product = pdo_query($sql); 
+      $sql_get_product = "SELECT * FROM san_pham";
+        $product = pdo_query($sql_get_product); 
+        // get categories product
+        $sql_get_categories = "SELECT * FROM loai_sp";
+        $categories = pdo_query($sql_get_categories);
       include "views/homepage.php";
         break;
     }
   } else {
-    $sql = "SELECT * FROM san_pham";
-    $product = pdo_query($sql); 
+    $sql_get_product = "SELECT * FROM san_pham";
+        $product = pdo_query($sql_get_product); 
+        // get categories product
+        $sql_get_categories = "SELECT * FROM loai_sp";
+        $categories = pdo_query($sql_get_categories);
     include "views/homepage.php";
   }
 
