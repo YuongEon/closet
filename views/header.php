@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="views/css/global_style.css">
   <link rel="stylesheet" href="views/css/header_style.css">
   <link rel="stylesheet" href="views/css/footer_style.css">
-  <link rel="stylesheet" href="views/css/homepage_style.css">
+  <link rel="stylesheet" href="views/css/homepage.css">
   <link rel="stylesheet" href="views/css/product_page.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
   <!-- reset css -->

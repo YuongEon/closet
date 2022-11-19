@@ -28,6 +28,7 @@
 
 .filter__table-type__item{
   margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .filter__categories__item{
@@ -145,6 +146,7 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  cursor: pointer;
 }
 
 .content__product-inner__product{ 

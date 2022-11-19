@@ -40,68 +40,24 @@
           <i class="fa-solid fa-bolt-lightning"></i>
         </p>
         <div class="content__product__list">
-
+          
+        <?php foreach($product as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
             <a href="" class="content__product__card--link">
               <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
+                <img src="<?= $product_value['anh_sp'] ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
               <div class="product__info--box">
                 <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
+                  <p class="product__name"><?= $product_value['ten_sp'] ?></p>
                 </div>
                 <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
+                  <p class="product__price"><?= $product_value['gia_sp'] ?></p>
                 </div>
               </div>
             </a>
           </div>
-
-          <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
-              <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
-              </div>
-              <div class="product__info--box">
-                <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
-                </div>
-                <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
-              <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
-              </div>
-              <div class="product__info--box">
-                <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
-                </div>
-                <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
-              <div class="product__img--box">
-                <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
-              </div>
-              <div class="product__info--box">
-                <div class="product__name--box">
-                  <p class="product__name">Sản phầm demo 1</p>
-                </div>
-                <div class="product__price--box">
-                  <p class="product__price">100000 đ</p>
-                </div>
-              </div>
-            </a>
-          </div>
+        <?php endforeach ?>
         </div>
       </div>
     </section>
@@ -118,26 +74,14 @@
           </div>
           <div class="content__product__category__list--wrap">
             <div class="content__category__list">
+
+            <?php foreach($categories as $category_key => $category_value): ?>
               <div class="content__category__card">
                 <a href="" class="content__category__card--link">
-                  <button class="content__category__card--btn">Danh mục 1</button>
+                  <button class="content__category__card--btn"><?= $category_value['ten_loai_sp'] ?></button>
                 </a>
               </div>
-              <div class="content__category__card">
-                <a href="" class="content__category__card--link">
-                  <button class="content__category__card--btn">Danh mục 1</button>
-                </a>
-              </div>
-              <div class="content__category__card">
-                <a href="" class="content__category__card--link">
-                  <button class="content__category__card--btn">Danh mục 1</button>
-                </a>
-              </div>
-              <div class="content__category__card">
-                <a href="" class="content__category__card--link">
-                  <button class="content__category__card--btn">Danh mục 1</button>
-                </a>
-              </div>
+            <?php endforeach ?>
             </div>
           </div>
         </div>
