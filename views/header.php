@@ -92,11 +92,11 @@
           </div> -->
   
           <div class="header__search">
-            <form action="" class="header__search__form">
+            <form action="index.php?page=product" class="header__search__form" method="POST">
               <div class="header__search__form--control">
-                <input class="header__search__form__field" type="text" placeholder="Nhập sản phẩm bạn muốn tìm kiếm">
+                <input name="search_keyword" class="header__search__form__field" type="text" placeholder="Nhập sản phẩm bạn muốn tìm kiếm">
               </div>
-              <button class="header__search__form__submit">Tìm kiếm</button>
+              <button type="submit" name="header_search_product" class="header__search__form__submit">Tìm kiếm</button>
             </form>
           </div>
   

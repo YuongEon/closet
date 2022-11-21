@@ -33,14 +33,16 @@
         <div class="content__product-inner">
           <div class="content__product-inner__filtered">
             <div class="content__product-inner__filtered__list">
-              <?php if(isset($filter_name)){ ?>
+              <?php if(isset($filter_of_loading_product)){ ?>
               <div class="content__product-inner_filtered__item">
                 <p class="product-inner__filtered__content">
-                  <?php if($filter_name['ten_loai_sp'] != ""){
-                      echo "$filter_name[ten_loai_sp]";
-                    }else if($filter_name['ten_brand'] != ""){
-                      echo "$filter_name[ten_brand]";
-                    }  
+                  <?php if($filter_of_loading_product['ten_loai_sp'] != ""){
+                      echo "$filter_of_loading_product[ten_loai_sp]";
+                    }else if($filter_of_loading_product['ten_brand'] != ""){
+                      echo "$filter_of_loading_product[ten_brand]";
+                    } else if(is_string($filter_of_loading_product) == true){
+                      echo "$filter_of_loading_product";
+                    }
                   ?>
                 </p>
                 <a style="display:block; cursor: pointer;" href="index.php?page=product">
