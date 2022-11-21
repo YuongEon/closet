@@ -14,6 +14,11 @@
         // get categories product
         $sql_get_categories = "SELECT * FROM loai_sp";
         $categories = pdo_query($sql_get_categories);
+        // best sale
+        $best_sale_products = best_sale_products();
+        // flash sale
+        $flash_sale_products = flash_sale_products();
+        
         include "views/homepage.php";
         break;
       case "product":

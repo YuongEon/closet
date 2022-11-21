@@ -11,7 +11,7 @@
         <p class="content__product__list__title">Sản phẩm bán chạy</p>
         <div class="content__product__list">
 
-          <?php foreach($product as $product_key => $product_value): ?>
+          <?php foreach($best_sale_products as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
             <a href="" class="content__product__card--link">
               <div class="product__img--box">
@@ -41,7 +41,7 @@
         </p>
         <div class="content__product__list">
           
-        <?php foreach($product as $product_key => $product_value): ?>
+        <?php foreach($flash_sale_products as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
             <a href="" class="content__product__card--link">
               <div class="product__img--box">

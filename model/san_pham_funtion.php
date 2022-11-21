@@ -1,12 +1,16 @@
 <?php
   include "./pdo.php";
 
-  function best_sale_product($sql){
-
+  function best_sale_products(){
+    $sql_best_sale_products = "SELECT * FROM san_pham ORDER BY so_luong_sp_da_ban DESC LIMIT 4";
+    $best_sale_products = pdo_query($sql_best_sale_products);
+    return $best_sale_products;
   }
 
-  function flash_sale_product($sql){
-
+  function flash_sale_products(){
+    $sql_flash_sale_products = "SELECT * FROM san_pham ORDER BY giam_gia_sp DESC LIMIT 4";
+    $flash_sale_products = pdo_query($sql_flash_sale_products);
+    return $flash_sale_products;
   }
 
   function loading_products($id_category, $id_brand, $search_keyword){
