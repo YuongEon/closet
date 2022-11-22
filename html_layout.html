@@ -109,118 +109,58 @@
   </header>
 
   <div class="content">
-    <div class="content__wrap">
-      <!-- filter -->
-      <section class="section section-1 content__aside__filter--section">
-        <div class="content__aside__filter">
-          <label for="" class="aside__filter__label">Bộ lọc:</label>
-          <div class="aside__filter__table-type aside__filter__categories">
-            <label for="" class="filter__table__label filter__categories__label">Danh mục</label>
-            <ul class="filter__table-type__list filter__categories__list">
-              <li class="filter__table-type__item filter__categories__item">
-                <a href="" class="filter__table-type__link filter__categories__link">Danh mục 1</a>
-              </li>
-            </ul>
+    <div class="section section-1 content__product__detail">
+      <div class="row product__info">
+        <div class="product__img--box">
+          <img src="./views/image/categories.png" alt="" class="product__img">
+        </div>
+        <div class="product__sort__info--box">
+          <div class="product__name--box">
+            <p class="product__name">sdfasfd</p>
           </div>
-
-          <div class="aside__filter__table-type aside__filter__brand">
-            <label for="" class="filter__table__label filter__brand__label">Danh mục</label>
-            <ul class="filter__table-type__list filter__brand__list">
-              <li class="filter__table-type__item filter__brand__item">
-                <a href="" class="filter__table-type__link filter__brand__link">Danh mục 1</a>
-              </li>
-            </ul>
+          <div class="product__price--box">
+            <p class="product__price">1000000</p>
+          </div>
+          <div class="product__sort__desc--box">
+            <p class="product__sort__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti repudiandae libero, eos laboriosam illum nam iste, accusantium ullam laudantium et alias voluptas quas nisi natus quos excepturi architecto magni harum.</p>
+          </div>
+          <div class="product__add__to__cart--box">
+            <form action="" class="product__add__to__cart" method="post">
+              <div class="product__add__to__cart__quantity">
+                <input type="submit" name="product__addition__quantity" class="product__addition__quantity" value="+">
+                <input type="number" min="1" max="" class="product__quantity">
+                <input type="submit" name="product__subtraction__quantity" class="product__subtraction__quantity" value="-">
+              </div>
+              <button type="submit" name="product__add__to__cart__btn" class="product__add__to__cart__btn">Thêm vào giỏ hàng</button>
+            </form>
           </div>
         </div>
-      </section>
+      </div>
+      <div class="row product__long--desc--box">
+        <p class="product__long--desc--box">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, suscipit illum! Facilis nobis adipisci rem explicabo consectetur molestiae voluptas autem quod placeat tenetur, maiores, perferendis voluptates, soluta inventore eos est?
+        </p>
+      </div>
+    </div>
+    <div class="section section-2 content__product__same--type">
+      <div class="content__product__same--type--list">
 
-      <!-- product--innerHTML -->
-      <section class="section section-2 content__product-inner--section">
-        <div class="content__product-inner">
-          <div class="content__product-inner__filtered">
-            <div class="content__product-inner__filtered__list">
-              <div class="content__product-inner_filtered__item">
-                <p class="product-inner__filtered__content">Danh mục 1</p>
-                <button class="product-inner__filtered__delete-content">x</button>
+        <div class="content__product__card col-4 col-6">
+          <a href="" class="content__product__card--link">
+            <div class="product__img--box">
+              <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
+            </div>
+            <div class="product__info--box">
+              <div class="product__name--box">
+                <p class="product__name">ăefasdfasdf</p>
               </div>
-              <div class="content__product-inner_filtered__item">
-                <p class="product-inner__filtered__content">Danh mục 1</p>
-                <button class="product-inner__filtered__delete-content">x</button>
-              </div>
-              <div class="content__product-inner_filtered__item">
-                <p class="product-inner__filtered__content">Danh mục 1</p>
-                <button class="product-inner__filtered__delete-content">x</button>
+              <div class="product__price--box">
+                <p class="product__price">100000000</p>
               </div>
             </div>
-          </div>
-
-          <div class="content__product-inner__product">
-            <div class="product-inner__product__list">
-
-              <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
-                  <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
-                  </div>
-                  <div class="product-inner__product__info">
-                    <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
-                    </div>
-                    <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
-                  <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
-                  </div>
-                  <div class="product-inner__product__info">
-                    <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
-                    </div>
-                    <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
-                  <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
-                  </div>
-                  <div class="product-inner__product__info">
-                    <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
-                    </div>
-                    <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
-                  <div class="product-inner__product__img--box">
-                    <img class="product__inner__product__img--img" src="./views/image/Closet.png" alt="">
-                  </div>
-                  <div class="product-inner__product__info">
-                    <div class="product-inner__product__name--box">
-                      <p class="product-inner__product__name">Sản phẩm demo 1</p>
-                    </div>
-                    <div class="product-inner__product__price--box">
-                      <p class="product-inner__product__price">100000000 đ</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 

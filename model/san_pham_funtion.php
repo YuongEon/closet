@@ -38,4 +38,12 @@
     }
     return $filter_of_loading_product;
   }
+
+  function addition_product_to_cart(){
+
+  }
+
+  function subtraction_product_to_cart(){
+    
+  }
 ?>
