@@ -9,7 +9,7 @@
             <p class="product__name"><?= $product['ten_sp'] ?></p>
           </div>
           <div class="product__price--box">
-            <p class="product__price"><?= $product['gia_sp'] ?></p>
+            <p class="product__price"><?= $product['gia_sp'] ?> ₫</p>
           </div>
           <div class="product__sort__desc--box">
             <p class="product__sort__desc"><?= $product['mo_ta_ngan_sp'] ?></p>
@@ -38,22 +38,23 @@
         <p class="content__product__same--type__title">Sản phẩm liên quan</p>
       </div>
       <div class="content__product__same--type--list">
-
+        <?php foreach($same_products as $same_product_key => $same_product_value): ?>
         <div class="content__product__card col-4 col-6">
-          <a href="" class="content__product__card--link">
+          <a href="index.php?page=product_detail&id_product=<?= $same_product_value['id_sp'] ?>" class="content__product__card--link">
             <div class="product__img--box">
-              <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
+              <img src="<?= $same_product_value['anh_sp'] ?>" alt="<?= $same_product_value['ten_sp'] ?>" class="product__img--img">
             </div>
             <div class="product__info--box">
               <div class="product__name--box">
-                <p class="product__name">ăefasdfasdf</p>
+                <p class="product__name"><?= $same_product_value['ten_sp'] ?></p>
               </div>
               <div class="product__price--box">
-                <p class="product__price">100000000</p>
+                <p class="product__price"><?= $same_product_value['gia_sp'] ?> ₫</p>
               </div>
             </div>
           </a>
         </div>
+        <?php endforeach ?>
       </div>
     </div>
 
@@ -62,14 +63,21 @@
     <div class="section section-3 content__product__same--category">
       <div class="content__product__category--box">
           <div class="content__category__list">
-
+            <?php foreach($tags as $tag_key => $tag_value): ?>
             <div class="content__same__category__card">
-              <a href="" class="content__category__card--link">
-                <button class="content__same__category__card--btn"><i class="fa-solid fa-tags content__category__card--btn--icon"></i>ádfasdfđàasdfasdfasdfasdfasfasdfasdfasdf</button>
+              <?php
+                // convert string to array
+                $tag_value_link = explode(" ", $tag_value);
+                $tag_value_link = end($tag_value_link);
+              ?>
+              <a href="index.php?page=product&tag=<?= $tag_value_link ?>" class="content__category__card--link">
+                <button class="content__same__category__card--btn"><i class="fa-solid fa-tags content__category__card--btn--icon"></i><?= $tag_value ?></button>
               </a>
             </div>
+            <?php endforeach ?>
           </div>
       </div>
     </div>
   </div>
+
   <script type="text/javascript" src="js/product_function.js"></script>
