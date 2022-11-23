@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLOSET</title>
   <link rel="icon" type="image/x-icon" href="./views/image/Closet.png" style="border-radius: 50%">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style2.css">
   <!-- responsive -->
   <link rel="stylesheet" href="./responsive_page.css">
   <!-- reset css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- js -->
+  <script src="./global.js" defer></script>
 
   <!-- nunito font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,9 +130,9 @@
           <div class="product__add__to__cart--box">
             <form action="" class="product__add__to__cart" method="post">
               <div class="product__add__to__cart__quantity">
-                <input type="submit" name="product__addition__quantity" class="product__addition__quantity" value="+">
-                <input type="number" min="1" max="" class="product__quantity">
-                <input type="submit" name="product__subtraction__quantity" class="product__subtraction__quantity" value="-">
+                <div class="product__addition__quantity">+</div>
+                <input type="text" disabled value="1" class="product__quantity">
+                <div class="product__subtraction__quantity">-</div>
               </div>
               <button type="submit" name="product__add__to__cart__btn" class="product__add__to__cart__btn">Thêm vào giỏ hàng</button>
             </form>
