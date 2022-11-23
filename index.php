@@ -55,6 +55,7 @@
         $product = loading_product($id_product);
         include "views/product_detail.php";
         break;
+
       default:
       $sql_get_product = "SELECT * FROM san_pham";
         $product = pdo_query($sql_get_product); 
