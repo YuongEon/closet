@@ -36,9 +36,12 @@
           $search_keyword_filter = $_POST['search_keyword'];
         }
         $filter_of_loading_product = filter_of_loading_product($category_id_filter, $brand_id_filter);
-
+        // get tag form product detail
+        if(isset($_GET['tag']) && $_GET['tag'] != ""){
+          $tag = $_GET['tag'];
+        }
         // get products
-        $products = loading_products($category_id_filter, $brand_id_filter, $search_keyword_filter);
+        $products = loading_products($category_id_filter, $brand_id_filter, $search_keyword_filter, $tag);
         
         include "views/product_page.php";
         break;
@@ -53,6 +56,11 @@
         $id_product = isset($_GET['id_product'])? $_GET['id_product'] : "";
         // get product
         $product = loading_product($id_product);
+        // get same products
+        $same_products = loading_same_products($id_product); 
+        // get tags
+        $tags = get_tags_of_product($id_product);
+
         include "views/product_detail.php";
         break;
 

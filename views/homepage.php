@@ -13,7 +13,7 @@
 
           <?php foreach($best_sale_products as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
+            <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
               <div class="product__img--box">
                 <img src="<?= $product_value['anh_sp'] ?>" alt=""<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
@@ -43,7 +43,7 @@
           
         <?php foreach($flash_sale_products as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
-            <a href="" class="content__product__card--link">
+            <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
               <div class="product__img--box">
                 <img src="<?= $product_value['anh_sp'] ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
@@ -77,7 +77,7 @@
 
             <?php foreach($categories as $category_key => $category_value): ?>
               <div class="content__category__card">
-                <a href="" class="content__category__card--link">
+                <a href="index.php?page=product&category_id=<?= $category_value['id_loai_sp'] ?>" class="content__category__card--link">
                   <button class="content__category__card--btn"><i class="fa-solid fa-tags content__category__card--btn--icon"></i><?= $category_value['ten_loai_sp'] ?></button>
                 </a>
               </div>
