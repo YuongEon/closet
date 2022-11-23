@@ -78,7 +78,7 @@
             <?php foreach($categories as $category_key => $category_value): ?>
               <div class="content__category__card">
                 <a href="" class="content__category__card--link">
-                  <button class="content__category__card--btn"><?= $category_value['ten_loai_sp'] ?></button>
+                  <button class="content__category__card--btn"><i class="fa-solid fa-tags content__category__card--btn--icon"></i><?= $category_value['ten_loai_sp'] ?></button>
                 </a>
               </div>
             <?php endforeach ?>

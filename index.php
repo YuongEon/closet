@@ -18,7 +18,7 @@
         $best_sale_products = best_sale_products();
         // flash sale
         $flash_sale_products = flash_sale_products();
-        
+
         include "views/homepage.php";
         break;
       case "product":
@@ -47,6 +47,13 @@
         break;
       case "about":
 
+        break;
+      
+      case "product_detail":
+        $id_product = isset($_GET['id_product'])? $_GET['id_product'] : "";
+        // get product
+        $product = loading_product($id_product);
+        include "views/product_detail.php";
         break;
       default:
       $sql_get_product = "SELECT * FROM san_pham";

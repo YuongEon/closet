@@ -234,3 +234,6 @@
   border: 2px solid var(--main-color);
 }
 
+.content__category__card--btn .content__category__card--btn--icon{
+  margin-right: 6px;
+}

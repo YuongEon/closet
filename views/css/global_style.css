@@ -31,3 +31,9 @@ body{
     right: 0;
   }
 }
+
+.divide{
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid var(--main-color-lighter);
+}

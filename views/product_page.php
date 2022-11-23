@@ -57,7 +57,7 @@
             <div class="product-inner__product__list">
               <?php foreach($products as $product_key => $product_value): ?>
               <div class="product-inner__product__card">
-                <a href="" class="product-inner__product--link">
+                <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="product-inner__product--link">
                   <div class="product-inner__product__img--box">
                     <img class="product__inner__product__img--img" src="<?= $product_value['anh_sp'] ?>" alt="<?= $product_value['ten_sp'] ?>">
                   </div>
