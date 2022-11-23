@@ -15,16 +15,16 @@
 
   function loading_products($id_category, $id_brand, $search_keyword){
     if($id_category != "" || $id_category != NULL){
-      $sql_loading_product = "SELECT * FROM san_pham WHERE loai_sp = '$id_category'";
+      $sql_loading_products = "SELECT * FROM san_pham WHERE loai_sp = '$id_category'";
     } else if($id_brand != "" || $id_brand != NULL){
-      $sql_loading_product = "SELECT * FROM san_pham WHERE brand = '$id_brand'";
+      $sql_loading_products = "SELECT * FROM san_pham WHERE brand = '$id_brand'";
     } else if($search_keyword != "" || $search_keyword != NULL){
-      $sql_loading_product = "SELECT * FROM san_pham WHERE ten_sp LIKE '%$search_keyword%'";
+      $sql_loading_products = "SELECT * FROM san_pham WHERE ten_sp LIKE '%$search_keyword%'";
     } else {
-      $sql_loading_product = "SELECT * FROM san_pham";
+      $sql_loading_products = "SELECT * FROM san_pham";
     }
     
-    $products = pdo_query($sql_loading_product);
+    $products = pdo_query($sql_loading_products);
     return $products;
   }
 
@@ -39,11 +39,9 @@
     return $filter_of_loading_product;
   }
 
-  function addition_product_to_cart(){
-
-  }
-
-  function subtraction_product_to_cart(){
-    
+  function loading_product($id_product){
+    $sql_loading_product = "SELECT * FROM san_pham WHERE id_sp = '$id_product'";
+    $product = pdo_query_one($sql_loading_product);
+    return $product;
   }
 ?>
