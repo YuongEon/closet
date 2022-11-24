@@ -88,12 +88,14 @@
     $product_category_id = $product_category['id_loai_sp'];
     $sql_loading_same_products = "SELECT * FROM san_pham WHERE loai_sp = '$product_category_id'";
     $same_products = pdo_query($sql_loading_same_products);
+    $same_products_arr = array();
     
-    function filter_product($id_product){
-      return !$id_product;
+    foreach($same_products as $same_products_value){
+      if($same_products_value["id_sp"] != $id_product){
+        array_push($same_products_arr, $same_products_value);
+      }
     }
-    $same_products = array_filter($same_products, "filter_product");
-
+    $same_products = $same_products_arr;
     return $same_products;
   }
 
