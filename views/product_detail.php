@@ -15,10 +15,12 @@
             <p class="product__sort__desc"><?= $product['mo_ta_ngan_sp'] ?></p>
           </div>
           <div class="product__add__to__cart--box">
-            <form action="" class="product__add__to__cart" method="post">
+            <form action="index.php?page=product_detail&id_product=<?= $product['id_sp'] ?>" class="product__add__to__cart" method="post">
               <div class="product__add__to__cart__quantity">
                 <div class="product__addition__quantity">+</div>
-                <input type="text" disabled value="1" class="product__quantity">
+                <input type="hidden" name="user_id" value="<?= $id_user ?>"/>
+                <input type="hidden" name="product_id" value="<?= $product['id_sp'] ?>"/>
+                <input type="text" readonly value="1" class="product__quantity" name="product_quantity">
                 <div class="product__subtraction__quantity">-</div>
               </div>
               <button type="submit" name="product__add__to__cart__btn" class="product__add__to__cart__btn">Thêm vào giỏ hàng</button>

@@ -1,6 +1,7 @@
 <?php
   include "./model/pdo.php";
   include "./model/san_pham_funtion.php";
+  $id_user = 1;
   include "views/header.php";
   
   if(isset($_GET['page']) && $_GET['page'] != ""){
@@ -53,6 +54,17 @@
         break;
       
       case "product_detail":
+        $cart_products = get_cart_products($id_user);
+        // insert product to cart
+        if(isset($_POST['product__add__to__cart__btn'])){
+          $get_user_id = (int)$_POST['user_id'];
+          $get_product_id = (int)$_POST['product_id'];
+          $get_product_buy_quantity = (int)$_POST['product_quantity'];
+          
+          add_product_to_cart($get_user_id, $get_product_id, $get_product_buy_quantity, $cart_products);
+          header("location: index.php?page=product_detail&id_product=$get_product_id");
+          ob_end_flush();
+        }
         $id_product = isset($_GET['id_product'])? $_GET['id_product'] : "";
         // get product
         $product = loading_product($id_product);
@@ -60,8 +72,40 @@
         $same_products = loading_same_products($id_product); 
         // get tags
         $tags = get_tags_of_product($id_product);
-
+      
         include "views/product_detail.php";
+        break;
+
+      case "cart":
+        // change quantity product
+        if(isset($_GET['id_product']) && $_GET['id_product'] != ''){
+          $product_id = $_GET['id_product'];
+          $product_quantity_value = $_POST['table__body__value__quantity'];
+          if(isset($_POST['table__body__value__addition__quantity'])){
+            $method_change = 'table__body__value__addition__quantity';
+          } else if(isset($_POST['table__body__value__subtraction__quantity'])){
+            $method_change = 'table__body__value__subtraction__quantity';
+          }
+          change_product_quantity_value($product_id, $product_quantity_value, $method_change);
+          header("location: index.php?page=cart");
+          ob_end_flush();
+        }
+        $cart_products = get_cart_products(1);
+        // get total
+        $total = 0;
+        foreach($cart_products as $cart_product_value){;
+          $product = loading_product($cart_product_value['id_sp']);
+          $product_price = (int)$product['gia_sp'] * (int)$cart_product_value['so_luong_sp'];
+          $total += (int)$product_price;
+        }
+        // delete product
+        if(isset($_GET['id_delete_product']) && $_GET['id_delete_product'] != ''){
+          delete_product_from_cart($_GET['id_delete_product']);
+          header("location: index.php?page=cart");
+          ob_end_flush();
+        }
+
+        include "views/cart.php";
         break;
 
       default:
