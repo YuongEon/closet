@@ -131,6 +131,7 @@
   color: #000000;
   text-align: center;
   border: none;
+  outline: unset;
 }
 
 .product__addition__quantity,

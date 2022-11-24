@@ -1,3 +1,12 @@
+<?php
+ob_start();
+?>
+<?php
+  $id_user = 1;
+  $cart_products = get_cart_products($id_user);
+  $cart_products_length = count($cart_products);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +22,7 @@
   <link rel="stylesheet" href="views/css/homepage.css">
   <link rel="stylesheet" href="views/css/product_page.css">
   <link rel="stylesheet" href="views/css/product_detail.css">
+  <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
   <!-- reset css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -59,10 +69,10 @@
         <div class="header__user__info">
           <div class="header__cart__box">
             <div class="header__cart__quantity__product">
-              <p class="header__cart__quantity--content">61</p>
+              <p class="header__cart__quantity--content"><?= $cart_products_length ?></p>
             </div>
             <div class="header__cart">
-              <a href="" class="header__cart--link">
+              <a href="index.php?page=cart  " class="header__cart--link">
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>
             </div>
