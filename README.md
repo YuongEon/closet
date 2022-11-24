@@ -1,2 +1,2 @@
 # closet
-# chi tiet san pham => them vao gio hang => thanh toan
+# chi tiet san pham (done) => them vao gio hang (not yet) => thanh toan (not yet)
