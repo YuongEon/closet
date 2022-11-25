@@ -16,3 +16,8 @@ product_subtraction_quantity.addEventListener('click', () => {
     product_buy_quantity.value = product_buy_quantity_value -= 1;
   }
 })
+
+
+
+
+

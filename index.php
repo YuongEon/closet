@@ -108,6 +108,10 @@
         include "views/cart.php";
         break;
 
+      case "payment_page":
+        include "views/payment_page.php";
+        break;
+
       default:
       $sql_get_product = "SELECT * FROM san_pham";
         $product = pdo_query($sql_get_product); 

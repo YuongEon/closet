@@ -164,4 +164,9 @@
     }
   }
 
+  // change address function
+  function change_address($id_user, $address_1, $address_2, $address_3, $address_4){
+    
+  }
+
 ?>
