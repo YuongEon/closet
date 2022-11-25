@@ -1,6 +1,7 @@
 <?php
   include "./model/pdo.php";
   include "./model/san_pham_funtion.php";
+  include "./model/user_function.php";
   $id_user = 1;
   include "views/header.php";
   
@@ -109,6 +110,72 @@
         break;
 
       case "payment_page":
+        // loading cart products
+        $cart_products = get_cart_products($id_user);
+        // loading user info
+        $user_info_arr = array();
+          
+          // loading user info with none-sql
+        if(isset($_POST['payment__info__insert__submit--btn'])){
+          $ho_va_ten = $_POST['ho_va_ten'];
+          $sdt = $_POST['sdt'];
+          $email = $_POST['email'];
+          $address_1 = $_POST['tinh__thanh_pho'];
+          $address_2 = $_POST['quan__huyen'];
+          $address_3 = $_POST['phuong__xa'];
+          $address_4 = $_POST['dia_chi_chi_tiet'];
+
+          $user_info = array(
+            "ho_va_ten" => "$ho_va_ten",
+            "sdt" => "$sdt",
+            "email" => "$email"
+          );
+          $user_info_address = array(
+            "tinh__thanh_pho" => "$address_1",
+            "quan__huyen" => "$address_2",
+            "phuong__xa" => "$address_3",
+            "dia_chi_chi_tiet" => "$address_4"
+          );
+
+          $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
+        } else if(isset($_POST['payment__info__update__submit--btn'])){
+          $sdt = $_POST['sdt'];
+          $email = $_POST['email'];
+          $address_1 = $_POST['tinh__thanh_pho'];
+          $address_2 = $_POST['quan__huyen'];
+          $address_3 = $_POST['phuong__xa'];
+          $address_4 = $_POST['dia_chi_chi_tiet'];
+
+          update_user_info($id_user, $sdt, $email);
+          change_address($id_user, $address_1, $address_2, $address_3, $address_4);
+
+          $user_info = loading_user_info($id_user);
+          $user_info_address = loading_user_address($user_info['id_tai_khoan']);
+          $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
+          header("location: index.php?page=payment_page");
+          ob_end_flush();
+        } else{
+          // loading user info with sql
+          $user_info = loading_user_info($id_user);
+          $user_info_address = loading_user_address($user_info['id_tai_khoan']);
+          $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
+        }
+
+        // loading payment method
+        $payment_methods = loading_payment_methods();
+        // get total
+        $total = 0;
+        foreach($cart_products as $cart_product_value){;
+          $product = loading_product($cart_product_value['id_sp']);
+          $product_price = (int)$product['gia_sp'] * (int)$cart_product_value['so_luong_sp'];
+          $total += (int)$product_price;
+        }
+        // ngay dat - nhan hang
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $take_order_date = date("d/m/Y");
+        $pick_up_date_soonest = date('d/m/Y',strtotime("+7 day"));
+        $pick_up_date_latest = date('d/m/Y', strtotime("+10 day"));
+
         include "views/payment_page.php";
         break;
 

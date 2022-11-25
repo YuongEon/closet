@@ -1,5 +1,6 @@
 <?php
   include "./pdo.php";
+  include "./user_function.php";
 
   function best_sale_products(){
     $sql_best_sale_products = "SELECT * FROM san_pham ORDER BY so_luong_sp_da_ban DESC LIMIT 4";
@@ -164,9 +165,12 @@
     }
   }
 
-  // change address function
-  function change_address($id_user, $address_1, $address_2, $address_3, $address_4){
-    
+  // payment methods
+  function loading_payment_methods(){
+    $sql_loading_payment_methods = "SELECT * FROM payment_method";
+    $payment_method = pdo_query($sql_loading_payment_methods);
+    return $payment_method;
   }
+
 
 ?>

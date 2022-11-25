@@ -330,3 +330,15 @@
   font-family: "Nunito" !important;
   cursor: pointer;
 }
+
+.payment__buying_date--box{
+  margin-block: 40px 20px;
+}
+
+.payment__buying_date--box p{
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var;
+  color: var(--text-color);
+}
