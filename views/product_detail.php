@@ -81,5 +81,4 @@
       </div>
     </div>
   </div>
-
-  <script type="text/javascript" src="js/product_function.js"></script>
+<script type="text/javascript" src="js/function.js"></script>
