@@ -47,4 +47,3 @@
     );
     return $user_info_for_payment_page;
   }
-?>

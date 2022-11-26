@@ -171,6 +171,3 @@
     $payment_method = pdo_query($sql_loading_payment_methods);
     return $payment_method;
   }
-
-
-?>
