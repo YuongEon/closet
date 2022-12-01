@@ -73,6 +73,8 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $id_product = isset($_GET['id_product']) ? $_GET['id_product'] : "";
       // get product
       $product = loading_product($id_product);
+      // get classify
+      $classify_arr = loading_classify($id_product);
       // get same products
       $same_products = loading_same_products($id_product);
       // get tags

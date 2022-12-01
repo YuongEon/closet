@@ -16,6 +16,36 @@
         </div>
         <div class="product__add__to__cart--box">
           <form action="index.php?page=product_detail&id_product=<?= $product['id_sp'] ?>" class="product__add__to__cart" method="post">
+            <div class="product__classify">
+              <div class="product__classify__size--box product__classify--box">
+                <p class="product__classify__label">Size</p>
+                <div class="product__classify__size">
+                  <?php 
+                    $size_arr = explode(",", $classify_arr['size']);
+                  ?>
+                  <?php foreach($size_arr as $size_arr_key => $size_arr_value): ?>
+                  <label for="size-=<?=  $size_arr_value ?>">
+                    <input id="size-=<?=  $size_arr_value ?>" class="product__classify__size__value" type="radio" value="<?=  $size_arr_value ?>" name="size"/>
+                    <span><?=  strtoupper($size_arr_value) ?></span>
+                  </label>
+                  <?php endforeach ?>
+                </div>
+              </div>
+              <div class="product__classify__color--box product__classify--box">
+                <p class="product__classify__label">Màu sắc</p>
+                <div class="product__classify__color">
+                  <?php
+                    $color_arr = explode(",", $classify_arr['color']);
+                  ?>
+                  <?php foreach($color_arr as $color_arr_key => $color_arr_value): ?>
+                  <label for="color-<?=  $color_arr_value ?>">
+                    <input id="color-<?=  $color_arr_value ?>" class="product__classify__color__value" type="radio" value="<?=  $color_arr_value ?>" name="color"/>
+                    <span><?=  ucwords($color_arr_value) ?></span>
+                  </label>
+                  <?php endforeach ?>
+                </div>
+              </div>
+            </div>
             <div class="product__add__to__cart__quantity">
               <div class="product__addition__quantity">+</div>
               <input type="hidden" name="user_id" value="<?= $id_user ?>" />

@@ -171,3 +171,12 @@
     $payment_method = pdo_query($sql_loading_payment_methods);
     return $payment_method;
   }
+
+  function loading_classify($product_id){
+    $sql_loading_classify = "SELECT size, color FROM phan_loai WHERE id_sp = '$product_id'";
+    $classify_arr = pdo_query_one($sql_loading_classify);
+
+    return $classify_arr;
+  }
+
+?>

@@ -23,6 +23,7 @@ $cart_products_length = count($cart_products);
   <link rel="stylesheet" href="views/css/homepage.css">
   <link rel="stylesheet" href="views/css/product_page.css">
   <link rel="stylesheet" href="views/css/product_detail.css">
+  <link rel="stylesheet" href="views/css/product_detail2.css">
   <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/payment_page.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
@@ -44,7 +45,7 @@ $cart_products_length = count($cart_products);
       <div class="header__top">
         <div class="header__logo__box">
           <div class="header__logo">
-            <a href="#" class="header__logo--link">
+            <a href="index.php?page=homepage" class="header__logo--link">
               CLOSET
             </a>
           </div>

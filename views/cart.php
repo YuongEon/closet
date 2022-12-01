@@ -4,6 +4,7 @@
       <ul class="cart__section__table table__head">
         <li class="table__head__label">Ảnh sản phẩm</li>
         <li class="table__head__label">Tên sản phẩm</li>
+        <li class="table__head__label">Phân loại</li>
         <li class="table__head__label">Đơn giá</li>
         <li class="table__head__label">Số lượng</li>
         <li class="table__head__label">Chức năng</li>
