@@ -22,8 +22,7 @@ $cart_products_length = count($cart_products);
   <link rel="stylesheet" href="views/css/footer_style.css">
   <link rel="stylesheet" href="views/css/homepage.css">
   <link rel="stylesheet" href="views/css/product_page.css">
-  <link rel="stylesheet" href="views/css/product_detail.css">
-  <link rel="stylesheet" href="views/css/product_detail2.css">
+  <link rel="stylesheet" href="views/css/product_detail_page.css">
   <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/payment_page.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
