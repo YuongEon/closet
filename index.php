@@ -120,7 +120,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       }
       // delete product
       if (isset($_GET['id_delete_product']) && $_GET['id_delete_product'] != '') {
-        delete_product_from_cart($_GET['id_delete_product']);
+        delete_product_from_cart($_GET['id_delete_product'], $_GET['size'], $_GET['color']);
         header("location: index.php?page=cart");
         ob_end_flush();
       }

@@ -40,7 +40,7 @@
                   <?php foreach($color_arr as $color_arr_key => $color_arr_value): ?>
                   <label for="color-<?=  $color_arr_value ?>">
                     <input id="color-<?=  $color_arr_value ?>" class="product__classify__color__value" type="radio" value="<?=  $color_arr_value ?>" name="color"/>
-                    <span><?=  ucwords($color_arr_value) ?></span>
+                    <span><?= $color_arr_value ?></span>
                   </label>
                   <?php endforeach ?>
                 </div>

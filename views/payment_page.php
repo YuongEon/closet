@@ -10,7 +10,7 @@
             <?php
             $product = loading_product($cart_product_value['id_sp']);
             ?>
-            <li class="product__selected__item"><?= $product['ten_sp'] ?> ✖ <?= $cart_product_value['so_luong_sp'] ?></li>
+            <li class="product__selected__item"><?= $product['ten_sp'] ?> ✖ SL: <?= $cart_product_value['so_luong_sp'] ?> | PL: <?= strtoupper($cart_product_value['size']) ?>, <?= ucwords($cart_product_value['color']) ?></li>
           <?php endforeach ?>
         </ul>
       </div>

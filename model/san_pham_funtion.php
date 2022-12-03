@@ -132,13 +132,18 @@
       pdo_execute($sql_insert_product_to_cart);
     } else {
       $new_product_buy_quantity = $product_buy_quantity + $val['so_luong_sp'];
-      $sql_update_product_buy_quantity = "UPDATE gio_hang SET so_luong_sp = '$new_product_buy_quantity' WHERE id_sp = '$product_id'";
-      pdo_execute($sql_update_product_buy_quantity);
+      if($val['size'] == $product_size && $val['color'] == $product_color){
+        $sql_update_product_buy_quantity = "UPDATE gio_hang SET so_luong_sp = '$new_product_buy_quantity' WHERE id_sp = '$product_id'";
+        pdo_execute($sql_update_product_buy_quantity);
+      } else if($val['size'] != $product_size || $val['color'] != $product_color){
+        $sql_insert_product_to_cart = "INSERT INTO gio_hang(id_tai_khoan, id_sp, so_luong_sp, size, color) VALUES('$user_id', '$product_id', '$product_buy_quantity', '$product_size', '$product_color')";
+        pdo_execute($sql_insert_product_to_cart);
+      }
     }
   }
 
-  function delete_product_from_cart($product_id){
-    $sql_delete_product_form_cart = "DELETE FROM gio_hang WHERE id_sp = '$product_id'";
+  function delete_product_from_cart($product_id, $product_size, $product_color){
+    $sql_delete_product_form_cart = "DELETE FROM gio_hang WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color' ";
     pdo_execute($sql_delete_product_form_cart);
   }
 

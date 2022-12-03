@@ -22,8 +22,9 @@
           </li>
           <li class="table__body__value"><?= $product['ten_sp'] ?></li>
           <?php
-            $product_classify_of_product = array('size' => strtoupper($cart_product_value['size']), 'color' => ucwords($cart_product_value['color']));
-            $product_classify_of_product = implode(" / ", $product_classify_of_product);
+            $delete_classify_arr = array('size' => $cart_product_value['size'], 'color' => $cart_product_value['color']);
+            $product_classify_of_product_arr = array('size' => strtoupper($cart_product_value['size']), 'color' => ucwords($cart_product_value['color']));
+            $product_classify_of_product = implode(" / ", $product_classify_of_product_arr);
           ?>
           <li class="table__body__value"><?= $product_classify_of_product ?></li>
           <li class="table__body__value"><?= $product['gia_sp'] ?> đ</li>
@@ -35,7 +36,7 @@
             </form>
           </li>
           <li class="table__body__value">
-            <a href="index.php?page=cart&id_delete_product=<?= $product['id_sp'] ?>" class="table__body__value__delete--btn">
+            <a href="index.php?page=cart&id_delete_product=<?= $product['id_sp'] ?>&size=<?= $delete_classify_arr['size'] ?>&color=<?= $delete_classify_arr['color'] ?>" class="table__body__value__delete--btn">
               <button>Xoá</button>
             </a>
           </li>
