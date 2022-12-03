@@ -118,7 +118,7 @@
     return $cart_products;
   }
 
-  function add_product_to_cart($user_id, $product_id, $product_buy_quantity, $cart_products){
+  function add_product_to_cart($user_id, $product_id, $product_buy_quantity, $product_size, $product_color, $cart_products){
     foreach($cart_products as $val){
       if($val['id_sp'] == $product_id){
         $check_if_exit = true;
@@ -128,7 +128,7 @@
       }
     }
     if(!$check_if_exit || sizeof($cart_products) <= 0){
-      $sql_insert_product_to_cart = "INSERT INTO gio_hang(id_tai_khoan, id_sp, so_luong_sp) VALUES('$user_id', '$product_id', '$product_buy_quantity')";
+      $sql_insert_product_to_cart = "INSERT INTO gio_hang(id_tai_khoan, id_sp, so_luong_sp, size, color) VALUES('$user_id', '$product_id', '$product_buy_quantity', '$product_size', '$product_color')";
       pdo_execute($sql_insert_product_to_cart);
     } else {
       $new_product_buy_quantity = $product_buy_quantity + $val['so_luong_sp'];

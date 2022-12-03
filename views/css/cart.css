@@ -175,3 +175,54 @@
   font-family: "Nunito" !important;
   cursor: pointer;
 }
+
+
+.table__change__quantity__form{
+  display: flex;
+}
+
+.table__body__value__addition__quantity{ 
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: var(--main-color-lighter-v2);
+  color: var(--background-color-light);
+  font-size: 16px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.table__body__value__quantity{ 
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  border: none;
+  outline: unset;
+}
+
+.table__body__value__subtraction__quantity{ 
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: var(--main-color-lighter-v2);
+  color: var(--background-color-light);
+  font-size: 16px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

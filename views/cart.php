@@ -21,9 +21,14 @@
             </div>
           </li>
           <li class="table__body__value"><?= $product['ten_sp'] ?></li>
+          <?php
+            $product_classify_of_product = array('size' => strtoupper($cart_product_value['size']), 'color' => ucwords($cart_product_value['color']));
+            $product_classify_of_product = implode(" / ", $product_classify_of_product);
+          ?>
+          <li class="table__body__value"><?= $product_classify_of_product ?></li>
           <li class="table__body__value"><?= $product['gia_sp'] ?> đ</li>
           <li class="table__body__value">
-            <form action="index.php?page=cart&id_product=<?= $product['id_sp'] ?>" method="POST">
+            <form class="table__change__quantity__form" action="index.php?page=cart&id_product=<?= $product['id_sp'] ?>" method="POST">
               <button type="submit" class="table__body__value__addition__quantity" name="table__body__value__addition__quantity">+</button>
               <input type="text" readonly name="table__body__value__quantity" class="table__body__value__quantity" value="<?= $cart_product_value['so_luong_sp'] ?>">
               <button type="submit" class="table__body__value__subtraction__quantity" name="table__body__value__subtraction__quantity">-</button>

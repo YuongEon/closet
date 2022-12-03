@@ -65,11 +65,14 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $get_user_id = (int)$_POST['user_id'];
         $get_product_id = (int)$_POST['product_id'];
         $get_product_buy_quantity = (int)$_POST['product_quantity'];
+        $get_product_size = $_POST['size'];
+        $get_product_color = $_POST['color'];
 
-        add_product_to_cart($get_user_id, $get_product_id, $get_product_buy_quantity, $cart_products);
+        add_product_to_cart($get_user_id, $get_product_id, $get_product_buy_quantity, $get_product_size, $get_product_color,$cart_products);
         header("location: index.php?page=product_detail&id_product=$get_product_id");
         ob_end_flush();
       }
+      
       $id_product = isset($_GET['id_product']) ? $_GET['id_product'] : "";
       // get product
       $product = loading_product($id_product);
@@ -99,6 +102,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         header("location: index.php?page=cart");
         ob_end_flush();
       }
+      // get product
       $cart_products = get_cart_products(1);
       // get total
       $total = 0;
