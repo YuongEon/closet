@@ -2,6 +2,7 @@
 include "./model/pdo.php";
 include "./model/san_pham_funtion.php";
 include "./model/user_function.php";
+include "./model/global_function.php";
 $id_user = 1;
 include "views/header.php";
 
@@ -61,6 +62,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
     case "product_detail":
       $cart_products = get_cart_products($id_user);
       // insert product to cart
+      $error = '';
       if (isset($_POST['product__add__to__cart__btn'])) {
         $get_user_id = (int)$_POST['user_id'];
         $get_product_id = (int)$_POST['product_id'];
@@ -68,9 +70,14 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $get_product_size = $_POST['size'];
         $get_product_color = $_POST['color'];
 
-        add_product_to_cart($get_user_id, $get_product_id, $get_product_buy_quantity, $get_product_size, $get_product_color,$cart_products);
-        header("location: index.php?page=product_detail&id_product=$get_product_id");
-        ob_end_flush();
+        if($get_product_size != '' && $get_product_color != ''){
+          add_product_to_cart($get_user_id, $get_product_id, $get_product_buy_quantity, $get_product_size, $get_product_color,$cart_products);
+          header("location: index.php?page=product_detail&id_product=$get_product_id");
+        } else {
+          $error .= '⚠️ Vui lòng chọn size và màu sắc của sản phẩm!';
+          function_alert($error);
+        }
+        ob_end_flush();  
       }
       
       $id_product = isset($_GET['id_product']) ? $_GET['id_product'] : "";
