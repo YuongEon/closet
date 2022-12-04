@@ -118,7 +118,7 @@
     return $cart_products;
   }
 
-  function add_product_to_cart($user_id, $product_id, $product_buy_quantity, $cart_products){
+  function add_product_to_cart($user_id, $product_id, $product_buy_quantity, $product_size, $product_color, $cart_products){
     foreach($cart_products as $val){
       if($val['id_sp'] == $product_id){
         $check_if_exit = true;
@@ -128,17 +128,22 @@
       }
     }
     if(!$check_if_exit || sizeof($cart_products) <= 0){
-      $sql_insert_product_to_cart = "INSERT INTO gio_hang(id_tai_khoan, id_sp, so_luong_sp) VALUES('$user_id', '$product_id', '$product_buy_quantity')";
+      $sql_insert_product_to_cart = "INSERT INTO gio_hang(id_tai_khoan, id_sp, so_luong_sp, size, color) VALUES('$user_id', '$product_id', '$product_buy_quantity', '$product_size', '$product_color')";
       pdo_execute($sql_insert_product_to_cart);
     } else {
       $new_product_buy_quantity = $product_buy_quantity + $val['so_luong_sp'];
-      $sql_update_product_buy_quantity = "UPDATE gio_hang SET so_luong_sp = '$new_product_buy_quantity' WHERE id_sp = '$product_id'";
-      pdo_execute($sql_update_product_buy_quantity);
+      if($val['size'] == $product_size && $val['color'] == $product_color){
+        $sql_update_product_buy_quantity = "UPDATE gio_hang SET so_luong_sp = '$new_product_buy_quantity' WHERE id_sp = '$product_id'";
+        pdo_execute($sql_update_product_buy_quantity);
+      } else if($val['size'] != $product_size || $val['color'] != $product_color){
+        $sql_insert_product_to_cart = "INSERT INTO gio_hang(id_tai_khoan, id_sp, so_luong_sp, size, color) VALUES('$user_id', '$product_id', '$product_buy_quantity', '$product_size', '$product_color')";
+        pdo_execute($sql_insert_product_to_cart);
+      }
     }
   }
 
-  function delete_product_from_cart($product_id){
-    $sql_delete_product_form_cart = "DELETE FROM gio_hang WHERE id_sp = '$product_id'";
+  function delete_product_from_cart($product_id, $product_size, $product_color){
+    $sql_delete_product_form_cart = "DELETE FROM gio_hang WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color' ";
     pdo_execute($sql_delete_product_form_cart);
   }
 
@@ -172,5 +177,11 @@
     return $payment_method;
   }
 
+  function loading_classify($product_id){
+    $sql_loading_classify = "SELECT size, color FROM phan_loai WHERE id_sp = '$product_id'";
+    $classify_arr = pdo_query_one($sql_loading_classify);
+
+    return $classify_arr;
+  }
 
 ?>
