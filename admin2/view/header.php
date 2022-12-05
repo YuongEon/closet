@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="icon" type="image/x-icon" href="../../views/image/Closet.png" style="border-radius: 50%">
-  <link rel="stylesheet" href="./css/admin2.css">
+  <link rel="icon" type="image/x-icon" href="../views/image/Closet.png" style="border-radius: 50%">
+  <!-- global css -->
+  <link rel="stylesheet" href="view/css/global.css">
+  <!-- content css -->
+  <link rel="stylesheet" href="view/css/content.css">
+  <!-- section css -->
+  <!-- <link rel="stylesheet" href="view/css/admin_section.css"> -->
+  <link rel="stylesheet" href="view/css/statistical.css">
+  <link rel="stylesheet" href="view/css/product_section.css">
+
   <!-- responsive -->
   <!-- reset css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
