@@ -1,6 +1,6 @@
 <?php
-  include "./pdo.php";
-  include "./san_pham_funtion.php";
+  // include "model/pdo.php";
+  // include "model/san_pham_funtion.php";
 
   function loading_user_info($user_id){
     $sql_loading_user_info = "SELECT * FROM tai_khoan WHERE id_tai_khoan = '$user_id'";

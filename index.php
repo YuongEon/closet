@@ -198,4 +198,3 @@
   }
 
   include "views/footer.php";
-?>
