@@ -2,14 +2,12 @@
 include "../model/pdo.php";
 include "views/header.php";
 
-
-
 include "views/home.php";
 if(isset($_GET['act'])){
     $act=$_GET['act'];
     switch($act){
-        case "admin":
-            include "views/setion.php";
+        case "admin_section":
+            include "views/admin_section.php";
             break;
         case 'ql_dm':
             if(isset($_POST['themmoi'])&&($_POST['themmoi'])){

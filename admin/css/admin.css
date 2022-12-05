@@ -47,8 +47,9 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    max-width: auto;
+    max-width: 1200px;
     padding: 0px 20px;
+    margin: 0 auto;
     
   }
   .header_admin_logo_box {
@@ -79,7 +80,7 @@ a {
 }
 .nav_warp_menu{
   background-color: var(--main-color);
-  height: 600px;
+  min-height: 100vh;
   text-align: center;
   
 }
@@ -116,7 +117,8 @@ a {
   font-size: 25px;
 }
 .nav_warp_change_title{
-padding: 30px 0px;
+  text-align: center;
+  margin-block: 20px ;
 }
 .nav_warp_change .boxes{
   display: flex;
@@ -125,29 +127,48 @@ padding: 30px 0px;
   flex-wrap: wrap;
 }
 .nav_warp_change .nav_warp_change-boxes .box{
+  width: calc((100% / 3) - 10px);
+  margin-left: 10px;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 12px;
-  width: calc(100% / 3 - 15px);
-  padding: 15px 20px;
-  background-color: var(--box1-color);
-  transition: var(--tran-05);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.nav_warp_change-boxes > .box > span.number{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav_warp_change-boxes > .box > span.text{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+.nav_warp_change .nav_warp_change-boxes .box1{
+  background-color: #4DA3FF;
 }
 .nav_warp_change-boxes .box i{
   font-size: 35px;
   color: var(--text-color);
 }
 .nav_warp_change-boxes .box .text{
-  white-space: nowrap;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--text-color);
 }
 .nav_warp_change-boxes .box .number{
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--text-color);
+  
 }
 .nav_warp_change-boxes .box.box2{
   background-color: var(--box2-color);
@@ -157,9 +178,8 @@ padding: 30px 0px;
 }
 .nav_warp_change .nav_warp_change-boxes{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+    flex-wrap: wrap;
+    margin-left: -10px;
 }
 /* css-danhmuc/add.php */
 .worp_title_addnew_category{
