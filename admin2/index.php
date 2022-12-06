@@ -13,7 +13,10 @@
       include "./view/section/dashboard/statistical.php";
       break;
     case "product_list":
-      include "./view/section/category/category_list.php";
+      include "./view/section/product/product_list.php";
+      break;
+    case "user_list":
+      include "./view/section/user/user_list.php";
       break;
     default: 
       include "./view/section/statistical.php";

@@ -13,7 +13,8 @@
   <!-- section css -->
   <!-- <link rel="stylesheet" href="view/css/admin_section.css"> -->
   <link rel="stylesheet" href="view/css/statistical.css">
-  <link rel="stylesheet" href="view/css/product_section.css">
+  <link rel="stylesheet" href="view/css/product_section2.css">
+  <link rel="stylesheet" href="view/css/user_section.css">
 
   <!-- responsive -->
   <!-- reset css -->
