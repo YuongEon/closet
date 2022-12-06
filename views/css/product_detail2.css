@@ -299,6 +299,9 @@
 .product__classify--box{ 
   margin-bottom: 20px;
 }
+.product__classify--box:last-child(){ 
+  margin-bottom: 10px;
+}
 
 .product__classify__size--box{ 
 
@@ -381,6 +384,24 @@ input[class="product__classify__color__value"]:hover + span,
 input[class="product__classify__color__value"]:focus + span,
 input[class="product__classify__color__value"]:checked + span{
   background-color: var(--main-color-lighter-v2);
+}
+
+.product__classify__quantity--box{
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.product__classify__quantity--value{
+  font-size: 14px;
+  font-weight: 600px;
+  font-family: "nunito";
+}
+
+.product__classify__quantity--label{
+  font-size: 14px;
+  font-weight: 600px;
+  font-family: "nunito";
 }
 
 

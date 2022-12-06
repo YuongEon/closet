@@ -12,8 +12,12 @@
     case "statistical":
       include "./view/section/dashboard/statistical.php";
       break;
+      // product section
     case "product_list":
       include "./view/section/product/product_list.php";
+      break;
+    case "insert_product":
+      include "./view/section/product/insert_product_section.php";
       break;
     case "user_list":
       include "./view/section/user/user_list.php";

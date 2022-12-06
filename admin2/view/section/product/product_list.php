@@ -8,7 +8,7 @@
     </div>
     <div class="product__section__function__btn__wrap">
       <div class="product__section__function__btn">
-        <a href="" class="product__section__function__btn--link">
+        <a href="index.php?section=insert_product" class="product__section__function__btn--link">
           <button>Thêm mới sản phẩm</button>
         </a>
       </div>

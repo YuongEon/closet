@@ -25,7 +25,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       include "views/homepage.php";
       break;
 
-    // !product
+      // !product
     case "product":
       // get categories 
       $get_categories = "SELECT * FROM loai_sp";
@@ -58,33 +58,50 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       break;
 
 
-        // !product detail
+      // !product detail
     case "product_detail":
       $cart_products = get_cart_products($id_user);
       // insert product to cart
       $error = '';
       if (isset($_POST['product__add__to__cart__btn'])) {
-        $get_user_id = (int)$_POST['user_id'];
-        $get_product_id = (int)$_POST['product_id'];
-        $get_product_buy_quantity = (int)$_POST['product_quantity'];
-        $get_product_size = $_POST['size'];
-        $get_product_color = $_POST['color'];
+        $user_id = $_POST['user_id'];
+        $product_id = $_POST['product_id'];
+        $product_buy_quantity = $_POST['product_quantity'];
+        $product_size = $_POST['size'];
+        $product_color = $_POST['color'];
 
-        if($get_product_size != '' && $get_product_color != ''){
-          add_product_to_cart($get_user_id, $get_product_id, $get_product_buy_quantity, $get_product_size, $get_product_color,$cart_products);
-          header("location: index.php?page=product_detail&id_product=$get_product_id");
-        } else {
-          $error .= '⚠️ Vui lòng chọn size và màu sắc của sản phẩm!';
+
+        $error = '';
+        if ($product_size == '' || $product_size == NULL || $product_color == '' || $product_color == NULL) {
+          $error .= "⚠️ Vui lòng chọn size hoặc màu sắc sản phẩm!";
           function_alert($error);
+        } else {
+          $select_product_quantity_of_each_classify = "SELECT * FROM phan_loai WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
+          $product_quantity_of_each_classify = pdo_query_one($select_product_quantity_of_each_classify);
+
+          $stocking_product = true;
+          if($product_quantity_of_each_classify['so_luong_sp'] > 0){
+            $stocking_product = true;
+          } else {
+            $stocking_product = false;
+          }
+          if ($stocking_product == false) {
+            $error .= "Sản phẩm đã hết hàng!";
+            function_alert($error);
+          } else {
+            insert_product_to_cart($cart_products, $user_id, $product_id, $product_buy_quantity, $product_size, $product_color);
+            header("location: index.php?page=product_detail&id_product=$product_id");
+            ob_end_flush();
+          }
         }
-        ob_end_flush();  
       }
-      
+
+
       $id_product = isset($_GET['id_product']) ? $_GET['id_product'] : "";
       // get product
       $product = loading_product($id_product);
       // get classify
-      $classify_arr = loading_classify($id_product);
+
       // get same products
       $same_products = loading_same_products($id_product);
       // get tags
@@ -94,7 +111,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       break;
 
 
-          // !cart
+      // !cart
     case "cart":
       // change quantity product
       if (isset($_GET['id_product']) && $_GET['id_product'] != '') {
@@ -130,7 +147,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
 
 
 
-          // !payment 
+      // !payment 
     case "payment_page":
       $sql_get_categories = "SELECT * FROM loai_sp";
       $categories = pdo_query($sql_get_categories);
