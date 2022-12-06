@@ -31,8 +31,14 @@
           </li>
           <li>
             <a href="index.php?section=ql_sp" class="nav_link">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-inbox"></i>
               <span class="nav_text">Quản lý danh mục</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.php?section=ql_sp" class="nav_link">
+              <i class="fa-solid fa-copyright"></i>
+              <span class="nav_text">Quản lý brand</span>
             </a>
           </li>
             <a href="#" class="nav_link">
@@ -44,9 +50,9 @@
             <p class="nav__label">Khách hàng</p>
           </div>
           <li>
-            <a href="index.php?section=ql_tk" class="nav_link">
-              <i class="fa-solid fa-list"></i>
-              <span class="nav_text">Danh sách khách hàng</span>
+            <a href="index.php?section=user_list" class="nav_link">
+              <i class="fa-solid fa-user"></i>
+              <span class="nav_text">Quản lý khách hàng</span>
             </a>
           </li>
           

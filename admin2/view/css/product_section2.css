@@ -1,0 +1,226 @@
+/* category */
+.product__list--value{
+
+}
+
+.product__img--box{
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.product__value--box{
+  flex: 1;
+}
+
+.product__value--name--box{
+
+}
+
+.product__value--name{
+
+}
+
+.product__value--price--box{
+
+}
+
+.product__value--price{
+
+}
+
+.product__value--btn--wrap{
+  display: flex;
+  flex-direction: column;
+}
+
+.product__section__function__btn__wrap{ 
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.product__section__function__btn{ 
+  margin-left: 20px;
+}
+
+.product__section__function__btn--link{ 
+  display: block;
+}
+
+.product__section__function__btn--link button{
+  border: none;
+  background-color:  var(--main-color-lighter-v2);
+  padding: 10px 20px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "nunito";
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+
+.product__section__function__btn--link button:hover{
+  transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  -o-transform: translateY(-3px);
+  box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.2);
+}
+
+.product__table{ 
+  margin-top: 26px;
+}
+
+.product_table--head{
+  background-color: var(--main-color-lighter-v2);
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.product__list{ 
+  display: flex;
+}
+
+.product__label--box{ 
+  flex: 1; 
+  text-align: center;
+}
+
+.product__list--label{ 
+
+}
+
+.product_table--body .product__list:nth-child(even){ 
+  background-color: #ffe6c2;
+  padding: 10px 0;
+}
+.product_table--body .product__list:nth-child(odd){ 
+  background-color: #ffedcf;
+  padding: 10px 0;
+}
+
+.product__value--box{ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product__img{ 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product__value__btn{ 
+
+}
+
+.product__value__btn--link{ 
+  display: block;
+  width: 100%;
+}
+
+.product__value__btn--link button{ 
+  width: 100%;
+}
+
+.product__section__top__ability{ 
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product__section__search--box{ 
+  
+}
+
+.product__section__search--form{ 
+  display: flex;
+  align-items: center;
+}
+
+.product__section__search--value{
+  width: 300px;
+  height: 38px;
+  border: none;
+  padding: 0 10px;
+  outline: unset;
+  box-shadow: inset 0 0 2px 1px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "nunito";
+}
+
+.product__section__search--submit{
+  width: 150px;
+  height: 38px;
+  border: none;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  margin-left: 10px;
+  background-color: var(--main-color-lighter-v2);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "nunito";
+  cursor: pointer;
+}
+
+.product__value__btn--link button{
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.product__value__btn--link button:last-child(){
+  margin-bottom: 0px;
+}
+
+.product__value__btn__info button{
+  background-color: #78bbff;
+}
+.product__value__btn__update button{
+  background-color: #ffeb02;
+}
+.product__value__btn__delete button{
+  background-color: #ff4e4e;
+}
+
+
+
+.product__value__btn__info button + .product__value__btn__info button{
+  
+}

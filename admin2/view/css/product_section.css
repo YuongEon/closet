@@ -39,7 +39,7 @@
 }
 
 .product__section__function__btn__wrap{ 
-
+  display: flex;
 }
 
 .product__section__function__btn{ 
