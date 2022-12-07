@@ -116,13 +116,15 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       // change quantity product
       if (isset($_GET['id_product']) && $_GET['id_product'] != '') {
         $product_id = $_GET['id_product'];
+        $product_size = $_GET['size'];
+        $product_color = $_GET['color'];
         $product_quantity_value = $_POST['table__body__value__quantity'];
         if (isset($_POST['table__body__value__addition__quantity'])) {
           $method_change = 'table__body__value__addition__quantity';
         } else if (isset($_POST['table__body__value__subtraction__quantity'])) {
           $method_change = 'table__body__value__subtraction__quantity';
         }
-        change_product_quantity_value($product_id, $product_quantity_value, $method_change);
+        change_product_quantity_value($product_id, $product_size, $product_color, $product_quantity_value, $method_change);
         header("location: index.php?page=cart");
         ob_end_flush();
       }

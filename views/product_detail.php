@@ -9,7 +9,7 @@
           <p class="product__name"><?= $product['ten_sp'] ?></p>
         </div>
         <div class="product__price--box">
-          <p class="product__price"><?= $product['gia_sp'] ?> ₫</p>
+          <p class="product__price"><?= currency_format($product['gia_sp']) ?></p>
         </div>
         <div class="product__sort__desc--box">
           <p class="product__sort__desc"><?= $product['mo_ta_ngan_sp'] ?></p>
@@ -108,7 +108,7 @@
                 <p class="product__name"><?= $same_product_value['ten_sp'] ?></p>
               </div>
               <div class="product__price--box">
-                <p class="product__price"><?= $same_product_value['gia_sp'] ?> ₫</p>
+                <p class="product__price"><?= currency_format($same_product_value['gia_sp']) ?></p>
               </div>
             </div>
           </a>

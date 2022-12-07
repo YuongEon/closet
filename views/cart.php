@@ -1,4 +1,14 @@
 <div class="content">
+  <?php if(sizeof($cart_products) <= 0){?>
+  <div class="section section-1 cart__section">
+    <div class="cart__section__label--box">
+      <div class="cart__section__label__img--box">
+        <img class="cart__section__label__img" src="views/image/sad.png" alt="">
+      </div>
+      <p class="cart__section__label">Oops! Bạn chưa có sản phẩm nào trong giỏ hàng rồi</p>
+    </div>
+  </div>
+  <?php } else { ?>
   <div class="section section-1 cart__section">
     <div class="cart__section__table--box">
       <ul class="cart__section__table table__head">
@@ -22,21 +32,21 @@
           </li>
           <li class="table__body__value"><?= $product['ten_sp'] ?></li>
           <?php
-            $delete_classify_arr = array('size' => $cart_product_value['size'], 'color' => $cart_product_value['color']);
+            $classify_arr = array('size' => $cart_product_value['size'], 'color' => $cart_product_value['color']);
             $product_classify_of_product_arr = array('size' => strtoupper($cart_product_value['size']), 'color' => ucwords($cart_product_value['color']));
             $product_classify_of_product = implode(" / ", $product_classify_of_product_arr);
           ?>
           <li class="table__body__value"><?= $product_classify_of_product ?></li>
-          <li class="table__body__value"><?= $product['gia_sp'] ?> đ</li>
+          <li class="table__body__value"><?= currency_format($product['gia_sp']) ?></li>
           <li class="table__body__value">
-            <form class="table__change__quantity__form" action="index.php?page=cart&id_product=<?= $product['id_sp'] ?>" method="POST">
+            <form class="table__change__quantity__form" action="index.php?page=cart&id_product=<?= $product['id_sp'] ?>&size=<?= $classify_arr['size'] ?>&color=<?= $classify_arr['color'] ?>" method="POST">
               <button type="submit" class="table__body__value__addition__quantity" name="table__body__value__addition__quantity">+</button>
               <input type="text" readonly name="table__body__value__quantity" class="table__body__value__quantity" value="<?= $cart_product_value['so_luong_sp'] ?>">
               <button type="submit" class="table__body__value__subtraction__quantity" name="table__body__value__subtraction__quantity">-</button>
             </form>
           </li>
           <li class="table__body__value">
-            <a href="index.php?page=cart&id_delete_product=<?= $product['id_sp'] ?>&size=<?= $delete_classify_arr['size'] ?>&color=<?= $delete_classify_arr['color'] ?>" class="table__body__value__delete--btn">
+            <a href="index.php?page=cart&id_delete_product=<?= $product['id_sp'] ?>&size=<?= $classify_arr['size'] ?>&color=<?= $classify_arr['color'] ?>" class="table__body__value__delete--btn">
               <button>Xoá</button>
             </a>
           </li>
@@ -50,7 +60,7 @@
           <p class="total__label">Tổng số tiền :</p>
         </div>
         <div class="total__price--box">
-          <p class="total__price"><?= $total ?> ₫</p>
+          <p class="total__price"><?= currency_format($total) ?></p>
         </div>
       </div>
 
@@ -61,4 +71,5 @@
       </div>
     </div>
   </div>
+  <?php } ?>
 </div>

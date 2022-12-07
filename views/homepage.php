@@ -21,7 +21,7 @@
                   <p class="product__name"><?= $product_value['ten_sp'] ?></p>
                 </div>
                 <div class="product__price--box">
-                  <p class="product__price"><?= $product_value['gia_sp'] ?></p>
+                  <p class="product__price"><?= currency_format($product_value['gia_sp']) ?></p>
                 </div>
               </div>
             </a>
@@ -51,7 +51,7 @@
                   <p class="product__name"><?= $product_value['ten_sp'] ?></p>
                 </div>
                 <div class="product__price--box">
-                  <p class="product__price"><?= $product_value['gia_sp'] ?></p>
+                  <p class="product__price"><?= currency_format($product_value['gia_sp']) ?></p>
                 </div>
               </div>
             </a>

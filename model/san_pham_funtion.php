@@ -170,17 +170,15 @@
     pdo_execute($sql_delete_product_form_cart);
   }
 
-  function change_product_quantity_value($product_id, $product_quantity_value, $method_change){
+  function change_product_quantity_value($product_id, $product_size, $product_color, $product_quantity_value, $method_change){
     if($method_change == 'table__body__value__addition__quantity'){
-      $product_id = $_GET['id_product'];
       $product_quantity_value = $_POST['table__body__value__quantity'];
       $product_quantity_value = (int)$product_quantity_value;
       $product_quantity_value += 1;
-      $sql_update_product_quantity = "UPDATE gio_hang SET so_luong_sp = '$product_quantity_value' WHERE id_sp = '$product_id'";
+      $sql_update_product_quantity = "UPDATE gio_hang SET so_luong_sp = '$product_quantity_value' WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
       pdo_execute($sql_update_product_quantity);
     } else
     if($method_change == 'table__body__value__subtraction__quantity'){
-      $product_id = $_GET['id_product'];
       $product_quantity_value = $_POST['table__body__value__quantity'];
       $product_quantity_value = (int)$product_quantity_value;
       if($product_quantity_value <= 1){
@@ -188,7 +186,7 @@
       } else{
         $product_quantity_value -= 1;
       }
-      $sql_update_product_quantity = "UPDATE gio_hang SET so_luong_sp = '$product_quantity_value' WHERE id_sp = '$product_id'";
+      $sql_update_product_quantity = "UPDATE gio_hang SET so_luong_sp = '$product_quantity_value' WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
       pdo_execute($sql_update_product_quantity);
     }
   }

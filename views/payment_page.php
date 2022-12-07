@@ -132,7 +132,7 @@
         <div class="payment__buying__pay">
           <div class="pay__total__box">
             <p class="pay__total__title">Tổng thành tiền :</p>
-            <p class="pay__total__price"><?= $total ?> đ</p>
+            <p class="pay__total__price"><?= currency_format($total) ?></p>
           </div>
           <div class="pay__btn">
             <a href="" class="pay__btn--link">
