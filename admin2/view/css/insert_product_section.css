@@ -11,7 +11,8 @@
 }
 
 .insert__product__section--wrap{ 
-
+  padding-inline: 40px;
+  padding-bottom: 40px;
 }
 
 .insert__product_label--box{ 
@@ -26,8 +27,7 @@
 }
 
 .insert__product__wrap{ 
-  padding-inline: 40px;
-  padding-bottom: 40px;
+
 }
 
 .insert__product__form{ 
@@ -136,4 +136,31 @@ input[type="file"].form__control--value.form__control--value__img::file-selector
   font-weight: 600;
   font-family: "nunito";
   cursor: pointer;
+}
+
+/* insert classify */
+.insert__product__label--product__name--box{ 
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.insert__product__label--product__name--label{ 
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.insert__product__label--product__name--value{ 
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.insert__product__wrap.insert__classify__product__wrap{
+  display: flex;
+  justify-content: center;
+}
+
+.insert__product__label--product__name--box.insert__classify__product__label--product__name--box{
+  justify-content: center;
 }

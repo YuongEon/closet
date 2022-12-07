@@ -212,6 +212,11 @@
     return $product_brand_without_id_product;
   }
 
- 
+  function loading_product_without_id_product(){
+    $sql_loading_product_without_id_product = "SELECT * FROM san_pham";
+    $product_without_id_product = pdo_query($sql_loading_product_without_id_product);
+
+    return $product_without_id_product;
+  }
 
 ?>
