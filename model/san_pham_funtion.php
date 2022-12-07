@@ -198,7 +198,19 @@
     return $payment_method;
   }
 
+  // function without id
+  function loading_product_category_without_id_product(){
+    $sql_loading_product_category_without_id_product = "SELECT * FROM loai_sp";
+    $product_category_without_id_product = pdo_query($sql_loading_product_category_without_id_product);
 
+    return $product_category_without_id_product;
+  }
+  function loading_product_brand_without_id_product(){
+    $sql_loading_product_brand_without_id_product = "SELECT * FROM brand";
+    $product_brand_without_id_product = pdo_query($sql_loading_product_brand_without_id_product);
+
+    return $product_brand_without_id_product;
+  }
 
  
 

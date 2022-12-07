@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="view/css/statistical.css">
   <link rel="stylesheet" href="view/css/product_section2.css">
   <link rel="stylesheet" href="view/css/user_section.css">
+  <link rel="stylesheet" href="view/css/insert_product_section.css">
 
   <!-- responsive -->
   <!-- reset css -->

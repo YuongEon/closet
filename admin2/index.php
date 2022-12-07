@@ -1,4 +1,8 @@
 <?php
+  include "../model/global_function.php";
+  include "../model/pdo.php";
+  include "../model/san_pham_funtion.php";
+  include "../model/user_function.php";
   include "./view/header.php";
   include "./view/content.php";
 
