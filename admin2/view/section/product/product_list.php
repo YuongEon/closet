@@ -1,81 +1,93 @@
 <section>
-  <div class="product__section__top__ability">
-    <div class="product__section__search--box">
-      <form class="product__section__search--form">
-        <input class="product__section__search--value" type="" name="" placeholder="Nhập tên sản phẩm...">
-        <button type="submit" name="product__section__search--submit" class="product__section__search--submit">Tìm sản phẩm</button>
+  <div class="data__section__top__ability">
+    <div class="data__section__search--box">
+      <form method="POST" action="index.php?section=product_list" class="data__section__search--form">
+        <input class="data__section__search--value" type="text" name="product__section__search--value" placeholder="Nhập tên sản phẩm...">
+        <button type="submit" name="product__section__search--submit" class="data__section__search--submit">Tìm sản phẩm</button>
       </form>
     </div>
-    <div class="product__section__function__btn__wrap">
-      <div class="product__section__function__btn">
-        <a href="" class="product__section__function__btn--link">
+    <div class="data__section__function__btn__wrap">
+      <div class="data__section__function__btn">
+        <a href="index.php?section=insert_product" class="data__section__function__btn--link">
           <button>Thêm mới sản phẩm</button>
         </a>
       </div>
-      <div class="product__section__function__btn">
-        <a href="" class="product__section__function__btn--link">
+      <div class="data__section__function__btn">
+        <a href="" class="data__section__function__btn--link">
           <button>Thống kê sản phẩm</button>
         </a>
       </div>
     </div>
 
   </div>
-  <div class="product__table">
-    <div class="product_table--head">
-      <ul class="product__list">
-        <li class="product__label--box">
-          <p class="product__list--label">Ảnh sản phẩm</p>
+  <div class="data__table">
+    <div class="data_table--head">
+      <ul class="data__list">
+        <li class="data__label--box">
+          <p class="data__list--label">Ảnh sản phẩm</p>
         </li>
-        <li class="product__label--box">
-          <p class="product__list--label">Tên sản phẩm</p>
+        <li class="data__label--box">
+          <p class="data__list--label">Tên sản phẩm</p>
         </li>
-        <li class="product__label--box">
-          <p class="product__list--label">Số lượng sản phẩm</p>
+        <li class="data__label--box">
+          <p class="data__list--label">Số lượng sản phẩm</p>
         </li>
-        <li class="product__label--box">
-          <p class="product__list--label">Giá sản phẩm</p>
+        <li class="data__label--box">
+          <p class="data__list--label">Giá sản phẩm</p>
         </li>
-        <li class="product__label--box">
-          <p class="product__list--label">Chức năng</p>
+        <li class="data__label--box">
+          <p class="data__list--label">Chức năng</p>
         </li>
       </ul>
     </div>
-    <div class="product_table--body">
-      <ul class="product__list">
-        <li class="product__value--box">
-          <div class="product__list--value product__img--box">
-            <img class="product__img" src="https://static01.nyt.com/images/2013/09/22/magazine/22wmt/22wmt-superJumbo-v2.jpg" alt="">
+    <div class="data_table--body">
+      <?php foreach($products as $product_key => $product_value): ?>
+      <ul class="data__list">
+        <li class="data__value--box">
+          <div class="data__list--value data__img--box">
+            <?php $path_product_img = "$product_value[anh_sp]" ?>
+            <img class="data__img" src="<?= $path_product_img ?>" alt="<? $product_value['ten_sp'] ?>">
           </div>
         </li>
-        <li class="product__value--box product__value--name--box">
-          <div class="product__list--value product__value--name">Áo đẹp okok</div>
+        <li class="data__value--box data__value--name--box">
+          <div class="data__list--value data__value--name"><?= $product_value['ten_sp'] ?></div>
         </li>
-        <li class="product__value--box product__value--name--box">
-          <div class="product__list--value product__value--quantity">100</div>
+        <li class="data__value--box data__value--name--box">
+          <?php 
+            $sql_product_quantity_arr = "SELECT `so_luong_sp` FROM `phan_loai` WHERE `id_sp` = $product_value[id_sp]";
+            $product_quantity_arr = pdo_query($sql_product_quantity_arr);
+            $total_product_quantity = 0;
+
+            foreach($product_quantity_arr as $product_quantity_arr_value){
+              $total_product_quantity += $product_quantity_arr_value['so_luong_sp'];
+            }
+          ?>
+          <div class="data__list--value data__value--quantity"><?= $total_product_quantity ?></div>
         </li>
-        <li class="product__value--box product__value--price--box">
-          <div class="product__list--value product__value--price">100000 đ</div>
+        <li class="data__value--box data__value--price--box">
+          <div class="data__list--value data__value--price"><?= currency_format($product_value['gia_sp']) ?></div>
         </li>
-        <li class="product__value--box">
-          <div class="product__list--value product__value--btn--wrap">
-            <div class="product__value__btn">
-              <a href="" class="product__value__btn--link product__value__btn__info">
-                <button>Chi Tiết</button>
+        <li class="data__value--box">
+          <div class="data__list--value data__value--btn--wrap">
+            <div class="data__value__btn">
+              <a href="" class="data__value__btn--link">
+                <button class="btn__info">Chi Tiết</button>
               </a>
             </div>
-            <div class="product__value__btn">
-              <a href="" class="product__value__btn--link product__value__btn__update">
-                <button>Chỉnh sửa</button>
+            <div class="data__value__btn">
+              <a href="" class="data__value__btn--link">
+                <button class="btn__update">Chỉnh sửa</button>
               </a>
             </div>
-            <div class="product__value__btn">
-              <a href="" class="product__value__btn--link product__value__btn__delete">
-                <button>Xoá</button>
+            <div class="data__value__btn">
+              <a href="" class="data__value__btn--link">
+                <button class="btn__delete">Xoá</button>
               </a>
             </div>
           </div>
         </li>
       </ul>
+      <?php endforeach ?>
     </div>
   </div>
 </section>

@@ -9,6 +9,7 @@ payment_update_user_address.addEventListener('click', () => {
   } else {
     insert_user_address_form.style.display = 'none';
     update_user_address_form.style.display = 'block';
+    update_user_address_form.style.animation = 'opacityShowingUp 0.2s ease-in-out';
     isInsertAddress = true;
   }
   isUpdateAddress = !isUpdateAddress;

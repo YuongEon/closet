@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 ?>
 <?php
 $id_user = 1;
@@ -22,10 +23,11 @@ $cart_products_length = count($cart_products);
   <link rel="stylesheet" href="views/css/footer_style.css">
   <link rel="stylesheet" href="views/css/homepage.css">
   <link rel="stylesheet" href="views/css/product_page.css">
-  <link rel="stylesheet" href="views/css/product_detail_page.css">
+  <link rel="stylesheet" href="views/css/product_detail.css">
   <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/payment_page.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
+  <link rel="stylesheet" href="views/css/keyframes_library.css">
   <!-- reset css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +38,7 @@ $cart_products_length = count($cart_products);
 
   <!-- font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -83,9 +86,15 @@ $cart_products_length = count($cart_products);
 
           <div class="header__user__box">
             <div class="header__user">
-              <a href="" class="header__user--link">
+              <?php if(!isset($_SESSION['tai_khoan'])){ ?>
+              <a href="login_method/index.php" class="header__user--link">
                 <i class="fa-solid fa-user"></i>
               </a>
+              <?php } else { ?>
+                <a href="login_method/login_views/logout.php" class="header__user--link">
+                <i class="fa-solid fa-user"></i>
+              </a>
+              <?php } ?>
             </div>
           </div>
 
