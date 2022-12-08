@@ -112,7 +112,7 @@
         if($check_if_err == 0){
           $password_hash = password_hash("$password", PASSWORD_DEFAULT);
 
-          $sql_insert_user = "INSERT INTO `tai_khoan` (`id_tai_khoan`, `ho_va_ten`, `username`, `password`, `avatar`, `email`, `sdt`, `loai_tai_khoan`) VALUES (NULL, '$full_name', '$username', '$password_hash', NULL, '$email', '$phone_number', '0')";
+          $sql_insert_user = "INSERT INTO `tai_khoan` (`id_tai_khoan`, `ho_va_ten`, `username`, `password`, `avatar`, `email`, `sdt`, `loai_tai_khoan`, `trang_thai`) VALUES (NULL, '$full_name', '$username', '$password_hash', NULL, '$email', '$phone_number', '0', '0')";
           pdo_execute($sql_insert_user);
 
           $loginUser = "SELECT * FROM `tai_khoan` WHERE username = '$username'";

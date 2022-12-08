@@ -51,17 +51,17 @@
         <li class="data__value--box">
           <div class="data__list--value data__value--btn--wrap">
             <div class="data__value__btn">
-              <a href="" class="data__value__btn--link data__value__btn__info">
+              <a href="" class="data__value__btn--link">
                 <button class="btn__info">Chi Tiết</button>
               </a>
             </div>
             <div class="data__value__btn">
-              <a href="" class="data__value__btn--link data__value__btn__update">
+              <a href="" class="data__value__btn--link">
                 <button class="btn__update">Chỉnh sửa</button>
               </a>
             </div>
             <div class="data__value__btn">
-              <a href="" class="data__value__btn--link data__value__btn__delete">
+              <a href="" class="data__value__btn--link">
                 <button class="btn__delete">Xoá</button>
               </a>
             </div>

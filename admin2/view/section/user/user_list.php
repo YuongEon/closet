@@ -1,87 +1,65 @@
 <section>
-  <div class="user__section__top__ability">
-    <div class="user__section__search--box">
-      <form class="user__section__search--form">
-        <input class="user__section__search--value" type="" name="" placeholder="Nhập tên khách hàng...">
-        <button type="submit" name="user__section__search--submit" class="user__section__search--submit">Tìm khách hàng</button>
+  <div class="data__section__top__ability">
+    <div class="data__section__search--box">
+      <form method="POST" action="index.php?section=user_list" class="data__section__search--form">
+        <input class="data__section__search--value" type="text" name="user__section__search--value" placeholder="Nhập tên khách hàng...">
+        <button type="submit" name="user__section__search--submit" class="data__section__search--submit">Tìm khách hàng</button>
       </form>
     </div>
-    <div class="user__section__function__btn__wrap">
-      <div class="user__section__function__btn">
-        <a href="" class="user__section__function__btn--link">
-          <button>Thống kê số lượng khách hàng</button>
+    <div class="data__section__function__btn__wrap">
+      <div class="data__section__function__btn">
+        <a href="index.php?section=insert_user" class="data__section__function__btn--link">
+          <button>Thêm mới khách hàng</button>
+        </a>
+      </div>
+      <div class="data__section__function__btn">
+        <a href="" class="data__section__function__btn--link">
+          <button>Thống kê khách hàng</button>
         </a>
       </div>
     </div>
 
   </div>
-  <div class="user__table">
-    <div class="user_table--head">
-      <ul class="user__list">
-        <li class="user__label--box">
-          <p class="user__list--label">ID khách hàng</p>
+  <div class="data__table">
+    <div class="data_table--head">
+      <ul class="data__list">
+        <li class="data__label--box">
+          <p class="data__list--label">Tên khách hàng</p>
         </li>
-        <li class="user__label--box">
-          <p class="user__list--label">Tên khách hàng</p>
+        <li class="data__label--box">
+          <p class="data__list--label">Email</p>
         </li>
-        <li class="user__label--box">
-          <p class="user__list--label">Số điện thoại</p>
+        <li class="data__label--box">
+          <p class="data__list--label">Số điện thoại</p>
         </li>
-        <li class="user__label--box">
-          <p class="user__list--label">Email</p>
-        </li>
-        <li class="user__label--box">
-          <p class="user__list--label">Chức năng</p>
+        <li class="data__label--box">
+          <p class="data__list--label">Chức năng</p>
         </li>
       </ul>
     </div>
-    <div class="user_table--body">
-      <ul class="user__list">
-        <li class="user__value--box user__value--name--box">
-          <div class="user__list--value user__value--id">1</div>
+    <div class="data_table--body">
+      <?php foreach($users as $user_key => $user_value): ?>
+      <ul class="data__list">
+        <li class="data__value--box data__value--name--box">
+          <div class="data__list--value data__value--name"><?= $user_value['ho_va_ten'] ?></div>
         </li>
-        <li class="user__value--box user__value--name--box">
-          <div class="user__list--value user__value--name">Lê tuấn dương</div>
+        <li class="data__value--box data__value--name--box">
+          <div class="data__list--value data__value--quantity"><?= $user_value['email'] ?></div>
         </li>
-        <li class="user__value--box user__value--price--box">
-          <div class="user__list--value user__value--phone">09851085034</div>
+        <li class="data__value--box data__value--price--box">
+          <div class="data__list--value data__value--price"><?= $user_value['sdt'] ?></div>
         </li>
-        <li class="user__value--box user__value--price--box">
-          <div class="user__list--value user__value--email">duong@gmail.com</div>
-        </li>
-        <li class="user__value--box">
-          <div class="user__list--value user__value--btn--wrap">
-            <div class="user__value__btn">
-              <a href="" class="user__value__btn--link user__value__btn__block">
-                <button>Chặn</button>
+        <li class="data__value--box">
+          <div class="data__list--value data__value--btn--wrap">
+            <div class="data__value__btn">
+              <a href="" class="data__value__btn--link">
+                <button class="btn__delete">Chặn</button>
               </a>
             </div>
           </div>
         </li>
       </ul>
-      <ul class="user__list">
-        <li class="user__value--box user__value--name--box">
-          <div class="user__list--value user__value--id">1</div>
-        </li>
-        <li class="user__value--box user__value--name--box">
-          <div class="user__list--value user__value--name">Lê tuấn dương</div>
-        </li>
-        <li class="user__value--box user__value--price--box">
-          <div class="user__list--value user__value--phone">09851085034</div>
-        </li>
-        <li class="user__value--box user__value--price--box">
-          <div class="user__list--value user__value--email">duong@gmail.com</div>
-        </li>
-        <li class="user__value--box">
-          <div class="user__list--value user__value--btn--wrap">
-            <div class="user__value__btn">
-              <a href="" class="user__value__btn--link user__value__btn__block">
-                <button>Chặn</button>
-              </a>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <?php endforeach ?>
     </div>
   </div>
 </section>

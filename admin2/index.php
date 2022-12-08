@@ -4,7 +4,7 @@
   include "../model/san_pham_funtion.php";
   include "../model/user_function.php";
   include "./model/admin_product_function.php";
-  
+
   include "./view/header.php";
   include "./view/content.php";
 
@@ -125,6 +125,14 @@
 
 
     case "user_list":
+      if(isset($_POST['user__section__search--submit'])){
+        $user_search_name = $_POST['user__section__search--value'];
+
+        $sql_get_product_user_by_keyword = "SELECT * FROM `tai_khoan` WHERE `ho_va_ten` LIKE '%$brand_search_name%'";
+        $users = pdo_query($sql_get_product_user_by_keyword);
+      } else {
+        $users = loading_product_user_without_id_user();
+      }
       include "./view/section/user/user_list.php";
       break;
     default: 

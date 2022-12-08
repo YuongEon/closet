@@ -75,6 +75,17 @@
               </div>
 
             </div>
+
+            <?php 
+              $total = 0;
+              foreach($classify as $get_each_price_classify){
+                $total += $get_each_price_classify['so_luong_sp'];
+              }
+            ?>
+            <div class="product__total__quantity">
+              <p class="product__total_quantity--label">Tổng số lượng sản phẩm:</p>
+              <p class="product__total__quantity--value"><?= $total ?></p>
+            </div>
             
             <div class="product__add__to__cart__quantity">
               <div class="product__addition__quantity">+</div>
@@ -142,4 +153,4 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="js/function.js"></script>
+<script type="text/javascript" src="js/change_quantity.js"></script>

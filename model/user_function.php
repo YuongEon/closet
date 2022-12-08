@@ -47,3 +47,10 @@
     );
     return $user_info_for_payment_page;
   }
+
+  function loading_product_user_without_id_user(){
+    $sql_loading_user_without_id_user = "SELECT * FROM `tai_khoan`";
+    $users = pdo_query($sql_loading_user_without_id_user);
+    return $users;
+  } 
+?>
