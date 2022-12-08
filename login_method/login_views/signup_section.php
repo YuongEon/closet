@@ -22,7 +22,7 @@
           <div class="filed__label">Mật khẩu</div>
           <input type="password" name="password" class="filed__value">
         </div>
-        <button class="submit__btn" name="signup__btn" type="submit">Đăng nhập</button>
+        <button class="submit__btn" name="signup__btn" type="submit">Đăng ký</button>
       </form>
     </div>
     <div class="change__method__box">
