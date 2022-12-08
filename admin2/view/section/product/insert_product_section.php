@@ -1,12 +1,12 @@
 <section>
-  <div class="insert__product__section">
-    <div class="insert__product__section--wrap">
-      <div class="insert__product_label--box">
-        <p class="insert__product__label">Thêm mới sản phẩm</p>
+  <div class="insert__data__section">
+    <div class="insert__data__section--wrap">
+      <div class="insert__data_label--box">
+        <p class="insert__data__label">Thêm mới sản phẩm</p>
       </div>
 
-      <div class="insert__product__wrap">
-        <form method="POST" action="index.php?section=insert_classify_product" class="insert__product__form" enctype="multipart/form-data">
+      <div class="insert__data__wrap">
+        <form method="POST" action="index.php?section=insert_classify_product" class="insert__data__form" enctype="multipart/form-data">
           <div class="form__control">
             <div class="form__control--wrap">
               <label class="form__control--name">Tên sản phẩm</label>

@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +11,15 @@
   <link rel="icon" type="image/x-icon" href="../views/image/Closet.png" style="border-radius: 50%">
   <!-- global css -->
   <link rel="stylesheet" href="view/css/global.css">
+  <link rel="stylesheet" href="view/css/library.css">
   <!-- content css -->
   <link rel="stylesheet" href="view/css/content.css">
   <!-- section css -->
   <!-- <link rel="stylesheet" href="view/css/admin_section.css"> -->
   <link rel="stylesheet" href="view/css/statistical.css">
-  <link rel="stylesheet" href="view/css/product_section2.css">
+  <link rel="stylesheet" href="view/css/data_section.css">
+  <link rel="stylesheet" href="view/css/insert_data_section.css">
   <link rel="stylesheet" href="view/css/user_section.css">
-  <link rel="stylesheet" href="view/css/insert_product_section.css">
 
   <!-- responsive -->
   <!-- reset css -->

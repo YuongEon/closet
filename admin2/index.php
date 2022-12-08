@@ -4,6 +4,7 @@
   include "../model/san_pham_funtion.php";
   include "../model/user_function.php";
   include "./model/admin_product_function.php";
+  
   include "./view/header.php";
   include "./view/content.php";
 
@@ -17,8 +18,16 @@
     case "statistical":
       include "./view/section/dashboard/statistical.php";
       break;
+
       // product section
     case "product_list":
+      if(isset($_POST['product__section__search--submit'])){
+        $product_search_name = $_POST['product__section__search--value'];
+        $products = loading_products('', '' ,$product_search_name, '');
+      } else {
+        $products = loading_product_without_id_product();
+      }
+
       include "./view/section/product/product_list.php";
       break;
     case "insert_product":
@@ -59,13 +68,62 @@
         admin_insert_product_classify($product_id, $color, $size, $product_quantity);
         
       }
-
-      if(isset($_POST['form__insert__classify__product__out--btn'])){
-        header("location: index.php?section=product_list");
-      }
-      
       include "./view/section/product/insert_classify_product.php";
       break;
+
+      // category
+    case "category_list":
+      if(isset($_POST['category__section__search--submit'])){
+        $category_search_name = $_POST['category__section__search--value'];
+
+        $sql_get_product_category_by_keyword = "SELECT * FROM `loai_sp` WHERE `ten_loai_sp` LIKE '%$category_search_name%'";
+        $categories = pdo_query($sql_get_product_category_by_keyword);
+      } else {
+        $categories = loading_product_category_without_id_product();
+      }
+      include "./view/section/category/category_list.php";
+      break;
+
+      case "insert_category":
+        if(isset($_POST['form__insert__category__submit--btn'])){
+          $category_name = $_POST['ten_loai_sp'];
+
+          $sql_insert_into_category = "INSERT INTO `loai_sp` (`id_loai_sp`, `ten_loai_sp`) VALUES (NULL, '$category_name')";
+          pdo_execute($sql_insert_into_category);
+
+          header("Location: index.php?section=category_list");
+          ob_end_flush();
+        }
+        include "./view/section/category/insert_category_section.php";
+        break;
+
+        // brand
+    case "brand_list":
+      if(isset($_POST['brand__section__search--submit'])){
+        $brand_search_name = $_POST['brand__section__search--value'];
+
+        $sql_get_product_brand_by_keyword = "SELECT * FROM `brand` WHERE `ten_brand` LIKE '%$brand_search_name%'";
+        $brands = pdo_query($sql_get_product_brand_by_keyword);
+      } else {
+        $brands = loading_product_brand_without_id_product();
+      }
+      include "./view/section/brand/brand_list.php";
+      break;
+
+      case "insert_brand":
+        if(isset($_POST['form__insert__brand__submit--btn'])){
+          $brand_name = $_POST['ten_brand'];
+
+          $sql_insert_into_brand = "INSERT INTO `brand` (`id_brand`, `ten_brand`) VALUES (NULL, '$brand_name')";
+          pdo_execute($sql_insert_into_brand);
+
+          header("Location: index.php?section=brand_list");
+          ob_end_flush();
+        }
+        include "./view/section/brand/insert_brand_section.php";
+        break;
+
+
     case "user_list":
       include "./view/section/user/user_list.php";
       break;

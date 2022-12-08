@@ -1,9 +1,9 @@
 /* category */
-.product__list--value{
+.data__list--value{
 
 }
 
-.product__img--box{
+.data__img--box{
   width: 90px;
   height: 90px;
   overflow: hidden;
@@ -14,46 +14,46 @@
   -o-border-radius: 4px;
 }
 
-.product__value--box{
+.data__value--box{
   flex: 1;
 }
 
-.product__value--name--box{
+.data__value--name--box{
 
 }
 
-.product__value--name{
+.data__value--name{
 
 }
 
-.product__value--price--box{
+.data__value--price--box{
 
 }
 
-.product__value--price{
+.data__value--price{
 
 }
 
-.product__value--btn--wrap{
+.data__value--btn--wrap{
   display: flex;
   flex-direction: column;
 }
 
-.product__section__function__btn__wrap{ 
+.data__section__function__btn__wrap{ 
   display: flex;
   justify-content: right;
   align-items: center;
 }
 
-.product__section__function__btn{ 
+.data__section__function__btn{ 
   margin-left: 20px;
 }
 
-.product__section__function__btn--link{ 
+.data__section__function__btn--link{ 
   display: block;
 }
 
-.product__section__function__btn--link button{
+.data__section__function__btn--link button{
   border: none;
   background-color:  var(--main-color-lighter-v2);
   padding: 10px 20px;
@@ -73,7 +73,7 @@
   -o-transition: all 0.2s ease-in-out;
 }
 
-.product__section__function__btn--link button:hover{
+.data__section__function__btn--link button:hover{
   transform: translateY(-3px);
   -webkit-transform: translateY(-3px);
   -moz-transform: translateY(-3px);
@@ -82,11 +82,11 @@
   box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.2);
 }
 
-.product__table{ 
+.data__table{ 
   margin-top: 26px;
 }
 
-.product_table--head{
+.data_table--head{
   background-color: var(--main-color-lighter-v2);
   padding: 10px;
   border-radius: 4px;
@@ -96,70 +96,73 @@
   -o-border-radius: 4px;
 }
 
-.product__list{ 
+.data__list{ 
   display: flex;
 }
 
-.product__label--box{ 
+.data__label--box{ 
   flex: 1; 
   text-align: center;
 }
 
-.product__list--label{ 
+.data__list--label{ 
 
 }
 
-.product_table--body .product__list:nth-child(even){ 
+.data_table--body .data__list:nth-child(even){ 
   background-color: #ffe6c2;
   padding: 10px 0;
 }
-.product_table--body .product__list:nth-child(odd){ 
+.data_table--body .data__list:nth-child(odd){ 
   background-color: #ffedcf;
   padding: 10px 0;
 }
 
-.product__value--box{ 
+.data__value--box{ 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.product__img{ 
+.data__img{ 
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.product__value__btn{ 
-
+.data__value__btn{ 
+  margin-bottom: 6px;
+}
+.data__value__btn:last-child(){ 
+  margin-bottom: 0px;
 }
 
-.product__value__btn--link{ 
+.data__value__btn--link{ 
   display: block;
   width: 100%;
 }
 
-.product__value__btn--link button{ 
+.data__value__btn--link button{ 
   width: 100%;
 }
 
-.product__section__top__ability{ 
+.data__section__top__ability{ 
   margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.product__section__search--box{ 
+.data__section__search--box{ 
   
 }
 
-.product__section__search--form{ 
+.data__section__search--form{ 
   display: flex;
   align-items: center;
 }
 
-.product__section__search--value{
+.data__section__search--value{
   width: 300px;
   height: 38px;
   border: none;
@@ -176,7 +179,7 @@
   font-family: "nunito";
 }
 
-.product__section__search--submit{
+.data__section__search--submit{
   width: 150px;
   height: 38px;
   border: none;
@@ -193,7 +196,7 @@
   cursor: pointer;
 }
 
-.product__value__btn--link button{
+.data__value__btn--link button{
   border: none;
   padding: 6px 10px;
   border-radius: 4px;
@@ -201,26 +204,5 @@
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
-  margin-bottom: 6px;
   cursor: pointer;
-}
-
-.product__value__btn--link button:last-child(){
-  margin-bottom: 0px;
-}
-
-.product__value__btn__info button{
-  background-color: #78bbff;
-}
-.product__value__btn__update button{
-  background-color: #ffeb02;
-}
-.product__value__btn__delete button{
-  background-color: #ff4e4e;
-}
-
-
-
-.product__value__btn__info button + .product__value__btn__info button{
-  
 }

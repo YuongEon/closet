@@ -30,13 +30,13 @@
             </a>
           </li>
           <li>
-            <a href="index.php?section=ql_sp" class="nav_link">
+            <a href="index.php?section=category_list" class="nav_link">
               <i class="fa-solid fa-inbox"></i>
               <span class="nav_text">Quản lý danh mục</span>
             </a>
           </li>
           <li>
-            <a href="index.php?section=ql_sp" class="nav_link">
+            <a href="index.php?section=brand_list" class="nav_link">
               <i class="fa-solid fa-copyright"></i>
               <span class="nav_text">Quản lý brand</span>
             </a>

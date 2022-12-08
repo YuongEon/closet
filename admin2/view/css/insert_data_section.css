@@ -6,31 +6,31 @@
 
 }
 
-.insert__product__section{ 
+.insert__data__section{ 
 
 }
 
-.insert__product__section--wrap{ 
+.insert__data__section--wrap{ 
   padding-inline: 40px;
   padding-bottom: 40px;
 }
 
-.insert__product_label--box{ 
+.insert__data_label--box{ 
   margin-block: 20px 40px;
 }
 
-.insert__product__label{ 
+.insert__data__label{ 
   font-size: 20px;
   font-weight: 600;
   text-align: center;
   color: var(--main-color);
 }
 
-.insert__product__wrap{ 
+.insert__data__wrap{ 
 
 }
 
-.insert__product__form{ 
+.insert__data__form{ 
   display: flex;
   flex-direction: column;
 } 
@@ -139,28 +139,30 @@ input[type="file"].form__control--value.form__control--value__img::file-selector
 }
 
 /* insert classify */
-.insert__product__label--product__name--box{ 
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-}
 
-.insert__product__label--product__name--label{ 
+
+.insert__data__label--product__name--label{ 
   margin-right: 10px;
   font-size: 16px;
   font-weight: 500;
 }
 
-.insert__product__label--product__name--value{ 
+.insert__data__label--product__name--value{ 
   font-size: 16px;
   font-weight: 500;
 }
 
-.insert__product__wrap.insert__classify__product__wrap{
+.insert__data__wrap.insert__classify__product__wrap{
   display: flex;
   justify-content: center;
 }
 
-.insert__product__label--product__name--box.insert__classify__product__label--product__name--box{
+.insert__data__label--product__name--box.insert__classify__product__label--product__name--box{
+  display: flex;
   justify-content: center;
+  margin-top: 30px;
+}
+
+.insert__value__form.insert__data__form{
+  align-items: center;
 }

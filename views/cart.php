@@ -5,7 +5,7 @@
       <div class="cart__section__label__img--box">
         <img class="cart__section__label__img" src="views/image/sad.png" alt="">
       </div>
-      <p class="cart__section__label">Oops! Bạn chưa có sản phẩm nào trong giỏ hàng rồi</p>
+      <p class="cart__section__label">Oops! Bạn chưa có sản phẩm nào trong giỏ hàng rồi...</p>
     </div>
   </div>
   <?php } else { ?>

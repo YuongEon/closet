@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 ?>
 <?php
 $id_user = 1;
@@ -84,9 +85,15 @@ $cart_products_length = count($cart_products);
 
           <div class="header__user__box">
             <div class="header__user">
-              <a href="" class="header__user--link">
+              <?php if(!isset($_SESSION['tai_khoan'])){ ?>
+              <a href="login_method/index.php" class="header__user--link">
                 <i class="fa-solid fa-user"></i>
               </a>
+              <?php } else { ?>
+                <a href="login_method/login_views/logout.php" class="header__user--link">
+                <i class="fa-solid fa-user"></i>
+              </a>
+              <?php } ?>
             </div>
           </div>
 

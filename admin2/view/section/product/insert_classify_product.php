@@ -1,16 +1,16 @@
 <section>
-  <div class="insert__product__section">
-    <div class="insert__product__section--wrap insert__classify__product__section--wrap">
-      <div class="insert__product_label--box">
-        <p class="insert__product__label">Tạo phân loại cho sản phẩm</p>
-        <div class="insert__product__label--product__name--box insert__classify__product__label--product__name--box">
-          <p class="insert__product__label--product__name--label">Tên sản phẩm:</p>
-          <p class="insert__product__label--product__name--value"><?= $product_name_add_classify ?></p>
+  <div class="insert__data__section">
+    <div class="insert__data__section--wrap insert__classify__product__section--wrap">
+      <div class="insert__data_label--box">
+        <p class="insert__data__label">Tạo phân loại cho sản phẩm</p>
+        <div class="insert__data__label--product__name--box insert__classify__product__label--product__name--box">
+          <p class="insert__data__label--product__name--label">Tên sản phẩm:</p>
+          <p class="insert__data__label--product__name--value"><?= $product_name_add_classify ?></p>
         </div>
       </div>
 
-      <div class="insert__product__wrap insert__classify__product__wrap">
-        <form method="POST" action="index.php?section=insert_classify_product" class="insert__product__form" enctype="multipart/form-data">
+      <div class="insert__data__wrap insert__classify__product__wrap">
+        <form method="POST" action="index.php?section=insert_classify_product" class="insert__data__form" enctype="multipart/form-data">
           <div class="form__control">
             <div class="form__control--wrap">
               <label class="form__control--name">Phân loại màu</label>
@@ -32,10 +32,12 @@
   
           <div class="form__submit--box">
             <button class="form__submit--btn" name="form__insert__classify__product__add--btn">Thêm</button>
-            <button class="form__submit--btn" name="form__insert__classify__product__out--btn">Thoát</button>
           </div>
         </form>
       </div>
+      <a href="index.php?section=product_list" style="text-decoration: none; display:block; text-align: right; margin-top: 20px">
+        <button class="form__submit--btn" style="background-color: #f74d4d;">Thoát</button>
+      </a>
     </div>
   </div>
 </section>

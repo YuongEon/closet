@@ -14,7 +14,8 @@
           <div class="content__product__card col-4 col-6">
             <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
               <div class="product__img--box">
-                <img src="<?= $product_value['anh_sp'] ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
+                <?php $path_product_img_best_sale = "admin2/$product_value[anh_sp]"; ?>
+                <img src="<?= $path_product_img_best_sale ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
               <div class="product__info--box">
                 <div class="product__name--box">
@@ -40,11 +41,12 @@
       </p>
       <div class="content__product__list">
 
-        <?php foreach ($flash_sale_products as $product_key => $product_value) : ?>
+        <?php foreach ($flash_sale_products as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
             <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
               <div class="product__img--box">
-                <img src="<?= $product_value['anh_sp'] ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
+                <?php $path_product_img_flash_sale = "admin2/$product_value[anh_sp]" ?>
+                <img src="<?= $path_product_img_flash_sale ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
               <div class="product__info--box">
                 <div class="product__name--box">
