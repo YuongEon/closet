@@ -3,8 +3,11 @@ include "./model/pdo.php";
 include "./model/san_pham_funtion.php";
 include "./model/user_function.php";
 include "./model/global_function.php";
-$id_user = 1;
+session_start();
+
+$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 include "views/header.php";
+
 
 if (isset($_GET['page']) && $_GET['page'] != "") {
   $page = $_GET['page'];
@@ -76,22 +79,28 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
           $error .= "⚠️ Vui lòng chọn size hoặc màu sắc sản phẩm!";
           function_alert($error);
         } else {
-          $select_product_quantity_of_each_classify = "SELECT * FROM phan_loai WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
-          $product_quantity_of_each_classify = pdo_query_one($select_product_quantity_of_each_classify);
 
-          $stocking_product = true;
-          if($product_quantity_of_each_classify['so_luong_sp'] > 0){
-            $stocking_product = true;
-          } else {
-            $stocking_product = false;
-          }
-          if ($stocking_product == false) {
-            $error .= "Sản phẩm đã hết hàng!";
-            function_alert($error);
-          } else {
-            insert_product_to_cart($cart_products, $user_id, $product_id, $product_buy_quantity, $product_size, $product_color);
-            header("location: index.php?page=product_detail&id_product=$product_id");
+          if(!isset($_SESSION['tai_khoan'])){
+            header("location: ./login_method/index.php");
             ob_end_flush();
+          } else {
+            $select_product_quantity_of_each_classify = "SELECT * FROM phan_loai WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
+            $product_quantity_of_each_classify = pdo_query_one($select_product_quantity_of_each_classify);
+
+            $stocking_product = true;
+            if($product_quantity_of_each_classify['so_luong_sp'] > 0){
+              $stocking_product = true;
+            } else {
+              $stocking_product = false;
+            }
+            if ($stocking_product == false) {
+              $error .= "Sản phẩm đã hết hàng!";
+              function_alert($error);
+            } else {
+              insert_product_to_cart($cart_products, $user_id, $product_id, $product_buy_quantity, $product_size, $product_color);
+              header("location: index.php?page=product_detail&id_product=$product_id");
+              ob_end_flush();
+            }
           }
         }
       }
@@ -129,7 +138,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         ob_end_flush();
       }
       // get product
-      $cart_products = get_cart_products(1);
+      $cart_products = get_cart_products($id_user);
       // get total
       $total = 0;
       foreach ($cart_products as $cart_product_value) {;
@@ -218,6 +227,15 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $take_order_date = date("d/m/Y");
       $pick_up_date_soonest = date('d/m/Y', strtotime("+7 day"));
       $pick_up_date_latest = date('d/m/Y', strtotime("+10 day"));
+
+      if(isset($_GET['isOrder']) && $_GET['isOrder'] == true){
+        $from = "boyjackgamer@gmail.com";
+        $to = "$_SESSION[tai_khoan][email]";
+        $subject = "THÔNG BÁO ĐẶT HÀNG THÀNH CÔNG!";
+        $message = "PHP mail works just fine";
+        $headers = "From:" . $from;
+        mail($to,$subject,$message, $headers);
+      }
 
       include "views/payment_page.php";
       break;

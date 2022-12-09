@@ -3,7 +3,7 @@ ob_start();
 session_start();
 ?>
 <?php
-$id_user = 1;
+$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 $cart_products = get_cart_products($id_user);
 $cart_products_length = count($cart_products);
 ?>
@@ -21,7 +21,7 @@ $cart_products_length = count($cart_products);
   <link rel="stylesheet" href="views/css/global_style.css">
   <link rel="stylesheet" href="views/css/header_style.css">
   <link rel="stylesheet" href="views/css/footer_style.css">
-  <link rel="stylesheet" href="views/css/homepage.css">
+  <link rel="stylesheet" href="views/css/homepage_page.css">
   <link rel="stylesheet" href="views/css/product_page.css">
   <link rel="stylesheet" href="views/css/product_detail.css">
   <link rel="stylesheet" href="views/css/cart.css">

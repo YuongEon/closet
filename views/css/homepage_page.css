@@ -120,6 +120,10 @@
   object-fit: cover;
 }
 
+.product__img--box .product__img--img{
+  width: 100%  !important;
+}
+
 .product__info--box{ 
   flex: 1;
   display: flex;

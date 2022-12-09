@@ -1,3 +1,18 @@
+<?php
+    // delete product don't have quantity and classify
+    $sql_select_to_product = "SELECT * FROM san_pham";
+    $product_invalid = pdo_query($sql_select_to_product);
+  
+    foreach($product_invalid as $product_invalid_item){
+      $sql_select_to_classify = "SELECT * FROM `phan_loai` WHERE `id_sp` = '$product_invalid_item[id_sp]'";
+      $product_classify = pdo_query($sql_select_to_classify);
+      
+      if(sizeof($product_classify) == 0){
+        $sql_delete_product_invalid = "DELETE FROM `san_pham` WHERE `id_sp` = '$product_invalid_item[id_sp]'";
+        pdo_execute($sql_delete_product_invalid);
+      }
+    }
+?>
 <section>
   <div class="data__section__top__ability">
     <div class="data__section__search--box">

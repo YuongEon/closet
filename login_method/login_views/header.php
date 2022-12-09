@@ -29,7 +29,7 @@ ob_start();
       <div class="header__top">
         <div class="header__logo__box">
           <div class="header__logo">
-            <a href="#" class="header__logo--link">
+            <a href="../index.php" class="header__logo--link">
               CLOSET
             </a>
           </div>

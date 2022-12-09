@@ -135,7 +135,7 @@
             <p class="pay__total__price"><?= currency_format($total) ?></p>
           </div>
           <div class="pay__btn">
-            <a href="" class="pay__btn--link">
+            <a href="index.php?page=payment_page&isOrder=true" class="pay__btn--link">
               <button class="pay__btn--btn">Đặt hàng</button>
             </a>
           </div>
