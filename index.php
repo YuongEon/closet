@@ -257,11 +257,13 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         if($payment_method_user_selected == ''){
           function_alert("⚠️ Bạn chưa chọn phương thức thanh toán!");
         } else {
-          $sql_insert_into_bill = "INSERT INTO `chi_tiet_bill` (`id_bill`, `id_tai_khoan`, `san_pham_order`, `ngay_mua`, `ngay_nhan_hang`, `phuong_thuc_thanh_toan`) VALUES (NULL,'$user_login[id_tai_khoan]','$product_of_bill_string','$date_order','$date_take_order_latest','$payment_method_user_selected')";
+          $sql_insert_into_bill = "INSERT INTO `chi_tiet_bill` (`id_bill`, `id_tai_khoan`, `san_pham_order`, `ngay_mua`, `ngay_nhan_hang`, `phuong_thuc_thanh_toan`, `trang_thai_bill`) VALUES (NULL, '$user_info[id_tai_khoan]', '$product_of_bill_string', '$date_order', '$date_take_order_latest', '$payment_method_user_selected', '0');";
           pdo_execute($sql_insert_into_bill);
-        }
 
-
+          // select to bill
+        $sql_select_to_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
+        $bill = pdo_query($sql_select_to_bill);
+        $last_bill = end($bill);
 
         // send mail
         $mail = new PHPMailer(true);
@@ -279,11 +281,64 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $mail->isHTML(true);
         $mail->Subject = 'THONG BAO MUA HANG THANH CONG!';
         $mail->Body = "
-          <p>$user_login,</p>
+          <h3>$user_login[ho_va_ten],</h3>
           <p>Cảm ơn bạn vì đã lựa chọn sản phẩm của CLOSET.</p>
           <br/>
-          <p>Mã đơn hàng của bạn là #</p>
+          <h3>Mã đơn hàng của bạn là <span style='color:red;'>#$last_bill[id_bill]</span></h3>
+          <p>Nhân viên CLOSET sẽ liên hệ với bạn trong thời gian gần nhất để xác nhận đơn hàng!</p>
+          <p>Bạn có thể xem đơn hàng của mình bất cứ khi nào trong mục \"<a href=\"\">Đơn hàng</a>\".</p>
+          <h3>Danh sách sản phẩm bạn đã order:</h3>
+          <table style='border: 1px solid #ddd; border-collapse: collapse;'>
+            <thead>
+              <tr style='background-color: #e0ae8c;'>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Tên sản phẩm</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Phân loại</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Đơn giá</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Số lượng</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody>
         ";
+        $total_bill = 0;
+        foreach($product_of_bill as $product_of_bill_key => $product_of_bill_val){
+          $product_info_for_bill = loading_product($product_of_bill_val['id_sp']);
+
+          $total_each_product = $product_info_for_bill['gia_sp'] * $product_of_bill_val['so_luong_sp'];
+          $total_bill += $total_each_product;
+          // format price
+          $format_don_gia = currency_format($product_info_for_bill['gia_sp']);
+          $format_total_each_product = currency_format($total_each_product);
+
+          $mail->Body .= "
+            <tr>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$product_info_for_bill[ten_sp]</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$product_of_bill_val[size]/$product_of_bill_val[color]</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$format_don_gia</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$product_of_bill_val[so_luong_sp]</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$format_total_each_product</td>
+            </tr>
+          ";
+        }
+        $format_total_bill = currency_format($total_bill);
+        $mail->Body .= "
+            </tbody>
+            <tr><td style='tex-align:right;padding: 15px;'>Tổng là: <span style='color:red;'>$format_total_bill</span></td></tr>
+          </table>
+        ";
+        if($payment_method_user_selected == '1' || $payment_method_user_selected == 1){
+          $mail->Body .= "<p>Phương thức thanh toán: Thanh toán khi nhận hàng</p>"; 
+        } else if($payment_method_user_selected == '2' || $payment_method_user_selected == 2){
+          $mail->Body .= "<p>Phương thức thanh toán: Thanh toán online</p>"; 
+          $mail->Body .= "
+            <h4>Ngân hàng: Vietcombank</h4>
+            <h4>Số tài khoản: 001101101111</h4>
+            <div style='width:180px; height:180px'>
+            <img style='width:100%; height:100%; object-fit: contain;' src='https://media.istockphoto.com/id/828088276/vector/qr-code-illustration.jpg?s=612x612&w=0&k=20&c=FnA7agr57XpFi081ZT5sEmxhLytMBlK4vzdQxt8A70M=' alt=''>
+            </div>
+          ";
+        }
+        $mail->Body .= "<p>Chúng tôi hy vọng bạn thích trải nghiệm mua sắm của mình với CLOSET và bạn sẽ sớm ghé thăm lại CLOSET sớm nhất.</p>";
         $mail->send();
 
         echo "
@@ -292,6 +347,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         document.location.href = 'index.php';
         </script>   
         ";
+        }
       }
 
       include "views/payment_page.php";
