@@ -6,8 +6,14 @@ include "./model/global_function.php";
 session_start();
 
 $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
+$user_login = $_SESSION['tai_khoan'];
 include "views/header.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'phpMailer/src/Exception.php';
+require 'phpMailer/src/PHPMailer.php';
+require 'phpMailer/src/SMTP.php';
 
 if (isset($_GET['page']) && $_GET['page'] != "") {
   $page = $_GET['page'];
@@ -229,12 +235,29 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $pick_up_date_latest = date('d/m/Y', strtotime("+10 day"));
 
       if(isset($_GET['isOrder']) && $_GET['isOrder'] == true){
-        $from = "boyjackgamer@gmail.com";
-        $to = "$_SESSION[tai_khoan][email]";
-        $subject = "THÔNG BÁO ĐẶT HÀNG THÀNH CÔNG!";
-        $message = "PHP mail works just fine";
-        $headers = "From:" . $from;
-        mail($to,$subject,$message, $headers);
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'closetfashion203@gmail.com';
+        $mail->Password = 'mkeupgwabxllatjj';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
+        $mail->setFrom('closetfashion203@gmail.com'); 
+        $mail->addAddress($user_login['email']);
+        $mail->isHTML(true);
+        $mail->Subject = 'THONG BAO MUA HANG THANH CONG!';
+        $mail->Body = 'Chuc mung';
+        $mail->send();
+
+        echo "
+        <script>
+        alert('Chúc mừng bạn đã đặt hàng thành công! ^^');
+        document.location.href = 'index.php';
+        </script>   
+        ";
       }
 
       include "views/payment_page.php";
