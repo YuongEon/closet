@@ -196,6 +196,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         );
 
         $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
+
       } else if (isset($_POST['payment__info__update__submit--btn'])) {
         $sdt = $_POST['sdt'];
         $email = $_POST['email'];
@@ -234,34 +235,63 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $pick_up_date_soonest = date('d/m/Y', strtotime("+7 day"));
       $pick_up_date_latest = date('d/m/Y', strtotime("+10 day"));
 
-      if(isset($_GET['isOrder']) && $_GET['isOrder'] == true){
+      if(isset($_POST['isOrder--btn'])){
         // get user info
-        $user_email = $_GET['email'];
+        $user_email = $_POST['email'];
+        $user_phone_number = $_POST['phone_number'];
+        $user_address = $_POST['address'];
+        $payment_method_user_selected = $_POST['payment_method'];
+        // get bill info
+        $product_of_bill = $cart_products;
+        $date_order = $_POST['date_order'];
+        $date_take_order_soonest = $_POST['date_take_order_soonest'];
+        $date_take_order_latest = $_POST['date_take_order_latest'];
 
-        // $mail = new PHPMailer(true);
+        $product_of_bill_arr = array();
+        foreach($product_of_bill as $product_of_bill_val){
+          $product_info = loading_product($product_of_bill_val['id_sp']);
+          array_push($product_of_bill_arr, "$product_info[ten_sp] + $product_of_bill_val[size], $product_of_bill_val[color] | SL: $product_of_bill_val[so_luong_sp]");
+        }
+        $product_of_bill_string = implode(",", $product_of_bill_arr);
 
-        // $mail->isSMTP();
-        // $mail->Host = 'smtp.gmail.com';
-        // $mail->SMTPAuth = true;
-        // $mail->Username = 'closetfashion203@gmail.com';
-        // $mail->Password = 'mkeupgwabxllatjj';
-        // $mail->SMTPSecure = 'ssl';
-        // $mail->Port = 465;
+        if($payment_method_user_selected == ''){
+          function_alert("⚠️ Bạn chưa chọn phương thức thanh toán!");
+        } else {
+          $sql_insert_into_bill = "INSERT INTO `chi_tiet_bill` (`id_bill`, `id_tai_khoan`, `san_pham_order`, `ngay_mua`, `ngay_nhan_hang`, `phuong_thuc_thanh_toan`) VALUES (NULL,'$user_login[id_tai_khoan]','$product_of_bill_string','$date_order','$date_take_order_latest','$payment_method_user_selected')";
+          pdo_execute($sql_insert_into_bill);
+        }
 
-        // $mail->setFrom('closetfashion203@gmail.com'); 
-        // $mail->addAddress($user_info['email']);
-        // $mail->isHTML(true);
-        // $mail->Subject = 'THONG BAO MUA HANG THANH CONG!';
-        // $mail->Body = 'Chuc mung';
-        // $mail->send();
 
-        // echo "
-        // <script>
-        // alert('Chúc mừng bạn đã đặt hàng thành công! ^^');
-        // document.location.href = 'index.php';
-        // </script>   
-        // ";
-        var_dump($user_email);
+
+        // send mail
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'closetfashion203@gmail.com';
+        $mail->Password = 'mkeupgwabxllatjj';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
+        $mail->setFrom('closetfashion203@gmail.com'); 
+        $mail->addAddress($user_email);
+        $mail->isHTML(true);
+        $mail->Subject = 'THONG BAO MUA HANG THANH CONG!';
+        $mail->Body = "
+          <p>$user_login,</p>
+          <p>Cảm ơn bạn vì đã lựa chọn sản phẩm của CLOSET.</p>
+          <br/>
+          <p>Mã đơn hàng của bạn là #</p>
+        ";
+        $mail->send();
+
+        echo "
+        <script>
+        alert('Chúc mừng bạn đã đặt hàng thành công! ^^');
+        document.location.href = 'index.php';
+        </script>   
+        ";
       }
 
       include "views/payment_page.php";
