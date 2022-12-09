@@ -71,7 +71,6 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
     case "product_detail":
       $cart_products = get_cart_products($id_user);
       // insert product to cart
-      $error = '';
       if (isset($_POST['product__add__to__cart__btn'])) {
         $user_id = $_POST['user_id'];
         $product_id = $_POST['product_id'];
@@ -99,6 +98,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
             } else {
               $stocking_product = false;
             }
+            
             if ($stocking_product == false) {
               $error .= "Sản phẩm đã hết hàng!";
               function_alert($error);
@@ -235,29 +235,33 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $pick_up_date_latest = date('d/m/Y', strtotime("+10 day"));
 
       if(isset($_GET['isOrder']) && $_GET['isOrder'] == true){
-        $mail = new PHPMailer(true);
+        // get user info
+        $user_email = $_GET['email'];
 
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'closetfashion203@gmail.com';
-        $mail->Password = 'mkeupgwabxllatjj';
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port = 465;
+        // $mail = new PHPMailer(true);
 
-        $mail->setFrom('closetfashion203@gmail.com'); 
-        $mail->addAddress($user_login['email']);
-        $mail->isHTML(true);
-        $mail->Subject = 'THONG BAO MUA HANG THANH CONG!';
-        $mail->Body = 'Chuc mung';
-        $mail->send();
+        // $mail->isSMTP();
+        // $mail->Host = 'smtp.gmail.com';
+        // $mail->SMTPAuth = true;
+        // $mail->Username = 'closetfashion203@gmail.com';
+        // $mail->Password = 'mkeupgwabxllatjj';
+        // $mail->SMTPSecure = 'ssl';
+        // $mail->Port = 465;
 
-        echo "
-        <script>
-        alert('Chúc mừng bạn đã đặt hàng thành công! ^^');
-        document.location.href = 'index.php';
-        </script>   
-        ";
+        // $mail->setFrom('closetfashion203@gmail.com'); 
+        // $mail->addAddress($user_info['email']);
+        // $mail->isHTML(true);
+        // $mail->Subject = 'THONG BAO MUA HANG THANH CONG!';
+        // $mail->Body = 'Chuc mung';
+        // $mail->send();
+
+        // echo "
+        // <script>
+        // alert('Chúc mừng bạn đã đặt hàng thành công! ^^');
+        // document.location.href = 'index.php';
+        // </script>   
+        // ";
+        var_dump($user_email);
       }
 
       include "views/payment_page.php";
