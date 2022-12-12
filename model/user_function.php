@@ -20,17 +20,17 @@
     return $user_address;
   }
 
-  function update_user_info($user_id, $sdt, $email){
-    $sql_update_user_info = "UPDATE tai_khoan SET sdt = '$sdt', email = '$email' WHERE id_tai_khoan = '$user_id'";
+  function update_user_info($user_id, $sdt, $email, $fullName){
+    $sql_update_user_info = "UPDATE `tai_khoan` SET `ho_va_ten` = '$fullName', `sdt` = '$sdt', `email` = '$email' WHERE `id_tai_khoan` = '$user_id'";
     pdo_execute($sql_update_user_info);
-    header("location: index.php?page=payment_page");
+    header("location: index.php?page=payment");
     ob_end_flush();
   }
 
   function change_address($user_id ,$address_1, $address_2, $address_3, $address_4){
-    $sql_change_address = "UPDATE dia_chi SET tinh__thanh_pho = '$address_1', quan__huyen = '$address_2', phuong__xa = '$address_3', dia_chi_chi_tiet = '$address_4' WHERE id_tai_khoan = '$user_id'";
+    $sql_change_address = "UPDATE `dia_chi` SET `tinh__thanh_pho` = '$address_1', `quan__huyen` = '$address_2', `phuong__xa` = '$address_3', dia_chi_chi_tiet = '$address_4' WHERE id_tai_khoan = '$user_id'";
     pdo_execute($sql_change_address);
-    header("location: index.php?page=payment_page");
+    header("location: index.php?page=payment");
     ob_end_flush();
   }
 

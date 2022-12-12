@@ -216,3 +216,14 @@
 
     return $product_without_id_product;
   }
+
+  function loading_bill_without_id(){
+    $sql_loading_bill_without_id = "SELECT * FROM `chi_tiet_bill`";
+    $loading_bill_without_id_arr = pdo_query($sql_loading_bill_without_id);
+    return $loading_bill_without_id_arr;
+  }
+  function loading_bill_with_id_bill($id_bill){
+    $sql_loading_bill_with_id = "SELECT * FROM `chi_tiet_bill` WHERE `id_bill` = '$id_bill'";
+    $loading_bill_with_id_arr = pdo_query_one($sql_loading_bill_with_id);
+    return $loading_bill_with_id_arr;
+  }

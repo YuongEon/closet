@@ -165,7 +165,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
 
 
       // !payment 
-    case "payment_page":
+    // case "payment_page":
       $sql_get_categories = "SELECT * FROM loai_sp";
       $categories = pdo_query($sql_get_categories);
       // loading cart products
@@ -176,7 +176,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       // loading user info with none-sql
       if (isset($_POST['payment__info__insert__submit--btn'])) {
         $ho_va_ten = $_POST['ho_va_ten'];
-        $sdt = $_POST['sdt'];
+        $sdt = (int)$_POST['sdt'];
         $email = $_POST['email'];
         $address_1 = $_POST['tinh__thanh_pho'];
         $address_2 = $_POST['quan__huyen'];
@@ -198,14 +198,15 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
 
       } else if (isset($_POST['payment__info__update__submit--btn'])) {
-        $sdt = $_POST['sdt'];
+        $sdt = (int)$_POST['sdt'];
+        $ho_va_ten = $_POST['ho_va_ten'];
         $email = $_POST['email'];
         $address_1 = $_POST['tinh__thanh_pho'];
         $address_2 = $_POST['quan__huyen'];
         $address_3 = $_POST['phuong__xa'];
         $address_4 = $_POST['dia_chi_chi_tiet'];
 
-        update_user_info($id_user, $sdt, $email);
+        update_user_info($id_user, $sdt, $email, $ho_va_ten);
         change_address($id_user, $address_1, $address_2, $address_3, $address_4);
 
         $user_info = loading_user_info($id_user);
@@ -238,9 +239,14 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       if(isset($_POST['isOrder--btn'])){
         // get user info
         $user_email = $_POST['email'];
+        $user_name = $_POST['fullName'];
         $user_phone_number = $_POST['phone_number'];
         $user_address = $_POST['address'];
         $payment_method_user_selected = $_POST['payment_method'];
+
+        $user_info_string = "$user_name, $user_email, $user_phone_number, $user_address";
+
+
         // get bill info
         $product_of_bill = $cart_products;
         $date_order = $_POST['date_order'];
@@ -257,8 +263,9 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         if($payment_method_user_selected == ''){
           function_alert("⚠️ Bạn chưa chọn phương thức thanh toán!");
         } else {
-          $sql_insert_into_bill = "INSERT INTO `chi_tiet_bill` (`id_bill`, `id_tai_khoan`, `san_pham_order`, `ngay_mua`, `ngay_nhan_hang`, `phuong_thuc_thanh_toan`, `trang_thai_bill`) VALUES (NULL, '$user_info[id_tai_khoan]', '$product_of_bill_string', '$date_order', '$date_take_order_latest', '$payment_method_user_selected', '0');";
+          $sql_insert_into_bill = "INSERT INTO `chi_tiet_bill` (`id_bill`, `id_tai_khoan`, `user_info`,`san_pham_order`, `ngay_mua`, `ngay_nhan_hang`, `phuong_thuc_thanh_toan`, `trang_thai_bill`) VALUES (NULL, '$user_info[id_tai_khoan]','$user_info_string','$product_of_bill_string', '$date_order', '$date_take_order_latest', '$payment_method_user_selected', '0');";
           pdo_execute($sql_insert_into_bill);
+
 
           // select to bill
         $sql_select_to_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
@@ -313,7 +320,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
           $mail->Body .= "
             <tr>
               <td style='border: 1px solid #ddd; padding: 15px;'>$product_info_for_bill[ten_sp]</td>
-              <td style='border: 1px solid #ddd; padding: 15px;'>$product_of_bill_val[size]/$product_of_bill_val[color]</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$product_of_bill_val[size] / $product_of_bill_val[color]</td>
               <td style='border: 1px solid #ddd; padding: 15px;'>$format_don_gia</td>
               <td style='border: 1px solid #ddd; padding: 15px;'>$product_of_bill_val[so_luong_sp]</td>
               <td style='border: 1px solid #ddd; padding: 15px;'>$format_total_each_product</td>
@@ -326,6 +333,210 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
             <tr><td style='tex-align:right;padding: 15px;'>Tổng là: <span style='color:red;'>$format_total_bill</span></td></tr>
           </table>
         ";
+        $mail->Body .= "<p>Ngày đặt hàng: $date_order</p>";
+        $mail->Body .= "<p>Nhận hàng muộn nhất vào ngày: $pick_up_date_latest</p>";
+        if($payment_method_user_selected == '1' || $payment_method_user_selected == 1){
+          $mail->Body .= "<p>Phương thức thanh toán: Thanh toán khi nhận hàng</p>"; 
+        } else if($payment_method_user_selected == '2' || $payment_method_user_selected == 2){
+          $mail->Body .= "<p>Phương thức thanh toán: Thanh toán online</p>"; 
+          $mail->Body .= "
+            <h4>Ngân hàng: Vietcombank</h4>
+            <h4>Số tài khoản: 001101101111</h4>
+            <div style='width:180px; height:180px'>
+            <img style='width:100%; height:100%; object-fit: contain;' src='https://media.istockphoto.com/id/828088276/vector/qr-code-illustration.jpg?s=612x612&w=0&k=20&c=FnA7agr57XpFi081ZT5sEmxhLytMBlK4vzdQxt8A70M=' alt=''>
+            </div>
+          ";
+        }
+        $mail->Body .= "<p>Chúng tôi hy vọng bạn thích trải nghiệm mua sắm của mình với CLOSET và bạn sẽ sớm ghé thăm lại CLOSET sớm nhất.</p>";
+        $mail->send();
+
+        echo "
+        <script>
+        alert('Chúc mừng bạn đã đặt hàng thành công! ^^');
+        document.location.href = 'index.php';
+        </script>   
+        ";
+        }
+        // thêm vào admin quant lý đơn hàng
+        // thêm vào user quản lý đơn hàng
+        // xoá số lượng sản phẩm
+        // xoá products trong giỏ hàng của user
+      }
+
+      include "views/payment_page.php";
+      break;
+
+    case "payment":
+      $sql_get_categories = "SELECT * FROM loai_sp";
+      $categories = pdo_query($sql_get_categories);
+      // loading cart products
+      $cart_products = get_cart_products($id_user);
+      // loading user info
+      $user_info_arr = array();
+
+      // loading user info with none-sql
+      if (isset($_POST['user--change__data--submit--insert'])) {
+        $ho_va_ten = $_POST['ho_va_ten'];
+        $sdt = (int)$_POST['sdt'];
+        $email = $_POST['email'];
+        $address_1 = $_POST['tinh__thanh_pho'];
+        $address_2 = $_POST['quan__huyen'];
+        $address_3 = $_POST['phuong__xa'];
+        $address_4 = $_POST['dia_chi_chi_tiet'];
+
+        $user_info = array(
+          "ho_va_ten" => "$ho_va_ten",
+          "sdt" => "$sdt",
+          "email" => "$email"
+        );
+        $user_info_address = array(
+          "tinh__thanh_pho" => "$address_1",
+          "quan__huyen" => "$address_2",
+          "phuong__xa" => "$address_3",
+          "dia_chi_chi_tiet" => "$address_4"
+        );
+
+        $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
+
+      } else if (isset($_POST['user--change__data--submit--update'])) {
+        $ho_va_ten = $_POST['ho_va_ten'];
+        $sdt = (int)$_POST['sdt'];
+        $email = $_POST['email'];
+        $address_1 = $_POST['tinh__thanh_pho'];
+        $address_2 = $_POST['quan__huyen'];
+        $address_3 = $_POST['phuong__xa'];
+        $address_4 = $_POST['dia_chi_chi_tiet'];
+
+        update_user_info($id_user, $sdt, $email, $ho_va_ten);
+        change_address($id_user, $address_1, $address_2, $address_3, $address_4);
+
+        $user_info = loading_user_info($id_user);
+        $user_info_address = loading_user_address($user_info['id_tai_khoan']);
+        $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
+        header("location: index.php?page=payment");
+        ob_end_flush();
+      } else {
+        // loading user info with sql
+        $user_info = loading_user_info($id_user);
+        $user_info_address = loading_user_address($user_info['id_tai_khoan']);
+
+        $user_info_arr = loading_user_info_for_payment_page($user_info, $user_info_address);
+      }
+
+      // loading payment method
+      $payment_methods = loading_payment_methods();
+      // get total
+      $total = 0;
+      foreach ($cart_products as $cart_product_value) {;
+        $product = loading_product($cart_product_value['id_sp']);
+        $product_price = (int)$product['gia_sp'] * (int)$cart_product_value['so_luong_sp'];
+        $total += (int)$product_price;
+      }
+      // ngay dat - nhan hang
+      date_default_timezone_set("Asia/Ho_Chi_Minh");
+      $take_order_date = date("d/m/Y");
+      $pick_up_date_soonest = date('d/m/Y', strtotime("+7 day"));
+      $pick_up_date_latest = date('d/m/Y', strtotime("+10 day"));
+
+      if(isset($_POST['isOrder--btn'])){
+        // get user info
+        $user_email = $_POST['email'];
+        $user_name = $_POST['fullName'];
+        $user_phone_number = $_POST['phone_number'];
+        $user_address = $_POST['address'];
+        $payment_method_user_selected = $_POST['payment_method'];
+
+        $user_info_string = "$user_name, $user_email, $user_phone_number, $user_address";
+
+
+        // get bill info
+        $product_of_bill = $cart_products;
+        $date_order = $_POST['date_order'];
+        $date_take_order_soonest = $_POST['date_take_order_soonest'];
+        $date_take_order_latest = $_POST['date_take_order_latest'];
+
+        $product_of_bill_arr = array();
+        foreach($product_of_bill as $product_of_bill_val){
+          $product_info = loading_product($product_of_bill_val['id_sp']);
+          array_push($product_of_bill_arr, "$product_info[ten_sp] + $product_of_bill_val[size], $product_of_bill_val[color] | SL: $product_of_bill_val[so_luong_sp]");
+        }
+        $product_of_bill_string = implode(",", $product_of_bill_arr);
+
+        if($payment_method_user_selected == ''){
+          function_alert("⚠️ Bạn chưa chọn phương thức thanh toán!");
+        } else {
+          $sql_insert_into_bill = "INSERT INTO `chi_tiet_bill` (`id_bill`, `id_tai_khoan`, `user_info`,`san_pham_order`, `ngay_mua`, `ngay_nhan_hang`, `phuong_thuc_thanh_toan`, `trang_thai_bill`) VALUES (NULL, '$user_info[id_tai_khoan]','$user_info_string','$product_of_bill_string', '$date_order', '$date_take_order_latest', '$payment_method_user_selected', '0');";
+          pdo_execute($sql_insert_into_bill);
+
+
+          // select to bill
+        $sql_select_to_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
+        $bill = pdo_query($sql_select_to_bill);
+        $last_bill = end($bill);
+
+        // send mail
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'closetfashion203@gmail.com';
+        $mail->Password = 'mkeupgwabxllatjj';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
+        $mail->setFrom('closetfashion203@gmail.com'); 
+        $mail->addAddress($user_email);
+        $mail->isHTML(true);
+        $mail->Subject = 'THONG BAO MUA HANG THANH CONG!';
+        $mail->Body = "
+          <h3>$user_login[ho_va_ten],</h3>
+          <p>Cảm ơn bạn vì đã lựa chọn sản phẩm của CLOSET.</p>
+          <br/>
+          <h3>Mã đơn hàng của bạn là <span style='color:red;'>#$last_bill[id_bill]</span></h3>
+          <p>Nhân viên CLOSET sẽ liên hệ với bạn trong thời gian gần nhất để xác nhận đơn hàng!</p>
+          <p>Bạn có thể xem đơn hàng của mình bất cứ khi nào trong mục \"<a href=\"\">Đơn hàng</a>\".</p>
+          <h3>Danh sách sản phẩm bạn đã order:</h3>
+          <table style='border: 1px solid #ddd; border-collapse: collapse;'>
+            <thead>
+              <tr style='background-color: #e0ae8c;'>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Tên sản phẩm</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Phân loại</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Đơn giá</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Số lượng</th>
+                <th style='border: 1px solid #ddd; padding: 15px;'>Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody>
+        ";
+        $total_bill = 0;
+        foreach($product_of_bill as $product_of_bill_key => $product_of_bill_val){
+          $product_info_for_bill = loading_product($product_of_bill_val['id_sp']);
+
+          $total_each_product = $product_info_for_bill['gia_sp'] * $product_of_bill_val['so_luong_sp'];
+          $total_bill += $total_each_product;
+          // format price
+          $format_don_gia = currency_format($product_info_for_bill['gia_sp']);
+          $format_total_each_product = currency_format($total_each_product);
+
+          $mail->Body .= "
+            <tr>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$product_info_for_bill[ten_sp]</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$product_of_bill_val[size] / $product_of_bill_val[color]</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$format_don_gia</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$product_of_bill_val[so_luong_sp]</td>
+              <td style='border: 1px solid #ddd; padding: 15px;'>$format_total_each_product</td>
+            </tr>
+          ";
+        }
+        $format_total_bill = currency_format($total_bill);
+        $mail->Body .= "
+            </tbody>
+            <tr><td style='tex-align:right;padding: 15px;'>Tổng là: <span style='color:red;'>$format_total_bill</span></td></tr>
+          </table>
+        ";
+        $mail->Body .= "<p>Ngày đặt hàng: $date_order</p>";
+        $mail->Body .= "<p>Nhận hàng muộn nhất vào ngày: $pick_up_date_latest</p>";
         if($payment_method_user_selected == '1' || $payment_method_user_selected == 1){
           $mail->Body .= "<p>Phương thức thanh toán: Thanh toán khi nhận hàng</p>"; 
         } else if($payment_method_user_selected == '2' || $payment_method_user_selected == 2){
@@ -349,8 +560,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         ";
         }
       }
-
-      include "views/payment_page.php";
+      include "views/new_payment_page.php";
       break;
 
     default:

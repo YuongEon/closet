@@ -20,6 +20,12 @@
               <span class="nav_text">Thống kê</span>
             </a>
           </li>
+          <li>
+            <a href="index.php?section=control_order" class="nav_link">
+              <i class="fa-solid fa-chart-simple"></i>
+              <span class="nav_text">Quản lý đơn hàng</span>
+            </a>
+          </li>
           <div class="nav__label--box">
             <p class="nav__label">Sản phẩm</p>
           </div>

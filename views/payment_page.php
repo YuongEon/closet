@@ -51,6 +51,10 @@
               <button class="payment__info__update__submit">Chỉnh sửa thông tin, địa chỉ nhận hàng</button>
               <form action="index.php?page=payment_page" method="POST" class="payment__info__update__form">
                 <div class="payment__form__control">
+                  <label class="payment__form__filed__name" for="">Họ và tên</label>
+                  <input type="text" name="email" value="<?= $user_info_arr['ho_va_ten'] ?>">
+                </div>
+                <div class="payment__form__control">
                   <label class="payment__form__filed__name" for="">Email</label>
                   <input type="text" name="email" value="<?= $user_info_arr['email'] ?>">
                 </div>
@@ -137,6 +141,7 @@
           <div class="pay__btn">
             <form action="index.php?page=payment_page" method="POST">
               <input type="hidden" name="email" value="<?= $user_info_arr['email'] ?>"/>
+              <input type="hidden" name="fullName" value="<?= $user_info_arr['ho_va_ten'] ?>"/>
               <input type="hidden" name="phone_number" value="<?= $user_info_phone ?>"/>
               <input type="hidden" name="address" value="<?= $user_info_arr['address'] ?>"/>
               <input id="payment_method_checked" type="hidden" name="payment_method" value=""/>

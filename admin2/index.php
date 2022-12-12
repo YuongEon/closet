@@ -19,6 +19,13 @@
       include "./view/section/dashboard/statistical.php";
       break;
 
+    // control order
+    case "control_order":
+      $bill_list = loading_bill_without_id();
+
+      include "./view/section/dashboard/control_order.php";
+      break;
+
       // product section
     case "product_list":
       if(isset($_POST['product__section__search--submit'])){
