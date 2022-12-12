@@ -114,200 +114,57 @@
   </header>
 
   <div class="content">
-    <div class="section section-1 payment_section">
-      <div class="payment">
-        <div class="payment__label--box">
-          <p class="payment__label">Thanh toán</p>
-        </div>
-        <div class="payment__info">
-          <div class="payment__info--wrap">
-            <div class="payment__info__user">
-              <div class="payment__info__user__label--box">
-                <p class="payment__info__user__label">Thông tin khách hàng</p>
+    <div class="section section-1 profile__section">
+      <div class="profile">
+        <div class="profile__nav">
+          <div class="profile__nav__avatar">
+            <img src="./views/image/Closet.png" alt="" class="profile__nav__avatar--img">
+          </div>
+          <div class="profile__nav__name--label">
+            <p>Le Tuan Duong</p>
+          </div>
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/resume.png" alt="" class="profile__nav__function__img">
               </div>
-              <div class="payment__info__user--wrap">
-                <div class="payment__info__user--insert">
-                  <div class="payment__info__user--insert--card">
-                    <div class="user--insert--card--header">
-                      <p class="user--insert--card--title">CLOSET Member</p>
-                    </div>
-                    <div class="user--insert--card__content">
-                      <div class="user--insert--card__content--wrap">
-                        <div class="user--insert--card__img--box">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyz-77X11MoGE22xVjjPhbpW6lPj6I0SkcTQ&usqp=CAU" alt="" class="insert--card__img--img">
-                        </div>
-                        <div class="user--insert--card__info--user--box">
-                          <div class="info__user--box--value">
-                            <p class="info__user--label">Họ và tên:</p>
-                            <p class="info__user--value" id="fullName">Lê Tuấn Dương</p>
-                          </div>
-                          <div class="info__user--box--value">
-                            <p class="info__user--label">Email:</p>
-                            <p class="info__user--value" id="email">boyjackgamer@gmail.com</p>
-                          </div>
-                          <div class="info__user--box--value">
-                            <p class="info__user--label">Số điện thoại:</p>
-                            <p class="info__user--value" id="phone">0985108503</p>
-                          </div>
-                          <div class="info__user--box--value">
-                            <div class="info__user--label">Địa chỉ:</div>
-                            <p class="info__user--value"><span id="address3">HH1A Linh Đàm</span> / <span id="address2">Hoàng Liệt</span> / <span id="address1">Hoàng Mai</span> / <span id="address0">Hà Nội</span></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="payment__info__user--change">
-                  <div class="payment__info__user--change--btn--wrap">
-                    <div class="payment__info__user--change--btn update">Chỉnh sửa thông tin</div>
-                    <div class="payment__info__user--change--btn insert">Giao hàng cho người thân</div>
-                  </div>
-                  <div class="payment__info__user--change--wrap">
-                    <div class="user--change--box">
-                      <form action="" method="post" class="payment__info__user--change__form">
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Họ và tên</label>
-                          <input type="text" class="user--change__data--value" id="fullNameDataUpdate">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Email</label>
-                          <input type="text" class="user--change__data--value" id="emailDataUpdate">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Số điện thoại</label>
-                          <input type="text" class="user--change__data--value" id="phoneDataUpdate">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Tỉnh / Thành phố</label>
-                          <input type="text" class="user--change__data--value" id="address0DataUpdate">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Quận / Huyện</label>
-                          <input type="text" class="user--change__data--value" id="address1DataUpdate">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Xã / Phường</label>
-                          <input type="text" class="user--change__data--value" id="address2DataUpdate">
-                        </div>
-                        <div class="form__control user--change__data--control full-width">
-                          <label for="" class="user--change__data--label">Địa chỉ chi tiết</label>
-                          <input type="text" class="user--change__data--value" id="address3DataUpdate">
-                        </div>
-                        <div class="user--change__data--submit">
-                          <button type="submit" name="user--change__data--submit--update">Lưu thông tin</button>
-                        </div>
-                      </form>
-                    </div>
-                    
-                    <!-- payment__insert -->
-                    <div class="user--change--box">
-                      <form action="" method="post" class="payment__info__user--insert__form">
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Họ và tên</label>
-                          <input type="text" class="user--change__data--value" id="fullNameDataInsert">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Email</label>
-                          <input type="text" class="user--change__data--value" id="emailDataInsert">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Số điện thoại</label>
-                          <input type="text" class="user--change__data--value" id="phoneDataInsert">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Tỉnh / Thành phố</label>
-                          <input type="text" class="user--change__data--value" id="address0DataInsert">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Quận / Huyện</label>
-                          <input type="text" class="user--change__data--value" id="address1DataInsert">
-                        </div>
-                        <div class="form__control user--change__data--control">
-                          <label for="" class="user--change__data--label">Xã / Phường</label>
-                          <input type="text" class="user--change__data--value" id="address2DataInsert">
-                        </div>
-                        <div class="form__control user--change__data--control full-width">
-                          <label for="" class="user--change__data--label">Địa chỉ chi tiết</label>
-                          <input type="text" class="user--change__data--value" id="address3DataInsert">
-                        </div>
-                        <div class="user--change__data--submit">
-                          <button type="submit" name="user--change__data--submit--insert">Lưu thông tin</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">Chỉnh sửa thông tin</p>
               </div>
-            </div>
-
-            <!-- info cart -->
-            <div class="payment__info__product--order">
-              <div class="payment__info_product--order-card">
-                <div class="payment__product--order--region">
-                  <div class="payment__product--order--region--label--box">
-                    <p class="payment__product--order--region--label">Danh sách sản phẩm đặt mua</p>
-                  </div>
-                  <!-- list product order -->
-                  <div class="payment__product--order--region__content">
-                    <ul class="payment__product--order--region__list">
-                      <li class="payment__product--order--region__item">
-                        <div class="product--order--region__img--box">
-                          <img src="https://static01.nyt.com/images/2013/09/22/magazine/22wmt/22wmt-superJumbo-v2.jpg" alt="" class="product--order--region__img--img">
-                        </div>
-                        <div class="product--order--region__content--box">
-                          <p class="product--order--region__text--content">Aos shirt ddepj nhat binh bac bo ma khong mot ai co co 1 khong 2</p>
-                          <p class="product--order--region__classify">M / Den</p>
-                          <div class="product--order--region__price">
-                            <p class="product--order--region__quantity">x 1</p>
-                            <p class="product--order--region__each--price">1000.0000,.00000.000 d</p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="payment__order__total--region">
-                  <div class="payment__order--bill--data">
-                    <p class="payment__order--bill--data--label">Tiền sản phẩm</p>
-                    <p class="payment__order--bill--data--value">1.000.000 đ</p>
-                  </div>
-                  <div class="payment__order--bill--data">
-                    <p class="payment__order--bill--data--label">Thời gian nhận hàng</p>
-                    <p class="payment__order--bill--data--value">Dự kiến nhận hàng từ 12/09/2020 đến ngày 20/09/2020</p>
-                  </div>
-                  <div class="payment__order--bill--data">
-                    <p class="payment__order--bill--data--label payment__order--bill--data--total">Tổng tiền</p>
-                    <p class="payment__order--bill--data--value payment__order--bill--data--total">1.000.000 đ</p>
-                  </div>
-                </div>
+            </a>
+          </div>
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/cart.png" alt="" class="profile__nav__function__img">
               </div>
-            </div>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">giỏ hàng</p>
+              </div>
+            </a>
+          </div>
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/pie-chart.png" alt="" class="profile__nav__function__img">
+              </div>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">Thống kê</p>
+              </div>
+            </a>
+          </div>
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/logout.png" alt="" class="profile__nav__function__img">
+              </div>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">Đăng xuất</p>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="payment__order">
-          <div class="payment__order__pay--method--wrap">
-            <div class="payment__order__pay--method--box">
-              <input name="pay-method-value" type="radio" id="tranditional--method" class="payment__order__pay--method--value">
-              <label for="tranditional--method" class="payment__order__pay--method--label">Thanh toán khi nhận hàng</label>
-            </div>
-            <div class="payment__order__pay--method--box">
-              <input name="pay-method-value" type="radio" id="online--method" class="payment__order__pay--method--value">
-              <label for="online--method" class="payment__order__pay--method--label">Thanh toán online</label>
-            </div>
-          </div>
-          <form action="" class="payment__order--form">
-            <input type="hidden" name="fullName" value="">
-            <input type="hidden" name="email" value="">
-            <input type="hidden" name="phone" value="">
-            <input type="hidden" name="address" value="">
-            <input type="hidden" name="total" value="">
-            <input type="hidden" name="productList" value="">
-            <input type="hidden" name="payMethod" value="">
-            <button type="submit" name="isOrder">Đặt hàng</button>
-          </form>
-        </div>
+        <div class="profile__showing--region"></div>
       </div>
     </div>
   </div>

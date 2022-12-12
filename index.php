@@ -559,6 +559,21 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         </script>   
         ";
         }
+
+        // delete product in cart
+        $sql_delete_product_in_cart_after_order = "DELETE FROM `gio_hang` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
+        pdo_execute($sql_delete_product_in_cart_after_order);
+
+        // decrement product quantity by id and classify
+        foreach($cart_products as $cart_product_value){
+          $sql_select_to_product_classify = "SELECT * FROM `phan_loai` WHERE `id_sp` = '$cart_product_value[id_sp]' and `color` = '$cart_product_value[color]' and `size` = '$cart_product_value[size]'";
+          $product_classify = pdo_query_one($sql_select_to_product_classify);
+          
+          $new_product_quantity = $product_classify['so_luong_sp'] - $cart_product_value['so_luong_sp'];
+
+          $sql_update_product_quantity = "UPDATE `phan_loai` SET `so_luong_sp` = '$new_product_quantity' WHERE `id_sp` = '$product_classify[id_sp]' and `color` = '$product_classify[color]' and `size` = '$product_classify[size]'";
+          pdo_execute($sql_update_product_quantity);
+        }
       }
       include "views/new_payment_page.php";
       break;
