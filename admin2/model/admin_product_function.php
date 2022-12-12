@@ -8,4 +8,5 @@
     $sql_admin_insert_product_classify = "INSERT INTO `phan_loai` (`id_sp`, `color`, `size`, `so_luong_sp`) VALUES ('$product_id', '$color', '$size', '$product_quantity')";
     pdo_execute($sql_admin_insert_product_classify);
   }  
+
 ?>

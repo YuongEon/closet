@@ -3,7 +3,7 @@ ob_start();
 session_start();
 ?>
 <?php
-$id_user = 1;
+$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 $cart_products = get_cart_products($id_user);
 $cart_products_length = count($cart_products);
 ?>
@@ -21,13 +21,14 @@ $cart_products_length = count($cart_products);
   <link rel="stylesheet" href="views/css/global_style.css">
   <link rel="stylesheet" href="views/css/header_style.css">
   <link rel="stylesheet" href="views/css/footer_style.css">
-  <link rel="stylesheet" href="views/css/homepage.css">
+  <link rel="stylesheet" href="views/css/homepage_page.css">
   <link rel="stylesheet" href="views/css/product_page.css">
   <link rel="stylesheet" href="views/css/product_detail.css">
   <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/payment_page.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
   <link rel="stylesheet" href="views/css/keyframes_library.css">
+  <link rel="stylesheet" href="views/css/new_payment_page.css">
   <!-- reset css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -51,6 +51,10 @@
               <button class="payment__info__update__submit">Chỉnh sửa thông tin, địa chỉ nhận hàng</button>
               <form action="index.php?page=payment_page" method="POST" class="payment__info__update__form">
                 <div class="payment__form__control">
+                  <label class="payment__form__filed__name" for="">Họ và tên</label>
+                  <input type="text" name="email" value="<?= $user_info_arr['ho_va_ten'] ?>">
+                </div>
+                <div class="payment__form__control">
                   <label class="payment__form__filed__name" for="">Email</label>
                   <input type="text" name="email" value="<?= $user_info_arr['email'] ?>">
                 </div>
@@ -116,11 +120,11 @@
         </div>
         <div class="payment__buying__method">
           <p class="payment__buying__method__title">Lựa chọn phương thức thanh toán</p>
-          <div class="payment__buying__method__wrap">
+          <div class="payment__buying__method__wrap" style="margin-top: 10px;">
             <?php foreach ($payment_methods as $payment_method_key => $payment_method_value) : ?>
-              <div class="payment__buying__method__value">
-                <input <?php echo ($payment_method_value['id_payment_method'] == 1) ? 'checked' : '' ?> type="radio" name="payment__method" value="<?= $payment_method_value['id_payment_method'] ?>">
-                <p class="payment__buying__method__value__name"><?= $payment_method_value['ten_payment_method'] ?></p>
+              <div class="payment__buying__method__value" style="margin-bottom: 20px;">
+                <input  onclick="setSelected(<?= $payment_method_value['id_payment_method'] ?>)" type="radio" id="payment_id--<?= $payment_method_value['id_payment_method'] ?>" name="payment__method" value="<?= $payment_method_value['id_payment_method'] ?>">
+                <label style="cursor: pointer;" for="payment_id--<?= $payment_method_value['id_payment_method'] ?>" class="payment__buying__method__value__name"><?= $payment_method_value['ten_payment_method'] ?></label>
               </div>
             <?php endforeach ?>
           </div>
@@ -135,13 +139,21 @@
             <p class="pay__total__price"><?= currency_format($total) ?></p>
           </div>
           <div class="pay__btn">
-            <a href="" class="pay__btn--link">
-              <button class="pay__btn--btn">Đặt hàng</button>
-            </a>
+            <form action="index.php?page=payment_page" method="POST">
+              <input type="hidden" name="email" value="<?= $user_info_arr['email'] ?>"/>
+              <input type="hidden" name="fullName" value="<?= $user_info_arr['ho_va_ten'] ?>"/>
+              <input type="hidden" name="phone_number" value="<?= $user_info_phone ?>"/>
+              <input type="hidden" name="address" value="<?= $user_info_arr['address'] ?>"/>
+              <input id="payment_method_checked" type="hidden" name="payment_method" value=""/>
+              <input type="hidden" name="date_order" value="<?= $take_order_date ?>"/>
+              <input type="hidden" name="date_take_order_soonest" value="<?= $pick_up_date_soonest ?>"/>
+              <input type="hidden" name="date_take_order_latest" value="<?= $pick_up_date_latest ?>"/>
+              <button type="submit" name="isOrder--btn" class="pay__btn--btn">Đặt hàng</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<script type="text/javascript" src="js/payment.js"></script>
+<script type="text/javascript" src="js/payment_function.js"></script>

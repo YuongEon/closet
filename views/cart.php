@@ -66,7 +66,7 @@
       </div>
 
       <div class="cart__section__submit--btn">
-        <a href="index.php?page=payment_page" class="cart__section__submit--link">
+        <a href="index.php?page=payment" class="cart__section__submit--link">
           <button>Thanh toán</button>
         </a>
       </div>

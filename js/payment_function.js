@@ -25,7 +25,18 @@ payment_insert_user_address.addEventListener('click', () => {
   } else {
     update_user_address_form.style.display = "none";
     insert_user_address_form.style.display = "block";
+    insert_user_address_form.style.animation = 'opacityShowingUp 0.2s ease-in-out';
     isUpdateAddress = true;
 }
   isInsertAddress = !isInsertAddress;
 });
+
+// get value for payment method
+let valueOfRadioSelectedWillBeSend = document.getElementById('payment_method_checked');
+
+let setSelected = function(payment_id){
+  let payment_method = document.getElementById(`payment_id--${payment_id}`);
+  payment_method.checked = true;
+  valueOfRadioSelectedWillBeSend.value = payment_method.value;
+}
+

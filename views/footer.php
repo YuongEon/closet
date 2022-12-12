@@ -32,6 +32,7 @@
     <div class="col-4 m-col-2 footer__product__category">
       <p class="footer__col-4__title">Danh mục</p>
       <ul class="footer__product__category__list">
+        <?php $categories = loading_product_category_without_id_product() ?>
         <?php foreach ($categories as $categories_key => $categories_value) : ?>
           <li class="footer__col-4__item footer__product__category__item">
             <a href="index.php?page=product&category_id=<?= $categories_value['id_loai_sp'] ?>" class="footer__col-4__item--link footer__product__category--link"><?= $categories_value['ten_loai_sp'] ?></a>
