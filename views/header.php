@@ -4,8 +4,6 @@ session_start();
 ?>
 <?php
 $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
-$cart_products = get_cart_products($id_user);
-$cart_products_length = count($cart_products);
 ?>
 
 <!DOCTYPE html>
@@ -76,6 +74,10 @@ $cart_products_length = count($cart_products);
         <div class="header__user__info">
           <div class="header__cart__box">
             <div class="header__cart__quantity__product">
+              <?php
+                $cart_products = get_cart_products($id_user);
+                $cart_products_length = count($cart_products);
+              ?>
               <p class="header__cart__quantity--content"><?= $cart_products_length ?></p>
             </div>
             <div class="header__cart">
@@ -92,7 +94,7 @@ $cart_products_length = count($cart_products);
                 <i class="fa-solid fa-user"></i>
               </a>
               <?php } else { ?>
-                <a href="login_method/login_views/logout.php" class="header__user--link">
+                <a href="views/profile/index.php" class="header__user--link">
                 <i class="fa-solid fa-user"></i>
               </a>
               <?php } ?>

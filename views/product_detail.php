@@ -3,7 +3,7 @@
     <div class="row product__info">
       <div class="product__img--box">
         <?php
-        $path_product_image = "admin2/$product[anh_sp]";
+        $path_product_image = "admin/$product[anh_sp]";
         ?>
         <img src="<?= $path_product_image ?>" alt="" class="product__img">
       </div>
@@ -115,7 +115,7 @@
         <div class="content__product__card col-4 col-6">
           <a href="index.php?page=product_detail&id_product=<?= $same_product_value['id_sp'] ?>" class="content__product__card--link">
             <div class="product__img--box">
-              <?php $same_product_img = "admin2/$same_product_value[anh_sp]" ?>
+              <?php $same_product_img = "admin/$same_product_value[anh_sp]" ?>
               <img src="<?= $same_product_img ?>" alt="<?= $same_product_value['ten_sp'] ?>" class="product__img--img">
             </div>
             <div class="product__info--box">

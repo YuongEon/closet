@@ -59,7 +59,7 @@
               <div class="product-inner__product__card">
                 <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="product-inner__product--link">
                   <div class="product-inner__product__img--box">
-                    <?php $path_product_img_inner = "admin2/$product_value[anh_sp]" ?>
+                    <?php $path_product_img_inner = "admin/$product_value[anh_sp]" ?>
                     <img class="product__inner__product__img--img" src="<?= $path_product_img_inner ?>" alt="<?= $product_value['ten_sp'] ?>">
                   </div>
                   <div class="product-inner__product__info">
