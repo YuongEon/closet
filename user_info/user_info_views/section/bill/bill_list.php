@@ -43,8 +43,13 @@
                         "so_luong_sp" => $product_bill_info_arr[3]
                       );
                     ?>
+                    <?php
+                          $sql_get_price_product = "SELECT `anh_sp`,`gia_sp` FROM `san_pham` WHERE `ten_sp` = '$product_bill_info[ten_sp]'";
+                          $product_info = pdo_query_one($sql_get_price_product);
+                          $bill_total += ($product_bill_info['so_luong_sp'] * $product_info['gia_sp']);
+                        ?>
                     <div class="bill--item__img--box">
-                      <img src="https://cf.shopee.vn/file/65ea35edc87ce78c5be39689b74d5831" alt="" class="bill--item__img--img">
+                      <img src="../admin/<?= $product_info['anh_sp']; ?>" alt="" class="bill--item__img--img">
                     </div>
                     <div class="bill--item__info__product--box">
                       <div class="bill--item__info__product--classify--box">
@@ -53,12 +58,7 @@
                         <p class="bill--item__info__product--quantity">x <?= $product_bill_info['so_luong_sp'] ?></p>
                       </div>
                       <div class="bill--item__info__product--price--box">
-                        <?php
-                          $sql_get_price_product = "SELECT `gia_sp` FROM `san_pham` WHERE `ten_sp` = '$product_bill_info[ten_sp]'";
-                          $product_price = pdo_query_one($sql_get_price_product);
-                          $bill_total += ($product_bill_info['so_luong_sp'] * $product_price['gia_sp']);
-                        ?>
-                        <p class="bill--item__info__product--price"><?= currency_format($product_price['gia_sp']) ?></p>
+                        <p class="bill--item__info__product--price"><?= currency_format($product_info['gia_sp']) ?></p>
                       </div>
                     </div>
                   </div>
