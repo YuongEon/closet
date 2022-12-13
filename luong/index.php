@@ -70,16 +70,6 @@ if (isset($_GET['act'])) {
                 $ds_loai = loadall_loai();
                 include "view/sanpham/add.php";
                 break;
-            case "listpro":
-                if (isset($_POST['btn_filter']) && ($_POST['btn_filter'])) {
-                    $idcate = $_POST['idcate'];
-                } else {
-                    $idcate = 0;
-                }
-                $ds_loai = loadall_loai();
-                $listpro = loadall_pro($idcate);
-                include "view/sanpham/list.php";
-                break;
             case "editpro":
                 if (isset($_GET['id_pro']) && $_GET['id_pro'] > 0) {
                     $id_pro = $_GET['id_pro'];
@@ -110,23 +100,7 @@ if (isset($_GET['act'])) {
                 $listpro = loadall_pro();
                 include "view/sanpham/list.php";
                 break;
-            case "removepro":
-                if (isset($_GET['id_pro']) && ($_GET['id_pro']) > 0) {
-                    $id_pro = $_GET['id_pro'];
-                    remove_pro($id_pro);
-                }
-                $ds_loai = loadall_loai();
-                $listpro = loadall_pro();
-                include "view/sanpham/list.php";
-                break;
-
-                // CONTROLLER NGƯỜI DÙNG: 
-                // danh sách người dùng
-                case 'listuser':
-                    $listuser = loadall_user();
-                    include "view/nguoidung/list.php";
-                break;
-                // chỉnh sửa user
+            
                 case 'edituser': 
                     if(isset($_GET['id_user']) && ($_GET['id_user'] > 0)) { 
                         $id_user = $_GET['id_user'];
