@@ -26,6 +26,10 @@
         case "update_profile":
           include "user_info_views/section/profile/update_profile.php";
           break;
+
+        case "bill_list":
+          include "user_info_views/section/bill/bill_list.php";
+          break;
       
         default:
         include "user_info_views/section/profile/profile.php";

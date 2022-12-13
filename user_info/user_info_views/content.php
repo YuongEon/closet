@@ -23,7 +23,7 @@
             </a>
           </div>
           <div class="profile__nav__function">
-            <a href="">
+            <a href="index.php?section=bill_list">
               <div class="profile__nav__function__img--box">
                 <img src="../views/image/cart.png" alt="" class="profile__nav__function__img">
               </div>

@@ -18,9 +18,10 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   <!-- css -->
   <link rel="stylesheet" href="user_info_views/user_info_css/header.css">
   <link rel="stylesheet" href="user_info_views/user_info_css/footer.css">
-  <link rel="stylesheet" href="user_info_views/user_info_css/content_section.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/content.css">
   <link rel="stylesheet" href="user_info_views/user_info_css/profile.css">
   <link rel="stylesheet" href="user_info_views/user_info_css/update_profile.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/bill_list.css">
   <link rel="stylesheet" href="../views/css/global_style.css">
 
   <!-- reset css -->
