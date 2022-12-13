@@ -59,4 +59,5 @@ input[type="file"].user_profile__data__update--avatar::file-selector-button:hove
     font-size: 16px;
     font-weight: 500;
     padding: 2px 10px;
+    width: 240px;
 }

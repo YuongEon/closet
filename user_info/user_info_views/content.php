@@ -5,10 +5,17 @@
           <div class="profile__nav__function">
             <a href="index.php?section=profile">
               <div class="profile__nav__function__img--box">
-                <img src="../views/image/Closet.png" alt="" class="profile__nav__function__img">
+                <?php 
+                  if($user_info['avatar'] == '' || $user_info['avatar'] == NULL){
+                    $avatar_img_path = "../views/image/Closet.png";
+                  } else {
+                    $avatar_img_path = "$user_info[avatar]";
+                  }
+                ?>
+                <img src="<?= $avatar_img_path ?>" alt="" class="profile__nav__function__img">
               </div>
               <div class="profile__nav__function__label--box">
-                <p class="profile__nav__function__label">Le Tuan Duong</p>
+                <p class="profile__nav__function__label"><?= $user_info['ho_va_ten'] ?></p>
               </div>
             </a>
           </div>
@@ -43,7 +50,7 @@
             </a>
           </div>
           <div class="profile__nav__function">
-            <a href="">
+            <a href="../login_method/login_views/logout.php">
               <div class="profile__nav__function__img--box">
                 <img src="../views/image/logout.png" alt="" class="profile__nav__function__img">
               </div>

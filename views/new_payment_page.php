@@ -152,7 +152,7 @@
                         </div>
                         <div class="product--order--region__content--box">
                           <p class="product--order--region__text--content"><?= $product['ten_sp'] ?></p>
-                          <p class="product--order--region__classify"><?= strtoupper($cart_product_value['size']) ?> / <?= ucwords($cart_product_value['color']) ?>n</p>
+                          <p class="product--order--region__classify"><?= strtoupper($cart_product_value['size']) ?> / <?= ucwords($cart_product_value['color']) ?></p>
                           <div class="product--order--region__price">
                             <p class="product--order--region__quantity">x <?= $cart_product_value['so_luong_sp'] ?></p>
                             <p class="product--order--region__each--price"><?= currency_format($product['gia_sp']) ?></p>

@@ -41,6 +41,8 @@
   -ms-transition: all ease-in-out 0.14s;
   -o-transition: all ease-in-out 0.14s;
   color: var(--text-color);
+  font-size: 16px;
+  font-weight: 600;
 }
 .data__showing--region__bill--function--link:hover{
   background-color: var(--main-color-lighter-v2);
@@ -49,6 +51,11 @@
 
 .data__showing--region__bill--item{
   display: flex;
+  margin-bottom: 40px;
+}
+.data__showing--region__bill--item:last-child{
+  display: flex;
+  margin-bottom: 0px;
 }
 
 .bill--item__img--box{

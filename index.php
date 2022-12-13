@@ -459,7 +459,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $product_of_bill_arr = array();
         foreach($product_of_bill as $product_of_bill_val){
           $product_info = loading_product($product_of_bill_val['id_sp']);
-          array_push($product_of_bill_arr, "$product_info[ten_sp] + $product_of_bill_val[size], $product_of_bill_val[color] | SL: $product_of_bill_val[so_luong_sp]");
+          array_push($product_of_bill_arr, "$product_info[ten_sp] / $product_of_bill_val[size] / $product_of_bill_val[color] / $product_of_bill_val[so_luong_sp]");
         }
         $product_of_bill_string = implode(",", $product_of_bill_arr);
 

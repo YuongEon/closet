@@ -6,10 +6,18 @@
             <div class="user__profile__data--box">
                 <div class="user__profile__data__control">
                   <div class="user__profile__data__label">
+                    <p>Họ và tên</p>
+                  </div>
+                  <div class="user__profile__data__value">
+                    <p><?= $user_info['ho_va_ten'] ?></p>
+                  </div>
+                </div>
+                <div class="user__profile__data__control">
+                  <div class="user__profile__data__label">
                     <p>Tên đăng nhập</p>
                   </div>
                   <div class="user__profile__data__value">
-                    <p>Lê Tuấn dương</p>
+                    <p><?= $user_info['username'] ?></p>
                   </div>
                 </div>
                 <div class="user__profile__data__control">
@@ -17,7 +25,7 @@
                     <p>Email</p>
                   </div>
                   <div class="user__profile__data__value">
-                    <p>yuongeon@gmail.com</p>
+                    <p><?= $user_info['email'] ?></p>
                   </div>
                 </div>
 
@@ -26,7 +34,8 @@
                     <p>Số điện thoại</p>
                   </div>
                   <div class="user__profile__data__value">
-                    <p>0985108503</p>
+                    <?php $user_info_phone_number = "0$user_info[sdt]"; ?>
+                    <p><?= $user_info_phone_number ?></p>
                   </div>
                 </div>
                 <div class="user__profile__data__control">
@@ -34,13 +43,28 @@
                     <p>Trạng thái</p>
                   </div>
                   <div class="user__profile__data__value">
-                    <p>Hoạt động</p>
+                    <p>
+                      <?php
+                        if($user_info['trang_thai'] == 1){
+                          echo "Hoạt động";
+                        } else if($user_info['trang_thai'] == 0){
+                          echo "Bị chặn";
+                        }
+                      ?>
+                    </p>
                   </div>
                 </div>
               </div>
               <div class="user__profile__data__img">
                 <div class="user__profile__data__img--box">
-                  <img src="../views/image/Closet.png" alt="" class="user__profile__data__img--img">
+                  <?php 
+                    if($user_info['avatar'] == '' || $user_info['avatar'] == NULL){
+                      $avatar_img_path = "../views/image/Closet.png";
+                    } else {
+                      $avatar_img_path = "$user_info[avatar]";
+                    }
+                  ?>
+                  <img src="<?= $avatar_img_path ?>" alt="" class="user__profile__data__img--img">
                 </div>
               </div>
             </div>
