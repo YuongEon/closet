@@ -1,0 +1,73 @@
+:root {
+  --main-color: #8C6A54;
+  --main-color-lighter: #9c7962;
+  --main-color-lighter-v2: #e0ae8c;
+  --main-color-2: #738AFF;
+  --background-color: #FBF0E0;
+  --background-color-light: #fcf6ee;
+  --text-color: #333333;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --secondary-color: #909090;
+  --secondary-color-lighter: #BABABA;
+  --secondary-color-darker: #707070;
+  --border-color: #e6e5e5;
+  --toggle-color: #DDD;
+  --box1-color: #4DA3FF;
+  --box2-color: #FFE6AC;
+  --box3-color: #E7D1FC;
+  --title-icon-color: #fff;
+
+}
+
+body {
+  font-family: 'Nunito' !important;
+  background-color: var(--background-color-light);
+  max-width: auto;
+  transition: 0.5s;
+}
+
+.header {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color-light);
+}
+
+.header__wrap {
+  height: 100%;
+  width: 100%;
+}
+
+.header_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  max-width: 1200px;
+  padding: 0px 20px;
+  margin: 0 auto;
+
+}
+
+.header_admin_logo_box {
+  display: inline-flex;
+
+}
+
+.header_logo--link {
+  padding: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--main-color);
+}
+
+.header_admin_search_form {}
+
+.header_search_form_field {}
+
+a {
+  text-decoration: none;
+}

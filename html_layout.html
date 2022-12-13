@@ -6,12 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLOSET</title>
   <link rel="icon" type="image/x-icon" href="./views/image/Closet.png" style="border-radius: 50%">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style5.css">
   <!-- responsive -->
   <link rel="stylesheet" href="./responsive_page.css">
   <!-- reset css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="./payment3.css">
+
+  <!-- js -->
+
+  <script src="./payment3.js" defer></script>
 
   <!-- nunito font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,57 +114,57 @@
   </header>
 
   <div class="content">
-    <div class="section section-1 content__product__detail">
-      <div class="row product__info">
-        <div class="product__img--box">
-          <img src="./views/image/categories.png" alt="" class="product__img">
-        </div>
-        <div class="product__sort__info--box">
-          <div class="product__name--box">
-            <p class="product__name">sdfasfd</p>
+    <div class="section section-1 profile__section">
+      <div class="profile">
+        <div class="profile__nav">
+          <div class="profile__nav__avatar">
+            <img src="./views/image/Closet.png" alt="" class="profile__nav__avatar--img">
           </div>
-          <div class="product__price--box">
-            <p class="product__price">1000000</p>
+          <div class="profile__nav__name--label">
+            <p>Le Tuan Duong</p>
           </div>
-          <div class="product__sort__desc--box">
-            <p class="product__sort__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti repudiandae libero, eos laboriosam illum nam iste, accusantium ullam laudantium et alias voluptas quas nisi natus quos excepturi architecto magni harum.</p>
-          </div>
-          <div class="product__add__to__cart--box">
-            <form action="" class="product__add__to__cart" method="post">
-              <div class="product__add__to__cart__quantity">
-                <input type="submit" name="product__addition__quantity" class="product__addition__quantity" value="+">
-                <input type="number" min="1" max="" class="product__quantity">
-                <input type="submit" name="product__subtraction__quantity" class="product__subtraction__quantity" value="-">
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/resume.png" alt="" class="profile__nav__function__img">
               </div>
-              <button type="submit" name="product__add__to__cart__btn" class="product__add__to__cart__btn">Thêm vào giỏ hàng</button>
-            </form>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">Chỉnh sửa thông tin</p>
+              </div>
+            </a>
+          </div>
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/cart.png" alt="" class="profile__nav__function__img">
+              </div>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">giỏ hàng</p>
+              </div>
+            </a>
+          </div>
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/pie-chart.png" alt="" class="profile__nav__function__img">
+              </div>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">Thống kê</p>
+              </div>
+            </a>
+          </div>
+          <div class="profile__nav__function">
+            <a href="">
+              <div class="profile__nav__function__img--box">
+                <img src="./views/image/logout.png" alt="" class="profile__nav__function__img">
+              </div>
+              <div class="profile__nav__function__label--box">
+                <p class="profile__nav__function__label">Đăng xuất</p>
+              </div>
+            </a>
           </div>
         </div>
-      </div>
-      <div class="row product__long--desc--box">
-        <p class="product__long--desc--box">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, suscipit illum! Facilis nobis adipisci rem explicabo consectetur molestiae voluptas autem quod placeat tenetur, maiores, perferendis voluptates, soluta inventore eos est?
-        </p>
-      </div>
-    </div>
-    <div class="section section-2 content__product__same--type">
-      <div class="content__product__same--type--list">
-
-        <div class="content__product__card col-4 col-6">
-          <a href="" class="content__product__card--link">
-            <div class="product__img--box">
-              <img src="./views/image/Closet (1).png" alt="" class="product__img--img">
-            </div>
-            <div class="product__info--box">
-              <div class="product__name--box">
-                <p class="product__name">ăefasdfasdf</p>
-              </div>
-              <div class="product__price--box">
-                <p class="product__price">100000000</p>
-              </div>
-            </div>
-          </a>
-        </div>
+        <div class="profile__showing--region"></div>
       </div>
     </div>
   </div>
