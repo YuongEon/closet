@@ -266,7 +266,7 @@
       break;
 
     default: 
-      include "./view/section/statistical.php";
+      include "./view/section/dashboard/statistical.php";
       break;
     }
 

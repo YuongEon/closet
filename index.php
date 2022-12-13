@@ -7,6 +7,7 @@ session_start();
 
 $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 $user_login = $_SESSION['tai_khoan'];
+
 include "views/header.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
