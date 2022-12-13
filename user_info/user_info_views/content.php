@@ -28,7 +28,7 @@
                 <img src="../views/image/cart.png" alt="" class="profile__nav__function__img">
               </div>
               <div class="profile__nav__function__label--box">
-                <p class="profile__nav__function__label">giỏ hàng</p>
+                <p class="profile__nav__function__label">Đơn mua</p>
               </div>
             </a>
           </div>

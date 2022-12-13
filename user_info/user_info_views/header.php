@@ -20,6 +20,7 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   <link rel="stylesheet" href="user_info_views/user_info_css/footer.css">
   <link rel="stylesheet" href="user_info_views/user_info_css/content_section.css">
   <link rel="stylesheet" href="user_info_views/user_info_css/profile.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/update_profile.css">
   <link rel="stylesheet" href="../views/css/global_style.css">
 
   <!-- reset css -->
@@ -86,7 +87,7 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
                 <i class="fa-solid fa-user"></i>
               </a>
               <?php } else { ?>
-                <a href="user_info/index.php" class="header__user--link">
+                <a href="index.php" class="header__user--link">
                 <i class="fa-solid fa-user"></i>
               </a>
               <?php } ?>
