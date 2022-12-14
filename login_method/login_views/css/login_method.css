@@ -1,0 +1,191 @@
+:root {
+  --main-color: #8C6A54;
+  --main-color-lighter: #9c7962;
+  --main-color-lighter-v2: #e0ae8c;
+  --main-color-2: #738AFF;
+  --background-color: #FBF0E0;
+  --background-color-light: #fcf6ee;
+  --text-color: #333333;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --secondary-color: #909090;
+  --secondary-color-lighter: #BABABA;
+  --secondary-color-darker: #707070;
+  --price-color: #ff5656;
+  --yellow-color: yellow;
+  --pink-color: pink;
+}
+
+body{
+  font-family: 'Nunito' !important;
+  background-color: var(--background-color-light);
+}
+
+.header{ 
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--main-color);
+}
+
+.header__wrap{
+  height: 100%;
+  width: 100%;
+
+}
+
+.header__top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header__logo__box{ 
+
+}
+
+.header__logo{ 
+
+}
+
+.header__logo--link{ 
+  text-decoration: none;
+  color: var(--background-color-light);
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.header__nav__box{ 
+
+}
+
+.header__nav{ 
+
+}
+
+.header__nav__list{
+  display: flex;
+}
+
+.header__nav__item{ 
+  padding: 6px;
+  margin-inline: 8px;
+}
+
+.header__nav__item:first-child{ 
+  margin-left: 0;
+}
+
+.header__nav__item:last-child{ 
+  margin-right: 0;
+}
+
+.header__nav__item--link{
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--secondary-color-darker);
+  transition: all 0.16s ease-in-out;
+  -webkit-transition: all 0.16s ease-in-out;
+  -moz-transition: all 0.16s ease-in-out;
+  -ms-transition: all 0.16s ease-in-out;
+  -o-transition: all 0.16s ease-in-out;
+}
+
+.header__nav__item--link:hover{ 
+  color: var(--main-color);
+}
+
+/* content */
+.section{
+  width: 100%;
+}
+
+.section-1{
+  width: 100%;
+}
+
+.content{ 
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-block: 40px;
+}
+
+.login__section{
+  display: flex;
+  justify-content: center;
+}
+.login__section--weap{
+  
+}
+.login__label__box{ 
+  margin-bottom: 60px;
+  text-align: center;
+}
+.login__label{ 
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+.login__form--wrap{ 
+  margin-bottom: 30px;
+}
+.login__form{ 
+}
+.form__control{ 
+  position: relative;
+  margin-bottom: 30px;
+}
+.filed__label{ 
+  position: absolute;
+  top: -14px;
+  left: 10px;
+  background-color: var(--background-color-light);
+  padding: 4px 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--main-color);
+}
+.filed__value{
+  width: 93%;
+  height: 40px;
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  background-color: var(--background-color-light);
+  padding: 4px 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.submit__btn{
+  border: none;
+  background-color: var(--main-color);
+  color: var(--background-color-light);
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "nunito";
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  padding-block: 10px;
+}
+.change__method__box{ 
+
+}
+.change__method__box--link{ 
+  color: red;
+  font-size: 18px;
+}

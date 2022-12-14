@@ -1,0 +1,12 @@
+/* button color */
+.btn__delete{
+  background-color: #ff4e4e !important;
+}
+
+.btn__info{
+  background-color: #78bbff !important;
+}
+
+.btn__update{
+  background-color: #ffed18 !important;
+}

@@ -146,6 +146,8 @@
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   display: none;
+  animation: opacityShowingUp 0.2s ease-in-out;
+  -webkit-animation: opacityShowingUp 0.2s ease-in-out;
 }
 
 .payment__form__control{ 

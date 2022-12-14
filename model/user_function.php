@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD
   // include "model/pdo.php";
   // include "model/san_pham_funtion.php";
+=======
+  // include "./pdo.php";
+  // include "./san_pham_funtion.php";
+>>>>>>> 829127e908d8ad1532edff428748e1fdf31e9460
 
   function loading_user_info($user_id){
     $sql_loading_user_info = "SELECT * FROM tai_khoan WHERE id_tai_khoan = '$user_id'";
@@ -20,17 +25,17 @@
     return $user_address;
   }
 
-  function update_user_info($user_id, $sdt, $email){
-    $sql_update_user_info = "UPDATE tai_khoan SET sdt = '$sdt', email = '$email' WHERE id_tai_khoan = '$user_id'";
+  function update_user_info($user_id, $sdt, $email, $fullName){
+    $sql_update_user_info = "UPDATE `tai_khoan` SET `ho_va_ten` = '$fullName', `sdt` = '$sdt', `email` = '$email' WHERE `id_tai_khoan` = '$user_id'";
     pdo_execute($sql_update_user_info);
-    header("location: index.php?page=payment_page");
+    header("location: index.php?page=payment");
     ob_end_flush();
   }
 
   function change_address($user_id ,$address_1, $address_2, $address_3, $address_4){
-    $sql_change_address = "UPDATE dia_chi SET tinh__thanh_pho = '$address_1', quan__huyen = '$address_2', phuong__xa = '$address_3', dia_chi_chi_tiet = '$address_4' WHERE id_tai_khoan = '$user_id'";
+    $sql_change_address = "UPDATE `dia_chi` SET `tinh__thanh_pho` = '$address_1', `quan__huyen` = '$address_2', `phuong__xa` = '$address_3', dia_chi_chi_tiet = '$address_4' WHERE id_tai_khoan = '$user_id'";
     pdo_execute($sql_change_address);
-    header("location: index.php?page=payment_page");
+    header("location: index.php?page=payment");
     ob_end_flush();
   }
 
@@ -47,4 +52,10 @@
     );
     return $user_info_for_payment_page;
   }
+
+  function loading_product_user_without_id_user(){
+    $sql_loading_user_without_id_user = "SELECT * FROM `tai_khoan`";
+    $users = pdo_query($sql_loading_user_without_id_user);
+    return $users;
+  } 
 ?>
