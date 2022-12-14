@@ -31,6 +31,9 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       // flash sale
       $flash_sale_products = flash_sale_products();
 
+<<<<<<< HEAD
+  include "views/footer.php";
+=======
       include "views/homepage.php";
       break;
 
@@ -607,3 +610,4 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
 }
 
 include "views/footer.php";
+>>>>>>> 829127e908d8ad1532edff428748e1fdf31e9460
