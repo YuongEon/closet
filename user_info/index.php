@@ -99,8 +99,30 @@
           break;
 
         case "bill_list":
-          $sql_loading_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
-          $bill_arr = pdo_query($sql_loading_bill);
+          if(isset($_GET['isGetOrder'])){
+            $bill_id = $_GET['bill_id'];
+            if($_GET['isGetOrder'] == 1){
+              $sql_update_bill_delivery = "UPDATE `chi_tiet_bill` SET `trang_thai_bill` = '2' WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `id_bill` = '$bill_id'";
+              pdo_execute($sql_update_bill_delivery);
+              header("location: index.php?section=bill_list&bill_status=2");
+              // ob_end_flush();
+            } else if($_GET['isGetOrder'] == 0){
+              $sql_update_bill_delivery = "UPDATE `chi_tiet_bill` SET `trang_thai_bill` = '3' WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `id_bill` = '$bill_id'";
+              pdo_execute($sql_update_bill_delivery);
+              header("location: index.php?section=bill_list&bill_status=3");
+              // ob_end_flush();
+            }
+          }
+
+          if(isset($_GET['bill_status']) && $_GET['bill_status'] != ''){
+            $bill_status_form_url = $_GET['bill_status'];
+
+            $sql_loading_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `trang_thai_bill` = '$bill_status_form_url'";
+            $bill_arr = pdo_query($sql_loading_bill);
+          } else {
+            $sql_loading_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
+            $bill_arr = pdo_query($sql_loading_bill);
+          }
 
           include "user_info_views/section/bill/bill_list.php";
           break;

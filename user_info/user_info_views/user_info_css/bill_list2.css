@@ -136,3 +136,41 @@
 .data__showing--region__bill--value.bill--status:first-child{
   color: var(--price-color);
 }
+
+.delivery--btn{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delivery--btn--link{
+  margin-left: 10px;
+}
+
+.delivery--btn--link.get button{
+  background-color: #00bd3a;
+}
+
+.delivery--btn--link.delete button{
+  background-color: #ff3939;
+}
+
+.delivery--btn--link:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.delivery--btn--link button{
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "nunito";
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  color: var(--white-color);
+}

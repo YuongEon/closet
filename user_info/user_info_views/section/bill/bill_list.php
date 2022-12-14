@@ -4,19 +4,19 @@
           </div>
           <ul class="data__showing--region__bill--function--list">
             <li class="data__showing--region__bill--function--item">
-              <a href="" class="data__showing--region__bill--function--link">Tất cả</a>
+              <a href="index.php?section=bill_list" class="data__showing--region__bill--function--link">Tất cả</a>
             </li>
             <li class="data__showing--region__bill--function--item">
-              <a href="" class="data__showing--region__bill--function--link">Chờ xác nhận</a>
+              <a href="index.php?section=bill_list&bill_status=0" class="data__showing--region__bill--function--link">Chờ xác nhận</a>
             </li>
             <li class="data__showing--region__bill--function--item">
-              <a href="" class="data__showing--region__bill--function--link">Đang giao</a>
+              <a href="index.php?section=bill_list&bill_status=1" class="data__showing--region__bill--function--link">Đang giao</a>
             </li>
             <li class="data__showing--region__bill--function--item">
-              <a href="" class="data__showing--region__bill--function--link">Đã giao</a>
+              <a href="index.php?section=bill_list&bill_status=2" class="data__showing--region__bill--function--link">Đã giao</a>
             </li>
             <li class="data__showing--region__bill--function--item">
-              <a href="" class="data__showing--region__bill--function--link">Đã huỷ</a>
+              <a href="index.php?section=bill_list&bill_status=3" class="data__showing--region__bill--function--link">Đã huỷ</a>
             </li>
           </ul>
           <div class="data__showing--region__bill">
@@ -89,6 +89,20 @@
                   ?>
                   <p style="color: <?= $bill_value_status_text_color ?>;" class="data__showing--region__bill--value bill--status"><?= $bill_value_status ?></p>
                 </div>
+                <?php
+                  if($bill_value['trang_thai_bill'] == 1){
+                    echo "
+                      <div class='delivery--btn'>
+                        <a href='index.php?section=bill_list&bill_id=$bill_value[id_bill]&isGetOrder=1' class='delivery--btn--link get'>
+                          <button>Đã nhận hàng</button>
+                        </a>
+                        <a href='index.php?section=bill_list&bill_id=$bill_value[id_bill]&isGetOrder=0' class='delivery--btn--link delete'>
+                          <button>Huỷ đơn hàng</button>
+                        </a>
+                      </div>
+                    ";
+                  }
+                ?>
               </div>
               <?php endforeach ?>
             </div>
