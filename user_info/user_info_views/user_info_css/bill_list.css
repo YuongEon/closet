@@ -51,10 +51,12 @@
 
 .data__showing--region__bill--item{
   display: flex;
+}
+
+.data__showing--region__bill--item--wrap--each--product{
   margin-bottom: 40px;
 }
-.data__showing--region__bill--item:last-child{
-  display: flex;
+.data__showing--region__bill--item--wrap--each--product:last-child{
   margin-bottom: 0px;
 }
 
@@ -154,6 +156,10 @@
   background-color: #ff3939;
 }
 
+.delivery--btn--link.rate button{
+  background-color: #f7a900;
+}
+
 .delivery--btn--link:hover{
   opacity: 0.7;
   cursor: pointer;
@@ -173,4 +179,8 @@
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   color: var(--white-color);
+}
+
+.delivery--btn--link.rate{
+  margin-top: 16px;
 }

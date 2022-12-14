@@ -21,7 +21,7 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   <link rel="stylesheet" href="user_info_views/user_info_css/content.css">
   <link rel="stylesheet" href="user_info_views/user_info_css/profile.css">
   <link rel="stylesheet" href="user_info_views/user_info_css/update_profile.css">
-  <link rel="stylesheet" href="user_info_views/user_info_css/bill_list2.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/bill_list.css">
   <link rel="stylesheet" href="../views/css/global_style.css">
 
   <!-- reset css -->

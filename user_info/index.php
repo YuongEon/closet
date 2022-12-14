@@ -105,12 +105,10 @@
               $sql_update_bill_delivery = "UPDATE `chi_tiet_bill` SET `trang_thai_bill` = '2' WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `id_bill` = '$bill_id'";
               pdo_execute($sql_update_bill_delivery);
               header("location: index.php?section=bill_list&bill_status=2");
-              // ob_end_flush();
             } else if($_GET['isGetOrder'] == 0){
               $sql_update_bill_delivery = "UPDATE `chi_tiet_bill` SET `trang_thai_bill` = '3' WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `id_bill` = '$bill_id'";
               pdo_execute($sql_update_bill_delivery);
               header("location: index.php?section=bill_list&bill_status=3");
-              // ob_end_flush();
             }
           }
 

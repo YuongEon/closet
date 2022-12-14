@@ -33,6 +33,7 @@
                     $product_bill_list = explode(",", $bill_value['san_pham_order']);
                   ?>
                   <?php foreach($product_bill_list as $product_bill_list_key => $product_bill_list_value): ?>
+                  <div class="data__showing--region__bill--item--wrap--each--product">
                   <div class="data__showing--region__bill--item">
                     <?php
                       $product_bill_info_arr = explode(" / ", $product_bill_list_value);
@@ -44,8 +45,8 @@
                       );
                     ?>
                     <?php
-                          $sql_get_price_product = "SELECT `anh_sp`,`gia_sp` FROM `san_pham` WHERE `ten_sp` = '$product_bill_info[ten_sp]'";
-                          $product_info = pdo_query_one($sql_get_price_product);
+                          $sql_get_product_info = "SELECT `id_sp`,`anh_sp`,`gia_sp` FROM `san_pham` WHERE `ten_sp` = '$product_bill_info[ten_sp]'";
+                          $product_info = pdo_query_one($sql_get_product_info);
                           $bill_total += ($product_bill_info['so_luong_sp'] * $product_info['gia_sp']);
                         ?>
                     <div class="bill--item__img--box">
@@ -62,6 +63,19 @@
                       </div>
                     </div>
                   </div>
+                  <?php
+                      if($bill_value['trang_thai_bill'] == 2){
+                      echo "
+                        <div class='delivery--btn'>
+                          <a href='../index.php?page=product_detail&id_product=$product_info[id_sp]' class='delivery--btn--link rate'>
+                            <button>Đánh giá sản phẩm</button>
+                          </a>
+                        </div>
+                      ";
+                      }
+                    ?>
+                  </div>
+                  
                   <?php endforeach ?>
                 </div>
                 
@@ -108,3 +122,4 @@
             </div>
           </div>
         </div>
+        <script src="../js/bill_list.js"></script>
