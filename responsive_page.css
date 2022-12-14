@@ -1,0 +1,141 @@
+/* <= 1200px - tablet & tablet large */
+
+/* @media screen and (max-width: 1999px) and (min-width: 1023px) {
+  .col-3{
+    width: calc(100% / 4);
+  }
+  
+  .col-2{
+    width: calc(100% / 6);
+  }
+} */
+
+@media screen and (max-width: 1199px){
+  .header__nav__box{
+    display: none;
+  }
+
+  .header__tablet-mobile__menu__box{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 767px) {
+  .col-4{
+    width: calc(100% / 3);
+  }
+
+  .header__wrap{
+    padding-inline: 20px;
+  }
+
+  .content__banner{
+    height: auto;
+  }
+
+  .content__product__list,.content__category__list{ 
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -30px;
+  }
+  
+  .content__product__card,.content__category__card{
+    width: calc((100% / 3) - 30px);
+    margin-left: 30px;
+    margin-bottom: 30px;
+  }
+
+  .content__best_sale_product,.content__flash_sale_product{
+    padding: 30px;
+  }
+
+  .content__product__category--box{
+    padding-inline: 20px;
+  }
+
+  .content__category__card{
+    width: calc((100% / 3) - 30px);
+  }
+
+  .col-3.footer__logo{
+    display: none;
+  }
+
+}
+
+/* Mobile */
+
+@media screen and (max-width: 767px) {
+  .col-6{
+    width: calc(100% / 2);
+  }
+  
+  .content{
+    padding-block: 20px;
+  }
+
+  .header__wrap{
+    padding-inline: 10px;
+  }
+
+  .content__banner{
+    height: auto;
+  }
+
+  .section-2{
+    margin-top: 20px;
+  }
+
+  .content__product__list,.content__category__list{ 
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+  }
+  
+  .content__product__card,.content__category__card{
+    width: calc((100% / 2) - 10px);
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .content__best_sale_product,.content__flash_sale_product{
+    padding: 10px;
+  }
+
+  .content__product__category--box{
+    padding-inline: 10px;
+  }
+
+  .content__category__card{
+    width: calc((100% / 2) - 10px);
+  }
+
+  .footer__wrap{
+    flex-wrap: wrap;
+    padding-inline: 10px;
+  }
+
+  .col-3.footer__logo{
+    display: none;
+  }
+
+  .col-3.footer__policy, .col-3.footer__product__category{
+    width: calc(100% / 2);
+  }
+
+  .col-3.footer__social{
+    width: 100%;
+  }
+
+  .content__product__category--box{
+    flex-direction: column-reverse;
+  }
+
+  .content__product__category__list--wrap{
+    margin-left: 0;
+  }
+
+  .product__category__img--img{
+    width: 100%;
+  }
+}

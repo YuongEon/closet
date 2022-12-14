@@ -1,0 +1,346 @@
+.section{
+  width: 100%;
+}
+
+.section-1{
+  width: 100%;
+}
+
+.content{ 
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-block: 40px;
+}
+
+.payment_section{
+
+}
+
+.payment{ 
+
+}
+
+.payment__product__selected{ 
+  margin-bottom: 40px;
+}
+
+.product__selected__title{ 
+}
+
+.product__selected__title p{
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 14px;
+  background: var(--main-color-lighter-v2);
+  padding: 6px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.product__selected__list{ 
+  display: flex;
+  margin-left: -16px;
+  align-items: center;
+}
+
+.product__selected__item{ 
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 10%);
+  margin-left: 16px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.payment__buying__info{ 
+
+}
+
+.payment__user__info{ 
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.payment__user__info__insert{ 
+  flex: 1;
+}
+
+.payment__user__info__insert__title{
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 14px;
+  background: var(--main-color-lighter-v2);
+  padding: 6px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.payment__user__info__insert__wrap{ 
+  
+}
+
+.payment__user__info__insert__value__wrap{ 
+  display: flex;
+} 
+
+.payment__user__info__insert__value__name{ 
+  font-size: 16px;
+  font-weight: 500;
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.payment__user__info__insert__value{ 
+
+}
+
+.payment__user__info__update{ 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.payment__user__info__update__function{ 
+  margin-bottom: 10px;
+}
+
+.payment__info__update__submit{
+    background: var(--white-color);
+    padding: 6px 10px;
+    border: 2px solid var(--main-color-lighter-v2);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--main-color-lighter-v2);
+    font-family: "Nunito";
+    cursor: pointer;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.payment__info__update__form{
+  margin-top: 10px;
+  border: 2px solid var(--main-color-lighter-v2);
+  background-color: var(--white-color);
+  padding: 20px 40px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: none;
+  animation: opacityShowingUp 0.2s ease-in-out;
+  -webkit-animation: opacityShowingUp 0.2s ease-in-out;
+}
+
+.payment__form__control{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.payment__form__control input{
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 6px 10px;
+  border: 1px solid;
+  border: 1px solid var(--text-color);
+  border-radius: 6px;
+}
+
+.payment__form__filed__name{ 
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.payment__user__info__insert__function{ 
+
+}
+
+.payment__info__insert__submit{
+  background: var(--white-color);
+  padding: 6px 10px;
+  border: 2px solid var(--main-color-lighter-v2);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--main-color-lighter-v2);
+  font-family: "Nunito";
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.payment__info__insert__form{ 
+  margin-top: 10px;
+  border: 2px solid var(--main-color-lighter-v2);
+  background-color: var(--white-color);
+  padding: 20px 40px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: none;
+}
+
+.payment__info__submit--btn{
+  margin: 0 auto;
+    display: block;
+    background: var(--main-color-lighter-v2);
+    padding: 8px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "nunito";
+}
+
+.payment__buying__method{ 
+
+}
+
+.payment__buying__method__title{ 
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 14px;
+  background: var(--main-color-lighter-v2);
+  padding: 6px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.payment__buying__method__wrap{ 
+
+}
+
+.payment__buying__method__value{ 
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.payment__buying__method__value input[type='radio']:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.payment__buying__method__value input[type='radio']:checked:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--main-color-lighter-v2);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.payment__buying__method__value__name{ 
+  margin-left: 10px;
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.payment__buying__pay{ 
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.pay__total__box{ 
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.pay__total__title{ 
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pay__total__price{ 
+  color: var(--price-color);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pay__btn{ 
+
+}
+
+.pay__btn--link{ 
+  display: block;
+}
+
+.pay__btn--btn{ 
+  border: none;
+  color: var(--text-color);
+  background-color: rgb(53, 244, 47);
+  padding: 6px 30px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-family: "Nunito" !important;
+  cursor: pointer;
+}
+
+.payment__buying_date--box{
+  margin-block: 40px 20px;
+}
+
+.payment__buying_date--box p{
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var;
+  color: var(--text-color);
+}
