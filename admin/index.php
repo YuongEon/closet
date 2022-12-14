@@ -7,7 +7,13 @@
 
   include "./view/header.php";
   include "./view/content.php";
+  session_start();
 
+  if(isset($_SESSION['tai_khoan']) == false){
+    header("location: ../login_method/index.php");
+  } else if(isset($_SESSION['tai_khoan']) == true && $_SESSION['tai_khoan']['loai_tai_khoan'] == 0){
+    header("location: ../index.php");
+  }
   
   if(isset($_GET['section']) && $_GET['section'] != ""){
     $section = $_GET['section'];

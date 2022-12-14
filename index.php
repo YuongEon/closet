@@ -7,6 +7,7 @@ session_start();
 
 $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 $user_login = $_SESSION['tai_khoan'];
+$user_info_global = loading_user_info($id_user);
 
 include "views/header.php";
 
@@ -122,6 +123,49 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $same_products = loading_same_products($id_product);
       // get tags
       $tags = get_tags_of_product($id_product);
+
+      if(isset($_GET['createComment'])){
+        $create_comment = true;
+      } else {
+        $create_comment = false;
+      }
+
+      if(isset($_POST['isComment'])){
+        $product_id = $_POST['id_sp'];
+        $user_id = $_POST['id_tai_khoan'];
+        $comment_content = $_POST['noi_dung_binh_luan'];
+        $star_rating = $_POST['sao_danh_gia'];
+
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $date_comment = date("d/m/Y");
+
+        var_dump($product_id, $user_id, $comment_content, $star_rating);
+        $errors = array(
+          "comment_err" => "",
+          "star_err" => ""
+        );
+
+        if($comment_content == ''){
+          $errors['comment_err'] = "Bình luận chưa có dữ liệu!";
+        }
+
+        if($star_rating == ''){
+          $errors['star_err'] = "Chưa đánh giá sao!";
+        }
+
+        $check_errors = 0;
+        foreach($errors as $error){
+          if($error != ''){
+            $check_errors += 1;
+          }
+        }
+
+        if($check_errors == 0){
+          insert_comment($product_id, $user_id, $comment_content, $star_rating, $date_comment);
+          header("location: index.php?page=product_detail&id_product=$product_id");
+          ob_end_flush();
+        }
+      }
 
       include "views/product_detail.php";
       break;

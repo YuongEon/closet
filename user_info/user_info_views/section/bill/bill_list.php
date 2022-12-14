@@ -67,7 +67,7 @@
                       if($bill_value['trang_thai_bill'] == 2){
                       echo "
                         <div class='delivery--btn'>
-                          <a href='../index.php?page=product_detail&id_product=$product_info[id_sp]' class='delivery--btn--link rate'>
+                          <a href='../index.php?page=product_detail&id_product=$product_info[id_sp]&createComment' class='delivery--btn--link rate'>
                             <button>Đánh giá sản phẩm</button>
                           </a>
                         </div>

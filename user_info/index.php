@@ -77,14 +77,17 @@
             }
 
             if($error_count == 0){
-              $img_url = '';
-              if($avatar['tmp_name'] != ''){
-                  $folderName = 'user_info_views/user_img/';
-                  $fileName = uniqid() . '_' . $avatar['name'];
-                  move_uploaded_file($avatar['tmp_name'], $folderName . $fileName);
-                  $img_url = $folderName . $fileName;
+              if($avatar['size'] <= 0){
+                $img_url = "$user_info[avatar]";
+              } else {
+                $img_url = '';
+                if($avatar['tmp_name'] != ''){
+                    $folderName = 'user_info_views/user_img/';
+                    $fileName = uniqid() . '_' . $avatar['name'];
+                    move_uploaded_file($avatar['tmp_name'], $folderName . $fileName);
+                    $img_url = $folderName . $fileName;
+                }
               }
-              
               
               $sql_update_user_profile = "UPDATE `tai_khoan` SET `ho_va_ten` = '$fullName', `sdt` = '$phone_number', `avatar` = '$img_url' WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
               pdo_execute($sql_update_user_profile);

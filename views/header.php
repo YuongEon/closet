@@ -19,11 +19,11 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   <link rel="icon" type="image/x-icon" href="./views/image/Closet.png" style="border-radius: 50%">
   <!-- css -->
   <link rel="stylesheet" href="views/css/global_style.css">
-  <link rel="stylesheet" href="views/css/header_style.css">
+  <link rel="stylesheet" href="views/css/header.css">
   <link rel="stylesheet" href="views/css/footer_style.css">
   <link rel="stylesheet" href="views/css/homepage_page.css">
   <link rel="stylesheet" href="views/css/product_page.css">
-  <link rel="stylesheet" href="views/css/product_detail.css">
+  <link rel="stylesheet" href="views/css/product_detail2.css">
   <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/payment_page.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
@@ -87,14 +87,14 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 
           <div class="header__user__box">
             <div class="header__user">
-              <?php if(!isset($_SESSION['tai_khoan'])){ ?>
-              <a href="login_method/index.php" class="header__user--link">
-                <i class="fa-solid fa-user"></i>
-              </a>
+              <?php if (!isset($_SESSION['tai_khoan'])) { ?>
+                <a href="login_method/index.php" class="header__user--link">
+                  <i class="fa-solid fa-user"></i>
+                </a>
               <?php } else { ?>
                 <a href="user_info/index.php" class="header__user--link">
-                <i class="fa-solid fa-user"></i>
-              </a>
+                  <i class="fa-solid fa-user"></i>
+                </a>
               <?php } ?>
             </div>
           </div>
@@ -125,6 +125,12 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
           </div>
         </div>
       </div>
-
+      <?php if($user_info_global['loai_tai_khoan'] == 1){ ?>
+      <div class='admin__btn--box'>
+        <a href='admin/index.php'>
+          <button><i class="fa-solid fa-screwdriver-wrench"></i></button>
+        </a>
+      </div>
+      <?php } ?>
     </div>
   </header>

@@ -106,6 +106,90 @@
 
   <div class="divide"></div>
 
+  <div class="product__comment__section">
+    <div class="product__comment__section__label--box">
+      <p>Bình luận - Đánh giá</p>
+    </div>
+    <div class="product__comment__for__user">
+      <?php if(!$create_comment){ ?>
+        <div class="product__comment__for__user__label--box">
+          <p>Vui lòng mua hàng để được đánh giá</p>
+        </div>
+      <?php } else if($create_comment){ ?>
+        <div class="comment__form--box">
+          <div class="comment__form--label">
+            <p>Tạo bình luận - đánh giá của bạn</p>
+          </div>
+          <form action="index.php?page=product_detail&id_product=<?= $product['id_sp'] ?>" method="POST">
+            <div class="comment__form__control">
+              <label class="comment__form__control--label">Sao đánh giá</label>
+              <div class="comment__form__control--value">
+                <div class="comment__form__control__star">
+                  <span class="comment__star__rating" onclick="rateStar(5)">☆</span>
+                  <span class="comment__star__rating" onclick="rateStar(4)">☆</span>
+                  <span class="comment__star__rating" onclick="rateStar(3)">☆</span>
+                  <span class="comment__star__rating" onclick="rateStar(2)">☆</span>
+                  <span class="comment__star__rating" onclick="rateStar(1)">☆</span>
+                </div>
+                <input type="hidden" name="sao_danh_gia" value="" id="sao_danh_gia">
+              </div>
+            </div>
+            <div class="comment__form__control">
+              <label class="comment__form__control--label">Nội dung bình luận</label>
+              <div class="comment__form__control--value">
+              <textarea name="noi_dung_binh_luan" rows="4" cols="50"></textarea>
+              </div>
+            </div>
+            <input type="hidden" name="id_sp" value="<?= $product['id_sp'] ?>">
+            <input type="hidden" name="id_tai_khoan" value="<?= $id_user ?>">
+            <button name="isComment" class="comment__form--btn">Gửi</button>
+          </form>
+        </div>
+      <?php } ?>
+    </div>
+
+    <div class="product__comment__list">
+      <?php
+          $sql_loading_product_comments = "SELECT * FROM `binh_luan` WHERE `id_sp` = '$product[id_sp]'";
+          $product_comments = pdo_query($sql_loading_product_comments);
+        ?>
+      <div class="product__comment__item">
+        <?php foreach($product_comments as $product_comment_key => $product_comment_value): ?>
+        <?php 
+          $user_info = loading_user_info($product_comment_value['id_tai_khoan']); 
+        ?>
+        <div class="product__comment__item--wrap">
+          <div class="comment__user__avatar">
+            <img src="user_info/<?= $user_info['avatar'] ?>" alt="" class="comment__user__avatar--img">  
+          </div>
+          <div class="comment__user__info">
+            <div class="comment__user__info--box">
+              <p class="comment__user__info--value date__comment"><?= $product_comment_value['thoi_gian_binh_luan'] ?></p>
+            </div>
+            <div class="comment__user__info--box">
+              <p class="comment__user__info--value user__name__comment"><?= $user_info['ho_va_ten'] ?></p>
+            </div>
+            <div class="comment__user__info--box">
+              <p class="comment__user__info--value rate_start">
+                <?php
+                  for($i = 0; $i < (int)$product_comment_value['sao_danh_gia']; $i++){
+                    echo "<i class='fa-solid fa-star'></i>";
+                  }
+                ?>
+              </p>
+            </div>
+            <div class="comment__user__info--box">
+              <p class="comment__user__info--value comment__content"><?= $product_comment_value['noi_dung_binh_luan'] ?></p>
+            </div>
+          </div>
+        </div>
+        <?php endforeach ?>
+      </div>
+    </div>
+  </div>
+
+  <div class="divide"></div>
+
   <div class="section section-2 content__product__same--type">
     <div class="content__product__same--type__title--box">
       <p class="content__product__same--type__title">Sản phẩm liên quan</p>
@@ -154,3 +238,4 @@
   </div>
 </div>
 <script type="text/javascript" src="js/change_quantity.js"></script>
+<script type="text/javascript" src="js/product_detail.js"></script>

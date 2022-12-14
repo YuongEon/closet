@@ -53,4 +53,9 @@
     $users = pdo_query($sql_loading_user_without_id_user);
     return $users;
   } 
+
+  function insert_comment($product_id, $user_id, $comment_content, $star_rating, $date_comment){
+    $sql_insert_comment = "INSERT INTO `binh_luan` (`id_binh_luan`, `id_sp`, `id_tai_khoan`, `noi_dung_binh_luan`, `sao_danh_gia`, `thoi_gian_binh_luan`) VALUES (NULL, '$product_id', '$user_id', '$comment_content', '$star_rating', '$date_comment');";
+    pdo_execute($sql_insert_comment);
+  }
 ?>
