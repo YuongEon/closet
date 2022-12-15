@@ -206,11 +206,11 @@
       include "./view/section/product/insert_classify_product.php";
       break;
     
-    case "product_update":
+    case "product_update_section":
       $product_id_selected = $_GET['product_id'];
       $product_id_selected_info = loading_product($product_id_selected);
 
-      include "./view/section/product/product_update.php";
+      include "./view/section/product/product_update_section.php";
       break;
 
       // category
