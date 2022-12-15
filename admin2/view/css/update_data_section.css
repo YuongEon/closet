@@ -1,0 +1,195 @@
+.form__control__update--value{
+
+}
+
+.form__control__update--value--select{
+
+}
+
+.update__data__section{ 
+padding-top: 10px;  
+display: grid;
+grid-template-columns: 49% 49%;
+grid-gap: 2%;
+}
+
+.update__data__section--wrap{ 
+    border: 1px solid #e0ae8c;
+    padding-inline: 40px;
+    padding-bottom: 40px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+.update__data_label--box{ 
+  margin-block: 20px 40px;
+}
+
+.update__data__label{ 
+  display: flex;
+  justify-content: center;
+  color: #995427;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.update__data__wrap{ 
+
+}
+
+.update__data__form{ 
+  display: flex;
+  flex-direction: column;
+} 
+
+.form__control__update--name{ 
+    position: absolute;
+    top: -14px;
+    left: 14px;
+    padding: 4px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--main-color);
+    background-color: antiquewhite;
+} 
+
+ .form__control__update--value{
+  width: 200px;
+  height: 30px;
+  background-color: var(--background-color-lighter-v2);
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  padding: 0 10px;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: "nunito";
+}
+
+.form__control__update--value--select{
+  width: 422px;
+  padding-block: 10px;
+}
+
+.form__control__update--value.form__control__value--textarea{
+  padding-block: 12px;
+  width: 100%;
+}
+.form__control__update--value.form__control__value--textarea.form__control__value--sort__desc{
+  height: 40px;
+  padding-block: 12px;
+}
+.form__control__update--value.form__control__value--textarea.form__control__value--long__desc{  
+  height: 70px;
+  padding-top: 10px;
+}
+
+.form__control__update--value.form__control__update--value__img{
+  border: unset;
+  padding-top: 20px;
+  height: 40px;
+  padding-left: 0;
+}
+
+input[type="file"].form__control__update--value.form__control__update--value__img::file-selector-button{
+    border: 1px solid var(--main-color);
+    background-color: var(--background-color-lighter-v2);
+    padding: 6px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--main-color);
+    font-family: "nunito";
+    transition: all 0.14s ease-in-out;
+    -webkit-transition: all 0.14s ease-in-out;
+    -moz-transition: all 0.14s ease-in-out;
+    -ms-transition: all 0.14s ease-in-out;
+    -o-transition: all 0.14s ease-in-out;
+}
+input[type="file"].form__control__update--value.form__control__update--value__img::file-selector-button:hover{
+    background-color: var(--main-color);
+    color: #fcf6ee;
+}
+
+/* update classify */
+
+
+.update__data__label--product__name--label{ 
+  margin-right: 10px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.update__data__label--product__name--value{ 
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.update__data__wrap.update__classify__product__wrap{
+  display: flex;
+  justify-content: center;
+}
+
+.update__data__label--product__name--box.update__classify__product__label--product__name--box{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.update__value__form.update__data__form{
+  align-items: center;
+}
+
+/* detail__product__section */
+.detail__data{
+  border: 1px solid #e0ae8c;
+  padding-inline: 40px;
+  padding-bottom: 40px;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.data__img--box{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+/* .data__table{ 
+  margin-top: 26px;
+} */
+.detail__data__section--wrap{
+  padding: 0px 20px;
+}
+.detail__data__section{
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 20px;
+}
+.detail__data--title{
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #f88879;
+}
+.detail__data--box--value{
+  display: flex;
+  margin: 20px 0px ;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--main-color);
+}

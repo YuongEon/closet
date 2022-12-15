@@ -195,7 +195,12 @@
       }
       include "./view/section/product/insert_classify_product.php";
       break;
-
+    case "update_product":
+        include "./view/section/product/update_product_section.php";
+        break;
+      case "detail_product":
+        include "./view/section/product/detail_product_section.php";
+        break;
       // category
     case "category_list":
       if(isset($_POST['category__section__search--submit'])){
@@ -221,8 +226,10 @@
         }
         include "./view/section/category/insert_category_section.php";
         break;
-
-        // brand
+      case "update_category":
+    
+          include "./view/section/category/category_update.php";
+          break;
     case "brand_list":
       if(isset($_POST['brand__section__search--submit'])){
         $brand_search_name = $_POST['brand__section__search--value'];

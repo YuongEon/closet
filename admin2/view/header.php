@@ -19,6 +19,7 @@ ob_start();
   <link rel="stylesheet" href="view/css/statistical.css">
   <link rel="stylesheet" href="view/css/data_section.css">
   <link rel="stylesheet" href="view/css/insert_data_section.css">
+  <link rel="stylesheet" href="view/css/update_data_section.css">
   <link rel="stylesheet" href="view/css/user_section.css">
 
   <!-- responsive -->
