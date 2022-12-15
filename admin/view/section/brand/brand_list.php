@@ -27,7 +27,7 @@
           <p class="data__list--label">Tên brand</p>
         </li>
         <li class="data__label--box">
-          <p class="data__list--label">Số lượng brand thuộc brand</p>
+          <p class="data__list--label">Số lượng sản phẩm thuộc brand</p>
         </li>
         <li class="data__label--box">
           <p class="data__list--label">Chức năng</p>
@@ -51,17 +51,12 @@
         <li class="data__value--box">
           <div class="data__list--value data__value--btn--wrap">
             <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
-                <button class="btn__info">Chi Tiết</button>
-              </a>
-            </div>
-            <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
+              <a href="index.php?section=update_brand&brand_id=<?= $brand_value['id_brand'] ?>" class="data__value__btn--link">
                 <button class="btn__update">Chỉnh sửa</button>
               </a>
             </div>
             <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
+              <a href="index.php?section=brand_list&brand_id_delete=<?= $brand_value['id_brand'] ?>" class="data__value__btn--link">
                 <button class="btn__delete">Xoá</button>
               </a>
             </div>

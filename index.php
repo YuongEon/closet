@@ -5,17 +5,17 @@ include "./model/user_function.php";
 include "./model/global_function.php";
 session_start();
 
-$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
-$user_login = $_SESSION['tai_khoan'];
-$user_info_global = loading_user_info($id_user);
-
-include "views/header.php";
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'phpMailer/src/Exception.php';
 require 'phpMailer/src/PHPMailer.php';
 require 'phpMailer/src/SMTP.php';
+
+$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
+$user_login = $_SESSION['tai_khoan'];
+$user_info_global = loading_user_info($id_user);
+
+include "views/header.php";
 
 if (isset($_GET['page']) && $_GET['page'] != "") {
   $page = $_GET['page'];
@@ -32,10 +32,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $best_sale_products = best_sale_products();
       // flash sale
       $flash_sale_products = flash_sale_products();
-
-<<<<<<< HEAD
-  include "views/footer.php";
-=======
+      
       include "views/homepage.php";
       break;
 
@@ -93,6 +90,9 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
           if(!isset($_SESSION['tai_khoan'])){
             header("location: ./login_method/index.php");
             ob_end_flush();
+          } else if(isset($_SESSION['tai_khoan']) && $_SESSION['tai_khoan']['trang_thai'] == 2){
+            $error .= "⚠️ Tài khoản của bạn bị cấm mua hàng!";
+            function_alert($error);
           } else {
             $select_product_quantity_of_each_classify = "SELECT * FROM phan_loai WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
             $product_quantity_of_each_classify = pdo_query_one($select_product_quantity_of_each_classify);
@@ -405,10 +405,6 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         </script>   
         ";
         }
-        // thêm vào admin quant lý đơn hàng
-        // thêm vào user quản lý đơn hàng
-        // xoá số lượng sản phẩm
-        // xoá products trong giỏ hàng của user
       }
 
       include "views/payment_page.php";
@@ -655,4 +651,3 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
 }
 
 include "views/footer.php";
->>>>>>> 829127e908d8ad1532edff428748e1fdf31e9460

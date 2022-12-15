@@ -127,7 +127,7 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
       </div>
       <?php if($user_info_global['loai_tai_khoan'] == 1){ ?>
       <div class='admin__btn--box'>
-        <a href='admin/index.php'>
+        <a href='admin/index.php?section=statistical'>
           <button><i class="fa-solid fa-screwdriver-wrench"></i></button>
         </a>
       </div>

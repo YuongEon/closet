@@ -1,11 +1,6 @@
 <?php
-<<<<<<< HEAD
-  // include "model/pdo.php";
-  // include "model/user_function.php";
-=======
-  // include "./pdo.php";
-  // include "./user_function.php";
->>>>>>> 829127e908d8ad1532edff428748e1fdf31e9460
+  include "./pdo.php";
+  include "./user_function.php";
 
   function best_sale_products(){
     $sql_best_sale_products = "SELECT * FROM san_pham ORDER BY so_luong_sp_da_ban DESC LIMIT 4";
