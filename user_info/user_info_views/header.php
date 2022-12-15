@@ -3,8 +3,6 @@ ob_start();
 session_start();
 ?>
 <?php
-$cart_products = get_cart_products($id_user);
-$cart_products_length = count($cart_products);
 $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 ?>
 
@@ -16,19 +14,16 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLOSET</title>
-  <link rel="icon" type="image/x-icon" href="./views/image/Closet.png" style="border-radius: 50%">
+  <link rel="icon" type="image/x-icon" href="../views/image/Closet.png" style="border-radius: 50%">
   <!-- css -->
-  <link rel="stylesheet" href="views/css/global_style.css">
-  <link rel="stylesheet" href="views/css/header.css">
-  <link rel="stylesheet" href="views/css/footer_style.css">
-  <link rel="stylesheet" href="views/css/homepage_page.css">
-  <link rel="stylesheet" href="views/css/product_page.css">
-  <link rel="stylesheet" href="views/css/product_detail2.css">
-  <link rel="stylesheet" href="views/css/cart.css">
-  <link rel="stylesheet" href="views/css/payment_page.css">
-  <link rel="stylesheet" href="views/css/responsive_style.css">
-  <link rel="stylesheet" href="views/css/keyframes_library.css">
-  <link rel="stylesheet" href="views/css/new_payment_page.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/header.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/footer.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/content.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/profile.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/update_profile.css">
+  <link rel="stylesheet" href="user_info_views/user_info_css/bill_list.css">
+  <link rel="stylesheet" href="../views/css/global_style.css">
+
   <!-- reset css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,10 +53,10 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
           <nav class="header__nav">
             <ul class="header__nav__list">
               <li class="header__nav__item">
-                <a href="index.php?page=homepage" class="header__nav__item--link">Trang chủ</a>
+                <a href="../index.php?page=homepage" class="header__nav__item--link">Trang chủ</a>
               </li>
               <li class="header__nav__item">
-                <a href="index.php?page=product" class="header__nav__item--link">Sản phẩm</a>
+                <a href="../index.php?page=product" class="header__nav__item--link">Sản phẩm</a>
               </li>
               <li class="header__nav__item">
                 <a href="" class="header__nav__item--link">Liên hệ</a>
@@ -76,10 +71,11 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
         <div class="header__user__info">
           <div class="header__cart__box">
             <div class="header__cart__quantity__product">
+
               <p class="header__cart__quantity--content"><?= $cart_products_length ?></p>
             </div>
             <div class="header__cart">
-              <a href="index.php?page=cart" class="header__cart--link">
+              <a href="../index.php?page=cart  " class="header__cart--link">
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>
             </div>
@@ -87,14 +83,14 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 
           <div class="header__user__box">
             <div class="header__user">
-              <?php if (!isset($_SESSION['tai_khoan'])) { ?>
-                <a href="login_method/index.php" class="header__user--link">
-                  <i class="fa-solid fa-user"></i>
-                </a>
+              <?php if(!isset($_SESSION['tai_khoan'])){ ?>
+              <a href="login_method/index.php" class="header__user--link">
+                <i class="fa-solid fa-user"></i>
+              </a>
               <?php } else { ?>
-                <a href="user_info/index.php" class="header__user--link">
-                  <i class="fa-solid fa-user"></i>
-                </a>
+                <a href="index.php" class="header__user--link">
+                <i class="fa-solid fa-user"></i>
+              </a>
               <?php } ?>
             </div>
           </div>
@@ -116,21 +112,22 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
           </div> -->
 
           <div class="header__search">
-            <form action="index.php?page=product" class="header__search__form" method="POST">
+            <form action="../index.php?page=product" class="header__search__form" method="POST">
               <div class="header__search__form--control">
                 <input name="search_keyword" class="header__search__form__field" type="text" placeholder="Nhập sản phẩm bạn muốn tìm kiếm">
               </div>
               <button type="submit" name="header_search_product" class="header__search__form__submit">Tìm kiếm</button>
             </form>
           </div>
+
+          <!-- <div class="header__hello-username__box">
+            <div class="header__hello-username">
+              <p class="header__hello-username--hello">Welcome,</p>
+              <p class="header__hello-username--username">Lê Tuấn Dương</p>
+            </div>
+          </div> -->
         </div>
       </div>
-      <?php if($user_info_global['loai_tai_khoan'] == 1){ ?>
-      <div class='admin__btn--box'>
-        <a href='admin/index.php'>
-          <button><i class="fa-solid fa-screwdriver-wrench"></i></button>
-        </a>
-      </div>
-      <?php } ?>
+
     </div>
   </header>

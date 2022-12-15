@@ -1,0 +1,63 @@
+.user__profile__data__img.update{
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_profile__data__update--avatar{
+  margin-top: 20px;
+}
+
+input[type="file"].user_profile__data__update--avatar::file-selector-button{
+  border: 1px solid var(--main-color);
+  background-color: var(--background-color-lighter-v2);
+  padding: 4px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-color);
+  font-family: "nunito";
+  transition: all 0.14s ease-in-out;
+  -webkit-transition: all 0.14s ease-in-out;
+  -moz-transition: all 0.14s ease-in-out;
+  -ms-transition: all 0.14s ease-in-out;
+  -o-transition: all 0.14s ease-in-out;
+}
+input[type="file"].user_profile__data__update--avatar::file-selector-button:hover{
+  background-color: var(--main-color);
+  color: #fcf6ee;
+}
+
+.user__profile__data__btn button{
+  background-color: var(--main-color-lighter);
+  color: white;
+  border: none;
+  padding: 6px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-family: "nunito";
+  cursor: pointer;
+}
+
+.user__profile__data__btn button:hover{
+  opacity: 0.7;
+}
+
+.user__profile__data__value.update input{
+  border: none;
+    border-bottom: 1px solid #ccc;
+    outline: unset;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 2px 10px;
+    width: 240px;
+}

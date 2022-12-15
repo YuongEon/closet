@@ -14,7 +14,7 @@
           <div class="content__product__card col-4 col-6">
             <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
               <div class="product__img--box">
-                <?php $path_product_img_best_sale = "admin2/$product_value[anh_sp]"; ?>
+                <?php $path_product_img_best_sale = "admin/$product_value[anh_sp]"; ?>
                 <img src="<?= $path_product_img_best_sale ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
               <div class="product__info--box">
@@ -45,7 +45,7 @@
           <div class="content__product__card col-4 col-6">
             <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
               <div class="product__img--box">
-                <?php $path_product_img_flash_sale = "admin2/$product_value[anh_sp]" ?>
+                <?php $path_product_img_flash_sale = "admin/$product_value[anh_sp]" ?>
                 <img src="<?= $path_product_img_flash_sale ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
               <div class="product__info--box">
