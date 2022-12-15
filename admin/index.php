@@ -205,6 +205,13 @@
       }
       include "./view/section/product/insert_classify_product.php";
       break;
+    
+    case "product_update":
+      $product_id_selected = $_GET['product_id'];
+      $product_id_selected_info = loading_product($product_id_selected);
+
+      include "./view/section/product/product_update.php";
+      break;
 
       // category
     case "category_list":
@@ -263,7 +270,7 @@
       if(isset($_POST['user__section__search--submit'])){
         $user_search_name = $_POST['user__section__search--value'];
 
-        $sql_get_product_user_by_keyword = "SELECT * FROM `tai_khoan` WHERE `ho_va_ten` LIKE '%$brand_search_name%'";
+        $sql_get_product_user_by_keyword = "SELECT * FROM `tai_khoan` WHERE `ho_va_ten` LIKE '%$user_search_name%'";
         $users = pdo_query($sql_get_product_user_by_keyword);
       } else {
         $users = loading_product_user_without_id_user();

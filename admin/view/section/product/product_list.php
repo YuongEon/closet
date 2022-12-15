@@ -90,7 +90,7 @@
               </a>
             </div>
             <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
+              <a href="index.php?section=product_update&product_id=<?= $product_value['id_sp'] ?>" class="data__value__btn--link">
                 <button class="btn__update">Chỉnh sửa</button>
               </a>
             </div>
