@@ -6,7 +6,7 @@
       </div>
 
       <div class="insert__data__wrap">
-        <form method="POST" action="index.php?section=insert_classify_product" class="insert__data__form" enctype="multipart/form-data">
+        <form method="POST" action="index.php?section=product_update_section&product_id=<?= $product_id_selected_info['id_sp'] ?>" class="insert__data__form" enctype="multipart/form-data">
           <div class="form__control">
             <div class="form__control--wrap">
               <label class="form__control--name">Tên sản phẩm</label>
@@ -71,22 +71,26 @@
           <!-- phân loại -->
           <?php
             $sql_loading_product_classifys = "SELECT * FROM `phan_loai` WHERE `id_sp` = '$product_id_selected_info[id_sp]'";
-            $product_classifys = pdo_excute($sql_loading_product_classify);
+            $product__id_classify_selected = pdo_query($sql_loading_product_classifys);
           ?>
-          <?php
-            foreach($product_classifys as $product_classify_key => $product_classify_value):
-          ?>
+          <?php foreach( $product__id_classify_selected as $product_classify_key => $product_classify_value): ?>
           <div class="form__control">
             <div class="form__control--wrap">
               <label class="form__control--name">Phân loại <?= $product_classify_value['size'] ?> / <?= $product_classify_value['color'] ?></label>
-              <input type="text" name="giam_gia_sp" class="form__control--value" placeholder="Nhập giảm giá sản phẩm..." value="<?=  $product_id_selected_info['giam_gia_sp'] ?>">
+              <input type="text" name="<?= $product_classify_value['size'] ?>/<?= $product_classify_value['color'] ?>" class="form__control--value" placeholder="Nhập số lượng sản phẩm..." value="<?=  $product_classify_value['so_luong_sp'] ?>">
             </div>
           </div>
           <?php endforeach ?>
+          <input type="hidden" name="id_sp" value="<?= $product_id_selected_info['id_sp'] ?>"/>
           <div class="form__submit--box">
             <button class="form__submit--btn" name="form__update__product__submit--btn">Lưu thay đổi</button>
           </div>
         </form>
+        <div>
+              <a href="index.php?section=classify_setting&product_id=<?= $product_id_selected_info['id_sp'] ?>" style="display:block">
+                <button style="background-color: var(--main-color-lighter-v2); border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Phân loại</button>
+              </a>
+            </div>
       </div>
     </div>
   </div>

@@ -32,10 +32,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $best_sale_products = best_sale_products();
       // flash sale
       $flash_sale_products = flash_sale_products();
-
-<<<<<<< HEAD
-  include "views/footer.php";
-=======
+      
       include "views/homepage.php";
       break;
 
@@ -397,7 +394,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         }
         $mail->Body .= "<p>Chúng tôi hy vọng bạn thích trải nghiệm mua sắm của mình với CLOSET và bạn sẽ sớm ghé thăm lại CLOSET sớm nhất.</p>";
         $mail->send();
-
+        
         echo "
         <script>
         alert('Chúc mừng bạn đã đặt hàng thành công! ^^');
@@ -405,10 +402,6 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         </script>   
         ";
         }
-        // thêm vào admin quant lý đơn hàng
-        // thêm vào user quản lý đơn hàng
-        // xoá số lượng sản phẩm
-        // xoá products trong giỏ hàng của user
       }
 
       include "views/payment_page.php";
@@ -655,4 +648,3 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
 }
 
 include "views/footer.php";
->>>>>>> 829127e908d8ad1532edff428748e1fdf31e9460

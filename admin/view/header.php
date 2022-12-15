@@ -20,6 +20,8 @@ ob_start();
   <link rel="stylesheet" href="view/css/data_section.css">
   <link rel="stylesheet" href="view/css/insert_data_section.css">
   <link rel="stylesheet" href="view/css/user_section.css">
+  <link rel="stylesheet" href="view/css/bill_info.css">
+
 
   <!-- responsive -->
   <!-- reset css -->

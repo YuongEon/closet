@@ -1,0 +1,40 @@
+.data__box_detail{
+  margin-top: 40px;
+}
+
+.data__list_detail{
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.data__list__label_detail{
+  margin-bottom: 20px;
+  background-color: var(--main-color-lighter-v2);
+  text-align: center;
+  padding: 10px;
+}
+
+.data__item_detail{
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.data__item__label_detail{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.data__item__value_detail{
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sub_data_value_item_detail{
+  margin-bottom: 16px;
+}
+.sub_data_value_item_detail:last-child{
+  margin-bottom: 0px;
+}

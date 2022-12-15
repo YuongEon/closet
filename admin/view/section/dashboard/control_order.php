@@ -75,7 +75,7 @@
         <li class="data__value--box">
           <div class="data__list--value data__value--btn--wrap">
             <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
+              <a href="index.php?section=bill_detail&bill_id=<?= $bill_list_value['id_bill'] ?>" class="data__value__btn--link">
                 <button class="btn__info">Chi Tiết đơn</button>
               </a>
             </div>
