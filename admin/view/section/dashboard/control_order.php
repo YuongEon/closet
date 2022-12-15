@@ -11,13 +11,18 @@
     </div>
     <div class="data__section__function__btn__wrap">
     <div class="data__section__function__btn">
-        <a href="index.php?section=insert_product" class="data__section__function__btn--link">
+        <a href="index.php?section=control_order&bill_status=0" class="data__section__function__btn--link">
+          <button>Đơn hàng chờ xác nhận</button>
+        </a>
+      </div>
+      <div class="data__section__function__btn">
+        <a href="index.php?section=control_order&bill_status=1" class="data__section__function__btn--link">
           <button>Đơn hàng đã xác nhận</button>
         </a>
       </div>
       <div class="data__section__function__btn">
-        <a href="" class="data__section__function__btn--link">
-          <button>Đơn hàng bị huỷ</button>
+        <a href="index.php?section=control_order&bill_status=3" class="data__section__function__btn--link">
+          <button>Đơn hàng đã huỷ</button>
         </a>
       </div>
     </div>
@@ -36,7 +41,7 @@
           <p class="data__list--label">Email</p>
         </li>
         <li class="data__label--box">
-          <p class="data__list--label">Ngày đặt</p>
+          <p class="data__list--label">Trạng thái bill</p>
         </li>
         <li class="data__label--box">
           <p class="data__list--label">Chức năng</p>
@@ -70,23 +75,28 @@
           <div class="data__list--value data__value--name"><?= $user_info_arr['email'] ?></div>
         </li>
         <li class="data__value--box data__value--price--box">
-          <div class="data__list--value data__value--price"><?= $bill_list_value['ngay_dat'] ?></div>
+          <?php
+            switch($bill_list_value['trang_thai_bill']){
+              case 0:
+                $bill_status = "Chờ xác nhận";
+                break;
+              case 1:
+                $bill_status = "Đang giao";
+                break;
+              case 2:
+                $bill_status = "Đã giao";
+                break;
+              case 3:
+                $bill_status = "Đã huỷ";
+            }
+          ?>
+          <div class="data__list--value data__value--price"><?=  $bill_status ?></div>
         </li>
         <li class="data__value--box">
           <div class="data__list--value data__value--btn--wrap">
             <div class="data__value__btn">
               <a href="index.php?section=bill_detail&bill_id=<?= $bill_list_value['id_bill'] ?>" class="data__value__btn--link">
                 <button class="btn__info">Chi Tiết đơn</button>
-              </a>
-            </div>
-            <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
-                <button class="btn__update">Xác nhận đơn</button>
-              </a>
-            </div>
-            <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
-                <button class="btn__delete">Huỷ đơn</button>
               </a>
             </div>
           </div>

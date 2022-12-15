@@ -7,7 +7,7 @@
             <p class="nav__label">Bảng điều khiển</p>
           </div>
           <li>
-            <a href="index.php?section=admin_section" class="nav_link">
+            <a href="../user_info/index.php" class="nav_link">
               <div class="admin__avatar--box">
                 <img class="admin__avatar--img" src="view/image/admin_avatar.jpeg" alt="" />
               </div>
@@ -47,7 +47,7 @@
               <span class="nav_text">Quản lý brand</span>
             </a>
           </li>
-            <a href="#" class="nav_link">
+            <a href="index.php?section=comment_list" class="nav_link">
               <i class="fa-solid fa-star"></i>
               <span class="nav_text">Bình luận - Đánh giá</span>
             </a>

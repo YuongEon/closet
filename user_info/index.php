@@ -118,10 +118,10 @@
           if(isset($_GET['bill_status']) && $_GET['bill_status'] != ''){
             $bill_status_form_url = $_GET['bill_status'];
 
-            $sql_loading_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `trang_thai_bill` = '$bill_status_form_url'";
+            $sql_loading_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `trang_thai_bill` = '$bill_status_form_url' ORDER BY `id_bill` DESC";
             $bill_arr = pdo_query($sql_loading_bill);
           } else {
-            $sql_loading_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
+            $sql_loading_bill = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' ORDER BY `id_bill` DESC";
             $bill_arr = pdo_query($sql_loading_bill);
           }
 

@@ -5,17 +5,17 @@ include "./model/user_function.php";
 include "./model/global_function.php";
 session_start();
 
-$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
-$user_login = $_SESSION['tai_khoan'];
-$user_info_global = loading_user_info($id_user);
-
-include "views/header.php";
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'phpMailer/src/Exception.php';
 require 'phpMailer/src/PHPMailer.php';
 require 'phpMailer/src/SMTP.php';
+
+$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
+$user_login = $_SESSION['tai_khoan'];
+$user_info_global = loading_user_info($id_user);
+
+include "views/header.php";
 
 if (isset($_GET['page']) && $_GET['page'] != "") {
   $page = $_GET['page'];
@@ -90,6 +90,9 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
           if(!isset($_SESSION['tai_khoan'])){
             header("location: ./login_method/index.php");
             ob_end_flush();
+          } else if(isset($_SESSION['tai_khoan']) && $_SESSION['tai_khoan']['trang_thai'] == 2){
+            $error .= "⚠️ Tài khoản của bạn bị cấm mua hàng!";
+            function_alert($error);
           } else {
             $select_product_quantity_of_each_classify = "SELECT * FROM phan_loai WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
             $product_quantity_of_each_classify = pdo_query_one($select_product_quantity_of_each_classify);
@@ -394,7 +397,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         }
         $mail->Body .= "<p>Chúng tôi hy vọng bạn thích trải nghiệm mua sắm của mình với CLOSET và bạn sẽ sớm ghé thăm lại CLOSET sớm nhất.</p>";
         $mail->send();
-        
+
         echo "
         <script>
         alert('Chúc mừng bạn đã đặt hàng thành công! ^^');

@@ -25,12 +25,39 @@
       break;
 
     case "statistical":
+      $sql_loading_product_without_id = "SELECT * FROM `san_pham`";
+      $product_without_id = pdo_query($sql_loading_product_without_id);
+
+      $sql_loading_account_without_id = "SELECT * FROM `tai_khoan`";
+      $account_without_id = pdo_query($sql_loading_account_without_id);
+
+      $sql_loading_bill_without_id = "SELECT * FROM `chi_tiet_bill`";
+      $bill_without_id = pdo_query($sql_loading_bill_without_id);
+
       include "./view/section/dashboard/statistical.php";
       break;
 
     // control order
     case "control_order":
-      $bill_list = loading_bill_without_id();
+      if(isset($_GET['bill_status'])){
+        $bill_status_insert = $_GET['bill_status'];
+
+        $sql_loading_bill_list = "SELECT * FROM `chi_tiet_bill` WHERE `trang_thai_bill` = '$bill_status_insert'";
+        $bill_list = pdo_query($sql_loading_bill_list);
+      } else {
+        $bill_list = loading_bill_without_id();
+      }
+
+      if(isset($_GET['confirm_bill'])){
+        $bill_id = $_GET['bill_id'];
+        $sql_confirm_bill = "UPDATE `chi_tiet_bill` SET `trang_thai_bill` = 1 WHERE `id_bill` = '$bill_id'";
+        pdo_execute($sql_confirm_bill);
+      }
+      if(isset($_GET['cancel_bill'])){
+        $bill_id = $_GET['bill_id'];
+        $sql_confirm_bill = "UPDATE `chi_tiet_bill` SET `trang_thai_bill` = 3 WHERE `id_bill` = '$bill_id'";
+        pdo_execute($sql_confirm_bill);
+      }
 
       include "./view/section/dashboard/control_order.php";
       break;
@@ -518,6 +545,31 @@
       }
       include "./view/section/user/user_list.php";
       break;
+
+      case "comment_list":
+        if(isset($_GET['comment_id_delete'])){
+          $comment_id_delete = $_GET['comment_id_delete'];
+
+          $sql_delete_comment = "DELETE FROM `binh_luan` WHERE `id_binh_luan` = '$comment_id_delete'";
+          pdo_execute($sql_delete_comment);
+          header("location: index.php?section=comment_list");
+          ob_end_flush();
+        }
+
+        if(isset($_POST['comment__section__search--submit'])){
+          $comment_keyword = $_POST['comment__section__search--value'];
+
+          $loading_id_product_buy_keyword = "SELECT * FROM `san_pham` WHERE `ten_sp` LIKE '%$comment_keyword%'";
+          $product = pdo_query_one($loading_id_product_buy_keyword);
+          $sql_loading_comment_by_keyword = "SELECT * FROM `binh_luan` WHERE `id_sp` = '$product[id_sp]'";
+          $comment_detail = pdo_query($sql_loading_comment_by_keyword);
+        } else {
+          $sql_loading_comment = "SELECT * FROM `binh_luan`";
+          $comment_detail = pdo_query($sql_loading_comment);
+        }
+
+        
+        include "./view/section/dashboard/comment_list.php";
 
     default: 
       include "./view/section/dashboard/statistical.php";
