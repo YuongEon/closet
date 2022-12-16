@@ -1,12 +1,9 @@
-<?php
-
-?>
 <section>
   <div class="data__section__top__ability">
     <div class="data__section__search--box">
-      <form method="POST" action="index.php?section=product_list" class="data__section__search--form">
-        <input class="data__section__search--value" type="text" name="product__section__search--value" placeholder="Nhập mã đơn hàng...">
-        <button type="submit" name="product__section__search--submit" class="data__section__search--submit">Tìm đơn hàng</button>
+      <form method="POST" action="index.php?section=control_order" class="data__section__search--form">
+        <input class="data__section__search--value" type="text" name="order__section__search--value" placeholder="Nhập mã đơn hàng...">
+        <button type="submit" name="order__section__search--submit" class="data__section__search--submit">Tìm đơn hàng</button>
       </form>
     </div>
     <div class="data__section__function__btn__wrap">

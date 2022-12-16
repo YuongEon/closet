@@ -53,7 +53,7 @@
           <div class="data__list--value data__value--btn--wrap">
             <div class="data__value__btn">
               <a href="" class="data__value__btn--link">
-                <button class="btn__info">Bỏ chặn</button>
+                <button class="btn__delete">Chặn</button>
               </a>
             </div>
           </div>
