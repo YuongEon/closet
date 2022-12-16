@@ -14,7 +14,7 @@
             <div class="box box3">
                 <i class="fa-brands fa-dropbox"></i>
                 <span class="text">Tổng đơn hàng đã bán</span>
-                <span class="number">1<?= sizeof($bill_without_id) ?></span>
+                <span class="number"><?= sizeof($bill_without_id) ?></span>
             </div>
         </div>
     </div>

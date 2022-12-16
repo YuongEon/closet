@@ -90,7 +90,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
           if(!isset($_SESSION['tai_khoan'])){
             header("location: ./login_method/index.php");
             ob_end_flush();
-          } else if(isset($_SESSION['tai_khoan']) && $_SESSION['tai_khoan']['trang_thai'] == 2){
+          } else if($user_info_global['trang_thai'] == 2){
             $error .= "⚠️ Tài khoản của bạn bị cấm mua hàng!";
             function_alert($error);
           } else {

@@ -44,7 +44,12 @@
 
         $sql_loading_bill_list = "SELECT * FROM `chi_tiet_bill` WHERE `trang_thai_bill` = '$bill_status_insert'";
         $bill_list = pdo_query($sql_loading_bill_list);
-      } else {
+      } else if(isset($_POST['order__section__search--submit'])){
+        $keyword_id_bill = $_POST['order__section__search--value'];
+
+        $sql_loading_bill_list = "SELECT * FROM `chi_tiet_bill` WHERE `id_bill` = '$keyword_id_bill'";
+        $bill_list = pdo_query($sql_loading_bill_list);
+      }else {
         $bill_list = loading_bill_without_id();
       }
 

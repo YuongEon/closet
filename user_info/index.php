@@ -5,6 +5,7 @@
   include "../model/global_function.php";
   include "../admin/model/admin_product_function.php";
   session_start();
+
   
   $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   $user_login = $_SESSION['tai_khoan'];
@@ -111,9 +112,19 @@
             } else if($_GET['isGetOrder'] == 0){
               $sql_update_bill_delivery = "UPDATE `chi_tiet_bill` SET `trang_thai_bill` = '3' WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `id_bill` = '$bill_id'";
               pdo_execute($sql_update_bill_delivery);
+
+
+              $sql_loading_bill_cancel = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `trang_thai_bill` = 3";
+              $bill_cancel_arr = pdo_query($sql_loading_bill_cancel);
+              if(sizeof($bill_cancel_arr) == 8){
+                $sql_ban_account = "UPDATE `tai_khoan` SET `trang_thai` = 2 WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
+                  pdo_execute($sql_ban_account);
+              }
+              
               header("location: index.php?section=bill_list&bill_status=3");
             }
           }
+
 
           if(isset($_GET['bill_status']) && $_GET['bill_status'] != ''){
             $bill_status_form_url = $_GET['bill_status'];
