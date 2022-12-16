@@ -21,8 +21,8 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   <link rel="stylesheet" href="views/css/global_style.css">
   <link rel="stylesheet" href="views/css/header.css">
   <link rel="stylesheet" href="views/css/footer_style.css">
-  <link rel="stylesheet" href="views/css/homepage_page.css">
-  <link rel="stylesheet" href="views/css/product_page.css">
+  <link rel="stylesheet" href="views/css/homepage.css">
+  <link rel="stylesheet" href="views/css/product_list_page.css">
   <link rel="stylesheet" href="views/css/product_detail2.css">
   <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/payment_page.css">

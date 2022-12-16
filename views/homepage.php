@@ -13,7 +13,7 @@
         <?php foreach ($best_sale_products as $product_key => $product_value) : ?>
           <div class="content__product__card col-4 col-6">
             <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
-              <div class="product__img--box">
+              <div class="product__img--box" style="flex: 3;">
                 <?php $path_product_img_best_sale = "admin/$product_value[anh_sp]"; ?>
                 <img src="<?= $path_product_img_best_sale ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
@@ -44,7 +44,7 @@
         <?php foreach ($flash_sale_products as $product_key => $product_value): ?>
           <div class="content__product__card col-4 col-6">
             <a href="index.php?page=product_detail&id_product=<?= $product_value['id_sp'] ?>" class="content__product__card--link">
-              <div class="product__img--box">
+              <div class="product__img--box" style="flex: 3;">
                 <?php $path_product_img_flash_sale = "admin/$product_value[anh_sp]" ?>
                 <img src="<?= $path_product_img_flash_sale ?>" alt="<?= $product_value['ten_sp'] ?>" class="product__img--img">
               </div>
