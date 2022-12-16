@@ -217,3 +217,19 @@
   font-weight: 600;
   color: var(--price-color);
 }
+
+.product-inner__product--link:hover > .product-inner__product__img--box > .product__inner__product__img--img{
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+.product__inner__product__img--img{
+  transition: all ease-in-out 0.16s;
+  -webkit-transition: all ease-in-out 0.16s;
+  -moz-transition: all ease-in-out 0.16s;
+  -ms-transition: all ease-in-out 0.16s;
+  -o-transition: all ease-in-out 0.16s;
+}

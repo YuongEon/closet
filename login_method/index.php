@@ -5,6 +5,13 @@
   include "../model/user_function.php";
   include "./login_views/header.php";
 
+
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\Exception;
+  require '../phpMailer/src/Exception.php';
+  require '../phpMailer/src/PHPMailer.php';
+  require '../phpMailer/src/SMTP.php';
+
   $login_method = isset($_GET['login_method'])? $_GET['login_method'] : NULL;
   switch($login_method){
     case "login":
@@ -127,6 +134,67 @@
 
       include "./login_views/signup_section.php";
       break;
+
+      case "forgot_pass":
+        if(isset($_POST['send__code__btn'])){
+          $email = $_POST['email'];
+        
+          $select_all_account = "SELECT * FROM `tai_khoan`";
+          $all_account = pdo_query($select_all_account);
+
+          $isExits = false;
+          foreach($all_account as $val){
+            if($val['email'] == $email){
+              $isExits = true;
+              break;
+            }
+          }
+
+          if($isExits == true){
+            $mail = new PHPMailer(true);
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'closetfashion203@gmail.com';
+            $mail->Password = 'mkeupgwabxllatjj';
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+
+            $mail->setFrom('closetfashion203@gmail.com'); 
+            $mail->addAddress($email);
+            $mail->isHTML(true);
+            $mail->Subject = 'CLOSET PASSWORD CODE!';
+
+            $mail->Body = "<h2>Nhấp vào link để đổi mật khẩu!</h2>";
+            $mail->Body .= "http://localhost:8888/closet/login_method/index.php?login_method=get_new_pass&email=$email";
+
+            $mail->send();
+          } else{
+            function_alert("Email không tồn tại");
+          }
+        }
+
+        include "./login_views/forgot_pass.php";
+        break;
+
+        case "get_new_pass":
+          $email = $_GET['email'];
+
+          if(isset($_POST['get__new__pass__btn'])){
+            $new_password = $_POST['password'];
+            $email_request = $_POST['email_request'];
+
+            $password_hash = password_hash("$new_password", PASSWORD_DEFAULT);
+            var_dump($email_request);
+            $sql_update_pass = "UPDATE `tai_khoan` SET `password` = '$password_hash' WHERE `email` = '$email_request'";
+            pdo_execute($sql_update_pass);
+            header("location: index.php?login_method=login");
+            ob_end_flush();
+          }
+
+          include "./login_views/get_new_pass.php";
+          break;
 
     default:
       include "./login_views/login_section.php";

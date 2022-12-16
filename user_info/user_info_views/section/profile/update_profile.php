@@ -26,7 +26,7 @@
                       <p>Email</p>
                     </div>
                     <div class="user__profile__data__value update">
-                    <a href="">Đổi email</a>
+                    <a href="index.php?section=update_email&email=<?= $user_info['email'] ?>">Đổi email</a>
                     </div>
                   </div>
   
@@ -44,7 +44,7 @@
                       <p>Mật khẩu</p>
                     </div>
                     <div class="user__profile__data__value update">
-                      <a href="">Đổi mật khẩu</a>
+                      <a href="index.php?section=update_password&">Đổi mật khẩu</a>
                     </div>
                   </div>
                   <div class="user__profile__data__control">

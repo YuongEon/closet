@@ -9,6 +9,7 @@
   
   $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   $user_login = $_SESSION['tai_khoan'];
+  $user_info_global = loading_user_info($user_login['id_tai_khoan']);
 
 
   $cart_products = get_cart_products($id_user);
@@ -138,7 +139,39 @@
 
           include "user_info_views/section/bill/bill_list.php";
           break;
-      
+
+        case "update_email":
+          $old_email = $_GET['email'];
+          if(isset($_POST['data__update--btn'])){
+            $new_email = $_POST['new_data_value'];
+
+            $sql_update_email = "UPDATE `tai_khoan` SET `email` = '$new_email' WHERE `id_tai_khoan` = '$user_info_global[id_tai_khoan]'";
+            pdo_execute($sql_update_email);
+            header("location: index.php?section=update_profile");
+            ob_end_flush();
+          }
+          include "./user_info_views/section/profile/update_email.php";
+          break;
+        case "update_password":
+          if(isset($_POST['data__update--btn'])){
+            $old_pass = $_POST['old_data_value'];
+            $new_pass = $_POST['new_data_value'];
+
+            if(password_verify("$old_pass", $user_info_global['password']) == true){
+              $password_hash = password_hash("$new_pass", PASSWORD_DEFAULT);
+              
+              $sql_update_password = "UPDATE `tai_khoan` SET `password` = '$password_hash' WHERE `id_tai_khoan` = '$user_info_global[id_tai_khoan]'";
+              pdo_execute($sql_update_password);
+
+              header("location: index.php?section=update_profile");
+              ob_end_flush();
+            } else {
+              function_alert("Mật khẩu cũ không khớp!");
+            }
+          }
+          include "./user_info_views/section/profile/update_password.php";
+          break;
+    
         default:
         include "user_info_views/section/profile/profile.php";
         break;
