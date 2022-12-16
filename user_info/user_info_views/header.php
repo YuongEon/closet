@@ -43,7 +43,7 @@ $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
       <div class="header__top">
         <div class="header__logo__box">
           <div class="header__logo">
-            <a href="index.php?page=homepage" class="header__logo--link">
+            <a href="../index.php?page=homepage" class="header__logo--link">
               CLOSET
             </a>
           </div>

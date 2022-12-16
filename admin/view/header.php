@@ -44,7 +44,7 @@ ob_start();
       <div class="header_top">
         <div class="header_admin_logo_box">
           <div class="header_logo">
-            <a href="#" class="header_logo--link">
+            <a href="../index.php" class="header_logo--link">
               CLOSET
             </a>
           </div>

@@ -10,8 +10,11 @@
       if(sizeof($product_classify) == 0){
         $sql_delete_product_invalid = "DELETE FROM `san_pham` WHERE `id_sp` = '$product_invalid_item[id_sp]'";
         pdo_execute($sql_delete_product_invalid);
+        header("location: index.php?section=product_list");
+        ob_end_flush();
       }
     }
+
 ?>
 <section>
   <div class="data__section__top__ability">

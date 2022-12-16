@@ -33,7 +33,7 @@
           <p class="data__list--label">Số điện thoại</p>
         </li>
         <li class="data__label--box">
-          <p class="data__list--label">Chức năng</p>
+          <p class="data__list--label">Trạng thái</p>
         </li>
       </ul>
     </div>
@@ -47,16 +47,17 @@
           <div class="data__list--value data__value--quantity"><?= $user_value['email'] ?></div>
         </li>
         <li class="data__value--box data__value--price--box">
-          <div class="data__list--value data__value--price"><?= $user_value['sdt'] ?></div>
+          <div class="data__list--value data__value--price">0<?= $user_value['sdt'] ?></div>
         </li>
-        <li class="data__value--box">
-          <div class="data__list--value data__value--btn--wrap">
-            <div class="data__value__btn">
-              <a href="" class="data__value__btn--link">
-                <button class="btn__delete">Chặn</button>
-              </a>
-            </div>
-          </div>
+        <li class="data__value--box data__value--price--box">
+          <?php
+            if($user_value['trang_thai'] == 1){
+              $account_status = "Hoạt động";
+            } else if($user_value['trang_thai'] == 2){
+              $account_status = "Bị chặn";
+            }
+          ?>
+          <div class="data__list--value data__value--price"><?= $account_status ?></div>
         </li>
       </ul>
       <?php endforeach ?>
