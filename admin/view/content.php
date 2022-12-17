@@ -11,7 +11,7 @@
               <div class="admin__avatar--box">
                 <img class="admin__avatar--img" src="view/image/admin_avatar.jpeg" alt="" />
               </div>
-              <span class="nav_text">Lê Tuấn Dương</span>
+              <span class="nav_text"><?= $user_info_global['ho_va_ten'] ?></span>
             </a>
           </li>
           <li>

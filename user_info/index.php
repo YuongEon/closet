@@ -6,6 +6,12 @@
   include "../admin/model/admin_product_function.php";
   session_start();
 
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\Exception;
+  require '../phpMailer/src/Exception.php';
+  require '../phpMailer/src/PHPMailer.php';
+  require '../phpMailer/src/SMTP.php';
+
   
   $id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
   $user_login = $_SESSION['tai_khoan'];
@@ -117,9 +123,50 @@
 
               $sql_loading_bill_cancel = "SELECT * FROM `chi_tiet_bill` WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]' and `trang_thai_bill` = 3";
               $bill_cancel_arr = pdo_query($sql_loading_bill_cancel);
-              if(sizeof($bill_cancel_arr) == 8){
+              if(sizeof($bill_cancel_arr) == 2){
+                
+                  $mail = new PHPMailer(true);
+
+                  $mail->isSMTP();
+                  $mail->Host = 'smtp.gmail.com';
+                  $mail->SMTPAuth = true;
+                  $mail->Username = 'closetfashion203@gmail.com';
+                  $mail->Password = 'mkeupgwabxllatjj';
+                  $mail->SMTPSecure = 'ssl';
+                  $mail->Port = 465;
+      
+                  $mail->setFrom('closetfashion203@gmail.com'); 
+                  $mail->addAddress($user_info_global['email']);
+                  $mail->isHTML(true);
+                  $mail->Subject = 'CANH BAO KHOA TAI KHOAN NGUOI DUNG!';
+      
+                  $mail->Body = "<h2>Cảnh bảo khoá tài khoản người dùng.</h2>";
+                  $mail->Body .= "<h3>Vì hành động huỷ đơn hàng của bạn gây ảnh hưởng tới CLOSET, nếu còn tiếp tục huỷ đơn thì chúng tôi sẽ cân nhắc việc khoá tài khoản của bạn trong tương lai!</h3>";
+      
+                  $mail->send();
+              } else if(sizeof($bill_cancel_arr) == 3){
                 $sql_ban_account = "UPDATE `tai_khoan` SET `trang_thai` = 2 WHERE `id_tai_khoan` = '$user_login[id_tai_khoan]'";
                   pdo_execute($sql_ban_account);
+                
+                  $mail = new PHPMailer(true);
+
+                  $mail->isSMTP();
+                  $mail->Host = 'smtp.gmail.com';
+                  $mail->SMTPAuth = true;
+                  $mail->Username = 'closetfashion203@gmail.com';
+                  $mail->Password = 'mkeupgwabxllatjj';
+                  $mail->SMTPSecure = 'ssl';
+                  $mail->Port = 465;
+      
+                  $mail->setFrom('closetfashion203@gmail.com'); 
+                  $mail->addAddress($user_info_global['email']);
+                  $mail->isHTML(true);
+                  $mail->Subject = 'THONG BAO KHOA TAI KHOAN NGUOI DUNG!';
+      
+                  $mail->Body = "<h2>Thông báo khoá tài khoản người dùng.</h2>";
+                  $mail->Body .= "<h3>Vì bạn đã vượt quá số lần huỷ hàng cho phép, chúng tôi sẽ khoá tài khoản của bạn để tránh ảnh hưởng tới CLOSET!</h3>";
+      
+                  $mail->send();
               }
               
               header("location: index.php?section=bill_list&bill_status=3");
@@ -145,10 +192,28 @@
           if(isset($_POST['data__update--btn'])){
             $new_email = $_POST['new_data_value'];
 
-            $sql_update_email = "UPDATE `tai_khoan` SET `email` = '$new_email' WHERE `id_tai_khoan` = '$user_info_global[id_tai_khoan]'";
-            pdo_execute($sql_update_email);
-            header("location: index.php?section=update_profile");
-            ob_end_flush();
+            // check if email exits
+            $sql_loading_all_email = "SELECT * FROM `tai_khoan`";
+            $all_email = pdo_query($sql_loading_all_email);
+
+            $isEmailExits = false;
+            foreach($all_email as $val){
+              if($val['email'] == $new_email){
+                $isEmailExits = true;
+                break;
+              }
+            }
+
+            if($isEmailExits == false){
+              $sql_update_email = "UPDATE `tai_khoan` SET `email` = '$new_email' WHERE `id_tai_khoan` = '$user_info_global[id_tai_khoan]'";
+              pdo_execute($sql_update_email);
+              header("location: index.php?section=update_profile");
+              ob_end_flush();
+            } else {
+              function_alert("Email bạn nhập đã tồn tại!");
+            }
+
+
           }
           include "./user_info_views/section/profile/update_email.php";
           break;

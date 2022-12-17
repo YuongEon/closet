@@ -221,6 +221,8 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       // loading user info
       $user_info_arr = array();
 
+      
+
       // loading user info with none-sql
       if (isset($_POST['payment__info__insert__submit--btn'])) {
         $ho_va_ten = $_POST['ho_va_ten'];
@@ -253,6 +255,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $address_2 = $_POST['quan__huyen'];
         $address_3 = $_POST['phuong__xa'];
         $address_4 = $_POST['dia_chi_chi_tiet'];
+
 
         update_user_info($id_user, $sdt, $email, $ho_va_ten);
         change_address($id_user, $address_1, $address_2, $address_3, $address_4);
