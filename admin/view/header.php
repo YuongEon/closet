@@ -53,7 +53,7 @@ ob_start();
         <div class="header_admin_box">
           <div class="header_admin">
             <a href="#" class="header_admin_user--link">
-              <i class="fa-solid fa-user"></i>
+              
             </a>
           </div>
         </div>

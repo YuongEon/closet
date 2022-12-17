@@ -59,9 +59,9 @@
       <li class="data__item_detail">
         <p class="data__item__label_detail">Phương thức thanh toán:</p>
         <?php
-        if ($bill_detail['phuong_thuc_thanh_toan'] == 1) {
+        if ($bill_detail['phuong_thuc_thanh_toan'] == 2) {
           $payment_method = "Thanh toán online";
-        } else if ($bill_detail['phuong_thuc_thanh_toan'] == 0) {
+        } else if ($bill_detail['phuong_thuc_thanh_toan'] == 1) {
           $payment_method = "Thanh toán khi nhận hàng";
         }
         ?>

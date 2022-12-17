@@ -5,8 +5,7 @@
   include "../model/user_function.php";
   include "./model/admin_product_function.php";
 
-  include "./view/header.php";
-  include "./view/content.php";
+
   session_start();
 
   if(isset($_SESSION['tai_khoan']) == false){
@@ -14,6 +13,11 @@
   } else if(isset($_SESSION['tai_khoan']) == true && $_SESSION['tai_khoan']['loai_tai_khoan'] == 0){
     header("location: ../index.php");
   }
+
+  $user_info_global = loading_user_info($_SESSION['tai_khoan']['id_tai_khoan']);
+
+  include "./view/header.php";
+  include "./view/content.php";
   
   if(isset($_GET['section']) && $_GET['section'] != ""){
     $section = $_GET['section'];
@@ -191,7 +195,12 @@
               move_uploaded_file($product_picture['tmp_name'], $folderName . $fileName);
               $img_url = $folderName . $fileName;
           }
-          admin_insert_product($product_name, $img_url, $product_price, $product_sale_price, $product_category, $product_brand, $product_sort_desc,$product_long_desc);
+
+          $percentage_price = ($product_sale_price / 100) * (int)$product_price;
+          $new_product_price = (int)$product_price - $percentage_price;
+          $new_product_price = (string)$new_product_price;
+      
+          admin_insert_product($product_name, $img_url, $new_product_price, $product_sale_price, $product_category, $product_brand, $product_sort_desc,$product_long_desc);
         } else {
           header("location: index.php?section=insert_product&isError=true&product_name_err=$errors[product_name_err]&product_picture_err=$errors[product_picture_err]&product_price_err=$errors[product_price_err]&product_sale_price_err=$errors[product_sale_price_err]&product_sort_desc_err=$errors[product_sort_desc_err]&product_long_desc_err=$errors[product_long_desc_err]");
         }
@@ -255,7 +264,7 @@
         $product_name = $_POST['ten_sp'];
         $product_img = $_FILES['anh_sp'];
         $product_price = $_POST['gia_sp'];
-        $product_sale = $_POST['giam_gia_sp'];
+        $product_sale_price = $_POST['giam_gia_sp'];
         $product_category = $_POST['loai_sp'];
         $product_brand = $_POST['brand'];
         $product_sort_desc = $_POST['mo_ta_ngan_sp'];
@@ -352,7 +361,10 @@
             }
           }
 
-          $sql_update_product_detail_info = "UPDATE `san_pham` SET `ten_sp` = '$product_name', `anh_sp` = '$img_url', `gia_sp` = '$product_price', `giam_gia_sp` = '$product_sale_price', `loai_sp` = '$product_category', `brand` = '$product_brand', `mo_ta_ngan_sp` = '$product_sort_desc', `mo_ta_sp` = '$product_long_desc' WHERE `id_sp` = '$product_id'";
+          $percentage_price = ($product_sale_price / 100) * (int)$product_price;
+          $new_product_price = (int)$product_price - $percentage_price;
+
+          $sql_update_product_detail_info = "UPDATE `san_pham` SET `ten_sp` = '$product_name', `anh_sp` = '$img_url', `gia_sp` = '$new_product_price', `giam_gia_sp` = '$product_sale_price', `loai_sp` = '$product_category', `brand` = '$product_brand', `mo_ta_ngan_sp` = '$product_sort_desc', `mo_ta_sp` = '$product_long_desc' WHERE `id_sp` = '$product_id'";
           pdo_execute($sql_update_product_detail_info);
           for($i = 0; $i < sizeof($arr_classify); $i++){
             $sql_update_product_detail_quantity = "UPDATE `phan_loai` SET `so_luong_sp` = '$arr_classify_quantity[$i]' WHERE `id_sp` = '$product_id' AND `size` = '$arr_size[$i]' AND `color` = '$arr_color[$i]';";
@@ -361,7 +373,6 @@
           header("location: index.php?section=product_update_section&product_id=$product_id");
           ob_end_flush();
         }
-
       }
 
       if(isset($_GET['product_id_delete'])){
