@@ -27,7 +27,7 @@
         <ul class="cart__section__table table__body">
           <li class="table__body__value">
             <div class="table__body__value--img--box">
-              <?php $path_product_img =  "admin2/$product[anh_sp]"?>
+              <?php $path_product_img =  "admin/$product[anh_sp]"?>
               <img src="<?= $path_product_img ?>" alt="<?= $product['ten_sp'] ?>">
             </div>
           </li>

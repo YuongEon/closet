@@ -5,15 +5,17 @@ include "./model/user_function.php";
 include "./model/global_function.php";
 session_start();
 
-$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
-$user_login = $_SESSION['tai_khoan'];
-include "views/header.php";
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'phpMailer/src/Exception.php';
 require 'phpMailer/src/PHPMailer.php';
 require 'phpMailer/src/SMTP.php';
+
+$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
+$user_login = $_SESSION['tai_khoan'];
+$user_info_global = loading_user_info($id_user);
+
+include "views/header.php";
 
 if (isset($_GET['page']) && $_GET['page'] != "") {
   $page = $_GET['page'];
@@ -30,9 +32,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $best_sale_products = best_sale_products();
       // flash sale
       $flash_sale_products = flash_sale_products();
-<<<<<<< HEAD
-  include "views/footer.php";
-=======
+      
       include "views/homepage.php";
       break;
 
@@ -90,6 +90,9 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
           if(!isset($_SESSION['tai_khoan'])){
             header("location: ./login_method/index.php");
             ob_end_flush();
+          } else if($user_info_global['trang_thai'] == 2){
+            $error .= "⚠️ Tài khoản của bạn bị cấm mua hàng!";
+            function_alert($error);
           } else {
             $select_product_quantity_of_each_classify = "SELECT * FROM phan_loai WHERE id_sp = '$product_id' and size = '$product_size' and color = '$product_color'";
             $product_quantity_of_each_classify = pdo_query_one($select_product_quantity_of_each_classify);
@@ -123,6 +126,49 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $same_products = loading_same_products($id_product);
       // get tags
       $tags = get_tags_of_product($id_product);
+
+      if(isset($_GET['createComment'])){
+        $create_comment = true;
+      } else {
+        $create_comment = false;
+      }
+
+      if(isset($_POST['isComment'])){
+        $product_id = $_POST['id_sp'];
+        $user_id = $_POST['id_tai_khoan'];
+        $comment_content = $_POST['noi_dung_binh_luan'];
+        $star_rating = $_POST['sao_danh_gia'];
+
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $date_comment = date("d/m/Y");
+
+        var_dump($product_id, $user_id, $comment_content, $star_rating);
+        $errors = array(
+          "comment_err" => "",
+          "star_err" => ""
+        );
+
+        if($comment_content == ''){
+          $errors['comment_err'] = "Bình luận chưa có dữ liệu!";
+        }
+
+        if($star_rating == ''){
+          $errors['star_err'] = "Chưa đánh giá sao!";
+        }
+
+        $check_errors = 0;
+        foreach($errors as $error){
+          if($error != ''){
+            $check_errors += 1;
+          }
+        }
+
+        if($check_errors == 0){
+          insert_comment($product_id, $user_id, $comment_content, $star_rating, $date_comment);
+          header("location: index.php?page=product_detail&id_product=$product_id");
+          ob_end_flush();
+        }
+      }
 
       include "views/product_detail.php";
       break;
@@ -175,6 +221,8 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       // loading user info
       $user_info_arr = array();
 
+      
+
       // loading user info with none-sql
       if (isset($_POST['payment__info__insert__submit--btn'])) {
         $ho_va_ten = $_POST['ho_va_ten'];
@@ -207,6 +255,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $address_2 = $_POST['quan__huyen'];
         $address_3 = $_POST['phuong__xa'];
         $address_4 = $_POST['dia_chi_chi_tiet'];
+
 
         update_user_info($id_user, $sdt, $email, $ho_va_ten);
         change_address($id_user, $address_1, $address_2, $address_3, $address_4);
@@ -359,10 +408,6 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         </script>   
         ";
         }
-        // thêm vào admin quant lý đơn hàng
-        // thêm vào user quản lý đơn hàng
-        // xoá số lượng sản phẩm
-        // xoá products trong giỏ hàng của user
       }
 
       include "views/payment_page.php";
@@ -460,7 +505,7 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
         $product_of_bill_arr = array();
         foreach($product_of_bill as $product_of_bill_val){
           $product_info = loading_product($product_of_bill_val['id_sp']);
-          array_push($product_of_bill_arr, "$product_info[ten_sp] + $product_of_bill_val[size], $product_of_bill_val[color] | SL: $product_of_bill_val[so_luong_sp]");
+          array_push($product_of_bill_arr, "$product_info[ten_sp] / $product_of_bill_val[size] / $product_of_bill_val[color] / $product_of_bill_val[so_luong_sp]");
         }
         $product_of_bill_string = implode(",", $product_of_bill_arr);
 
@@ -609,4 +654,3 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
 }
 
 include "views/footer.php";
->>>>>>> 829127e908d8ad1532edff428748e1fdf31e9460

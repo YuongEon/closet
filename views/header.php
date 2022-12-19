@@ -3,9 +3,9 @@ ob_start();
 session_start();
 ?>
 <?php
-$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 $cart_products = get_cart_products($id_user);
 $cart_products_length = count($cart_products);
+$id_user = $_SESSION['tai_khoan']['id_tai_khoan'];
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +19,11 @@ $cart_products_length = count($cart_products);
   <link rel="icon" type="image/x-icon" href="./views/image/Closet.png" style="border-radius: 50%">
   <!-- css -->
   <link rel="stylesheet" href="views/css/global_style.css">
-  <link rel="stylesheet" href="views/css/header_style.css">
+  <link rel="stylesheet" href="views/css/header.css">
   <link rel="stylesheet" href="views/css/footer_style.css">
-  <link rel="stylesheet" href="views/css/homepage_page.css">
-  <link rel="stylesheet" href="views/css/product_page.css">
-  <link rel="stylesheet" href="views/css/product_detail.css">
+  <link rel="stylesheet" href="views/css/homepage.css">
+  <link rel="stylesheet" href="views/css/product_list_page.css">
+  <link rel="stylesheet" href="views/css/product_detail2.css">
   <link rel="stylesheet" href="views/css/cart.css">
   <link rel="stylesheet" href="views/css/payment_page.css">
   <link rel="stylesheet" href="views/css/responsive_style.css">
@@ -79,7 +79,7 @@ $cart_products_length = count($cart_products);
               <p class="header__cart__quantity--content"><?= $cart_products_length ?></p>
             </div>
             <div class="header__cart">
-              <a href="index.php?page=cart  " class="header__cart--link">
+              <a href="index.php?page=cart" class="header__cart--link">
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>
             </div>
@@ -87,14 +87,14 @@ $cart_products_length = count($cart_products);
 
           <div class="header__user__box">
             <div class="header__user">
-              <?php if(!isset($_SESSION['tai_khoan'])){ ?>
-              <a href="login_method/index.php" class="header__user--link">
-                <i class="fa-solid fa-user"></i>
-              </a>
+              <?php if (!isset($_SESSION['tai_khoan'])) { ?>
+                <a href="login_method/index.php" class="header__user--link">
+                  <i class="fa-solid fa-user"></i>
+                </a>
               <?php } else { ?>
-                <a href="login_method/login_views/logout.php" class="header__user--link">
-                <i class="fa-solid fa-user"></i>
-              </a>
+                <a href="user_info/index.php" class="header__user--link">
+                  <i class="fa-solid fa-user"></i>
+                </a>
               <?php } ?>
             </div>
           </div>
@@ -123,15 +123,14 @@ $cart_products_length = count($cart_products);
               <button type="submit" name="header_search_product" class="header__search__form__submit">Tìm kiếm</button>
             </form>
           </div>
-
-          <!-- <div class="header__hello-username__box">
-            <div class="header__hello-username">
-              <p class="header__hello-username--hello">Welcome,</p>
-              <p class="header__hello-username--username">Lê Tuấn Dương</p>
-            </div>
-          </div> -->
         </div>
       </div>
-
+      <?php if($user_info_global['loai_tai_khoan'] == 1){ ?>
+      <div class='admin__btn--box'>
+        <a href='admin/index.php?section=statistical'>
+          <button><i class="fa-solid fa-screwdriver-wrench"></i></button>
+        </a>
+      </div>
+      <?php } ?>
     </div>
   </header>

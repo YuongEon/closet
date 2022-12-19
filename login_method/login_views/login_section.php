@@ -18,7 +18,7 @@
       </form>
     </div>
     <div class="change__method__box">
-      <p><a class="change__method__box--link" href="">Quên mật khẩu</a></p>
+      <p><a class="change__method__box--link" href="index.php?login_method=forgot_pass">Quên mật khẩu</a></p>
     </div>
     <div class="change__method__box">
       <p>Opps! Bạn chưa có tài khoản? <a class="change__method__box--link" href="index.php?login_method=signup">Đăng ký</a> ngay nào!</p>

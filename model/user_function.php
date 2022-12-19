@@ -1,11 +1,6 @@
 <?php
-<<<<<<< HEAD
-  // include "model/pdo.php";
-  // include "model/san_pham_funtion.php";
-=======
-  // include "./pdo.php";
-  // include "./san_pham_funtion.php";
->>>>>>> 829127e908d8ad1532edff428748e1fdf31e9460
+  include "./pdo.php";
+  include "./san_pham_funtion.php";
 
   function loading_user_info($user_id){
     $sql_loading_user_info = "SELECT * FROM tai_khoan WHERE id_tai_khoan = '$user_id'";
@@ -33,8 +28,17 @@
   }
 
   function change_address($user_id ,$address_1, $address_2, $address_3, $address_4){
-    $sql_change_address = "UPDATE `dia_chi` SET `tinh__thanh_pho` = '$address_1', `quan__huyen` = '$address_2', `phuong__xa` = '$address_3', dia_chi_chi_tiet = '$address_4' WHERE id_tai_khoan = '$user_id'";
-    pdo_execute($sql_change_address);
+    // check if address none;
+    $sql_loading_user_address = "SELECT * FROM `dia_chi` WHERE `id_tai_khoan` = '$user_id'";
+    $loading_user_address = pdo_query($sql_loading_user_address);
+
+    if(sizeof($loading_user_address) <= 0){
+      $sql_change_address = "INSERT INTO `dia_chi` (`id_tai_khoan`, `tinh__thanh_pho`, `quan__huyen`, `phuong__xa`, `dia_chi_chi_tiet`) VALUES ('$user_id','$address_1','$address_2','$address_3','$address_4')";
+      pdo_execute($sql_change_address);
+    } else {
+      $sql_change_address = "UPDATE `dia_chi` SET `tinh__thanh_pho` = '$address_1', `quan__huyen` = '$address_2', `phuong__xa` = '$address_3', dia_chi_chi_tiet = '$address_4' WHERE id_tai_khoan = '$user_id'";
+      pdo_execute($sql_change_address);
+    }
     header("location: index.php?page=payment");
     ob_end_flush();
   }
@@ -58,4 +62,9 @@
     $users = pdo_query($sql_loading_user_without_id_user);
     return $users;
   } 
+
+  function insert_comment($product_id, $user_id, $comment_content, $star_rating, $date_comment){
+    $sql_insert_comment = "INSERT INTO `binh_luan` (`id_binh_luan`, `id_sp`, `id_tai_khoan`, `noi_dung_binh_luan`, `sao_danh_gia`, `thoi_gian_binh_luan`) VALUES (NULL, '$product_id', '$user_id', '$comment_content', '$star_rating', '$date_comment');";
+    pdo_execute($sql_insert_comment);
+  }
 ?>
