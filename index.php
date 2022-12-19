@@ -30,7 +30,6 @@ if (isset($_GET['page']) && $_GET['page'] != "") {
       $best_sale_products = best_sale_products();
       // flash sale
       $flash_sale_products = flash_sale_products();
-
 <<<<<<< HEAD
   include "views/footer.php";
 =======
